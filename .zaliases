@@ -1,0 +1,17 @@
+alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias grep='grep --color=tty -d skip'
+alias cp="cp -i"                          # confirm before overwriting something
+alias df='df -h'                          # human-readable sizes
+alias free='free -m'                      # show sizes in MB
+
+# cd by .. or ... or ... or mv file ..../.
+alias '..'='cd ..'
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+
+
+alias open='xdg-open'
+alias python_mailbox='python -m smtpd -n -c DebuggingServer localhost:1025'
