@@ -1,3 +1,6 @@
+" First install
+" git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 " https://github.com/shawncplus/dotfiles/blob/master/.vimrc
 "
 set nocompatible              " be iMproved, required

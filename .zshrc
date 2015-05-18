@@ -87,7 +87,7 @@ eval $(ssh-agent) > /dev/null
 export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 #rvm use 2.0.0
 export PATH=$(ruby -e 'puts Gem.user_dir')/bin:$PATH:~/bin/
 
@@ -98,3 +98,6 @@ export WORKON_HOME="$HOME/.virtualenvs"
 source /usr/bin/virtualenvwrapper.sh
 
 export ES_HEAP_SIZE=6g
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+#fpath=(`pwd`/arsham_functions $fpath)
+. ~/dotfiles/functions
