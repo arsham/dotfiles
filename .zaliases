@@ -15,4 +15,4 @@ alias -g .....='../../../..'
 
 alias open='xdg-open'
 alias python_mailbox='python -m smtpd -n -c DebuggingServer localhost:1025'
-alias jump_brian='ssh bastion -t ssh 10.0.0.152 -p 12768 -t ssh brian'
+
