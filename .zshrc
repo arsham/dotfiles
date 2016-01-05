@@ -101,3 +101,5 @@ export ES_HEAP_SIZE=6g
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 #fpath=(`pwd`/arsham_functions $fpath)
 . ~/dotfiles/functions
+
+[ -f ~/.zshrc-local ] && source ~/.zshrc-local
