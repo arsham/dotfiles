@@ -105,3 +105,5 @@ export ES_HEAP_SIZE=6g
 export GOPATH=$HOME/Documents/Projects/Go
 export PATH=$PATH:$GOPATH/bin
 export GO15VENDOREXPERIMENT=1
+
+[ -f ~/.zshrc-local ] && source ~/.zshrc-local
