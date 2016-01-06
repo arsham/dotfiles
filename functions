@@ -22,3 +22,5 @@ reset_iptables() {
         sudo iptables -t $table -Z
     done
 }
+
+gocd () { cd `go list -f '{{.Dir}}' ...$1` }

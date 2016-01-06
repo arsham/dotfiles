@@ -101,3 +101,7 @@ export ES_HEAP_SIZE=6g
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 #fpath=(`pwd`/arsham_functions $fpath)
 . ~/dotfiles/functions
+
+export GOPATH=$HOME/Documents/Projects/Go
+export PATH=$PATH:$GOPATH/bin
+export GO15VENDOREXPERIMENT=1
