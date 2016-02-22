@@ -86,11 +86,6 @@ eval $(ssh-agent) > /dev/null
 
 export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin"
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-#rvm use 2.0.0
-export PATH=$(ruby -e 'puts Gem.user_dir')/bin:$PATH:~/bin/
-
 export EDITOR=nano
 export VISUAL=nano
 
@@ -102,8 +97,9 @@ export ES_HEAP_SIZE=6g
 #fpath=(`pwd`/arsham_functions $fpath)
 . ~/dotfiles/functions
 
-export GOPATH=$HOME/Documents/Projects/Go
-export PATH=$PATH:$GOPATH/bin
-export GO15VENDOREXPERIMENT=1
+#export GOPATH=$HOME/Documents/Projects/Go
+#export PATH=$PATH:$GOPATH/bin
+#export GO15VENDOREXPERIMENT=1
+#export PATH=$PATH:/usr/local/go/bin
 
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
