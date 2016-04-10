@@ -82,7 +82,6 @@ compinit -u
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Xms6G -Xmx6G'
 
 eval $(ssh-agent) > /dev/null
-#ssh-add </dev/null > /dev/null
 
 export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin"
 
@@ -96,10 +95,5 @@ export ES_HEAP_SIZE=6g
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 #fpath=(`pwd`/arsham_functions $fpath)
 . ~/dotfiles/functions
-
-#export GOPATH=$HOME/Documents/Projects/Go
-#export PATH=$PATH:$GOPATH/bin
-#export GO15VENDOREXPERIMENT=1
-#export PATH=$PATH:/usr/local/go/bin
 
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
