@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
-import xmlrpclib
+from xmlrpc import client
 import pip
 
-pypi = xmlrpclib.ServerProxy('http://pypi.python.org/pypi')
+pypi = client.ServerProxy('http://pypi.python.org/pypi')
 for dist in pip.get_installed_distributions():
     available = pypi.package_releases(dist.project_name)
     if not available:
