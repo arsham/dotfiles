@@ -35,8 +35,7 @@ ZSH_THEME="agnoster"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(gitfast git-extras pip django docker celery python tmux golang openssl)
-#git
+plugins=(gitfast git-extras pip django docker celery python tmux golang openssl git docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -79,7 +78,7 @@ unsetopt correct_all
 autoload -U compinit
 compinit -u
 
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Xms6G -Xmx6G'
+#export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Xms6G -Xmx6G'
 
 eval $(ssh-agent) > /dev/null
 
@@ -88,11 +87,10 @@ export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin"
 export EDITOR=nano
 export VISUAL=nano
 
-export WORKON_HOME="$HOME/.virtualenvs"
-source /usr/bin/virtualenvwrapper.sh
+#export WORKON_HOME="$HOME/.virtualenvs"
+#source /usr/bin/virtualenvwrapper.sh
 
-export ES_HEAP_SIZE=6g
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+#export ES_HEAP_SIZE=6g
 #fpath=(`pwd`/arsham_functions $fpath)
 . ~/dotfiles/functions
 
