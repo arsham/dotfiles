@@ -68,8 +68,8 @@ zle -N down-line-or-beginning-search
 [[ -n "${key[PageDown]}" ]]  && bindkey  "${key[PageDown]}"  history-beginning-search-forward
 
 
-bindkey "${terminfo[kcuu1]}" up-line-or-search
-bindkey "${terminfo[kcud1]}" down-line-or-search
+#bindkey "${terminfo[kcuu1]}" up-line-or-search
+#bindkey "${terminfo[kcud1]}" down-line-or-search
 
 
 source ~/.zaliases
