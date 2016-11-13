@@ -10,7 +10,7 @@ md5dir() {
 
 gocd() {
     if [[ -z "$1" ]] ; then echo "I need at least one argument" ; return ; fi
-    local target=$(tree --noreport -f -L 3 -d -i $GOPATH/src/ | grep $1)
+    local target=$(tree --noreport -f -L 3 -d -i $GOPATH/src/ | grep \/$1$)
     if [[ ! -z "$target" ]] ; then
 	cd $target;
     else echo "Could not find the source you are after.."
