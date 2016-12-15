@@ -8,21 +8,20 @@ md5dir() {
     find $1/ -type f -exec md5sum {} + | awk '{print $1}' | sort | md5sum
 }
 
-gocd() {
-    if [[ -z "$1" ]] ; then echo "I need at least one argument" ; return ; fi
-    #local target=$(tree --noreport -f -L 3 -d -i $GOPATH/src/ | grep \/$1$)
-    local targetlist=$(tree --noreport -f -L 3 -d -i $GOPATH/src/ )
-    if [[ -z "$targetlist" ]] ; then
-        echo "Could not find the source you are after.."
-        return
-    fi
-    local target=$(echo $targetlist | xargs basename -a | grep -vx ".\{1,4\}"  | sort | uniq | grep ^$1 | head -n 1)
-    if [[ -z "$target" ]] ; then
-        echo "Could not find the source you are after.."
-        return
-    fi
-    cd $(echo $targetlist | grep "\/$target$");
-    
+gocd () {
+        local targetlist=$(tree --noreport -f -L 3 -d -i $GOPATH/src/ )
+        if [[ -z "$targetlist" ]]
+        then
+                echo "Could not find any packages"
+                return
+        fi
+        if [[ "$1" ]]
+        then
+                cd $(echo $targetlist | peco --query $1)
+                return
+        else
+                cd $(echo $targetlist | peco )
+        fi
 }
 
 reset_iptables() {
