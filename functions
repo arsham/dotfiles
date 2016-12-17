@@ -9,7 +9,7 @@ md5dir() {
 }
 
 gocd () {
-        local targetlist=$(tree --noreport -f -L 3 -d -i $GOPATH/src/ )
+        local targetlist=$(tree --noreport -f -L 4 -d -i $GOPATH/src/ )
         if [[ -z "$targetlist" ]]
         then
                 echo "Could not find any packages"
