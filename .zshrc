@@ -1,34 +1,33 @@
-autoload -Uz compinit
-compinit -u
+source ~/antigen/bin/antigen.zsh
 
-export ZSH=$HOME/.oh-my-zsh
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
 
-ZSH_THEME="agnoster"
-plugins=(gitfast git-extras pip django docker celery python tmux golang openssl git docker-compose)
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle docker
+antigen bundle pip
+antigen bundle command-not-found
+antigen bundle ssh-agent
+antigen bundle gitfast 
+antigen bundle git-extras 
+antigen bundle tmux
+antigen bundle golang
+antigen bundle docker-compose
+antigen bundle psprint/history-search-multi-word
+antigen bundle zsh-navigation-tools
 
-source $ZSH/oh-my-zsh.sh
-export LANG=en_GB.UTF-8
-export vblank_mode=0
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
 
-autoload down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
+# Load the theme.
+antigen theme agnoster
 
-[[ -n "${key[PageUp]}"   ]]  && bindkey  "${key[PageUp]}"    history-beginning-search-backward
-[[ -n "${key[PageDown]}" ]]  && bindkey  "${key[PageDown]}"  history-beginning-search-forward
-
-source ~/.zaliases
-unsetopt correct_all
-
-eval $(ssh-agent) > /dev/null
-
-export PATH="$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin"
-
-export EDITOR=nano
-export VISUAL=nano
-
-#fpath=($fpath functions)
-. ~/dotfiles/functions
-zstyle ':completion:*' menu select
+export HISTSIZE=100000
+export SAVEHIST=$HISTSIZE
 
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
+. ~/dotfiles/functions
+
+# Tell Antigen that you're done.
+antigen apply
