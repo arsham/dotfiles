@@ -4,18 +4,22 @@ source ~/antigen/bin/antigen.zsh
 antigen use oh-my-zsh
 
 # Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle docker
-antigen bundle pip
-antigen bundle command-not-found
-antigen bundle ssh-agent
-antigen bundle gitfast 
-antigen bundle git-extras 
-antigen bundle tmux
-antigen bundle golang
-antigen bundle docker-compose
-antigen bundle psprint/history-search-multi-word
-antigen bundle zsh-navigation-tools
+antigen bundles <<EOBUNDLES
+
+    git
+    docker
+    pip
+    command-not-found
+    ssh-agent
+    gitfast
+    git-extras
+    tmux
+    golang
+    docker-compose
+    psprint/history-search-multi-word
+    colored-man-pages
+
+EOBUNDLES
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
