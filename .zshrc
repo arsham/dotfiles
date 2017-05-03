@@ -18,15 +18,14 @@ antigen bundles <<EOBUNDLES
     docker-compose
     psprint/history-search-multi-word
     colored-man-pages
+    z
+    zsh-users/zsh-syntax-highlighting
+    zsh-users/zsh-autosuggestions
+    httpie
 
 EOBUNDLES
 
-# Syntax highlighting bundle.
-#antigen bundle zsh-users/zsh-syntax-highlighting
-
 # Load the theme.
-#antigen theme agnoster
-
 antigen theme bhilburn/powerlevel9k powerlevel9k
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs)
