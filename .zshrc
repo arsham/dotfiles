@@ -29,8 +29,6 @@ EOBUNDLES
 
 antigen theme bhilburn/powerlevel9k powerlevel9k
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="↱"
-POWERLEVEL9K_MULTILINE_SECOND_PROMPT_PREFIX="↳ "
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time ram)
 POWERLEVEL9K_MODE='awesome-fopatched'
@@ -44,6 +42,7 @@ export VISUAL=nano
 
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
 [ -f ~/dotfiles/functions ] && source ~/dotfiles/functions
+[ -f ~/dotfiles/.zaliases ] && source ~/dotfiles/.zaliases
 
 # Tell Antigen that you're done.
 antigen apply
