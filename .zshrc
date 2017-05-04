@@ -1,3 +1,4 @@
+POWERLEVEL9K_MODE=awesome-fontconfig
 source ~/antigen/bin/antigen.zsh
 
 # Load the oh-my-zsh's library.
@@ -8,7 +9,6 @@ antigen bundles <<EOBUNDLES
 
     git
     docker
-    pip
     command-not-found
     ssh-agent
     gitfast
@@ -22,22 +22,39 @@ antigen bundles <<EOBUNDLES
     zsh-users/zsh-syntax-highlighting
     zsh-users/zsh-autosuggestions
     httpie
+    pip
+    virtualenv
+    virtualenvwrapper
 
 EOBUNDLES
 
-# Load the theme.
-antigen theme bhilburn/powerlevel9k powerlevel9k
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir rbenv vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time ram)
-POWERLEVEL9K_MODE='awesome-fopatched'
-
-export HISTSIZE=100000
+export HISTSIZE=10000000
 export SAVEHIST=$HISTSIZE
 export LANG=en_GB.UTF-8
-export LC_CTYPE=en_GB.utf8
+export LC_CTYPE=en_GB.UTF8
 export EDITOR=nano
 export VISUAL=nano
+
+# Load the theme.
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator context dir virtualenv vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time background_jobs time disk_usage battery ram)
+POWERLEVEL9K_SHOW_CHANGESET=true
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=4
+POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S \uE868  %d/%m}"
+
+## Information about the icon unicodes are available in https://github.com/bhilburn/powerlevel9k/blob/master/functions/icons.zsh
+## Also running get_icon_names will show you the list
+POWERLEVEL9K_HOME_ICON=$'\uE12C '
+POWERLEVEL9K_HOME_SUB_ICON=$'\uE18D '
+POWERLEVEL9K_RAM_ICON=$'\uE1E2 '
+POWERLEVEL9K_EXECUTION_TIME_ICON=$'\UE89C '
+POWERLEVEL9K_FOLDER_ICON=$'\uE818 '
+POWERLEVEL9K_VCS_BRANCH_ICON=$'\uF126 '
+
+# Apply theme
+antigen theme bhilburn/powerlevel9k powerlevel9k
 
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
 [ -f ~/dotfiles/functions ] && source ~/dotfiles/functions
