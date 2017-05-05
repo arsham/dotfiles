@@ -15,4 +15,3 @@ alias -g .....='../../../..'
 
 alias open='xdg-open'
 alias python_mailbox='python -m smtpd -n -c DebuggingServer localhost:1025'
-
