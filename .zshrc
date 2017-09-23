@@ -63,3 +63,5 @@ antigen theme bhilburn/powerlevel9k powerlevel9k
 
 # Tell Antigen that you're done.
 antigen apply
+
+#[[ -s "/home/arsham/.gvm/scripts/gvm" ]] && source "/home/arsham/.gvm/scripts/gvm"
