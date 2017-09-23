@@ -38,7 +38,7 @@ export VISUAL=nano
 # Load the theme.
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator context dir virtualenv vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time background_jobs disk_usage ram battery time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time background_jobs disk_usage ram battery)
 POWERLEVEL9K_SHOW_CHANGESET=true
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=4
