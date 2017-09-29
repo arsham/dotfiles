@@ -15,12 +15,13 @@ gocd () {
                 echo "Could not find any packages"
                 return
         fi
-        if [[ "$1" ]]
+        if [[ "${@:1}" ]]
         then
-                cd $(echo $targetlist | peco --query $1)
+                local query=${@:1}
+                cd $(echo $targetlist | fzf --preview 'ls {}' --query $query)
                 return
         else
-                cd $(echo $targetlist | peco )
+                cd $(echo $targetlist | fzf --preview 'ls {}')
         fi
 }
 
