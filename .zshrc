@@ -28,7 +28,7 @@ antigen bundles <<EOBUNDLES
 
 EOBUNDLES
 
-export HISTSIZE=10000000
+export HISTSIZE=100000000
 export SAVEHIST=$HISTSIZE
 export LANG=en_GB.UTF-8
 export LC_CTYPE=en_GB.UTF8
@@ -66,6 +66,16 @@ antigen apply
 
 #[[ -s "/home/arsham/.gvm/scripts/gvm" ]] && source "/home/arsham/.gvm/scripts/gvm"
 
-export FZF_DEFAULT_OPTS='--color dark,hl:33,hl+:37,fg+:235,bg+:136,fg+:254
+# fzf settings
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border
+--color dark,hl:33,hl+:37,fg+:235,bg+:136,fg+:254
 --color info:254,prompt:37,spinner:108,pointer:235,marker:235'
+
+export FZF_COMPLETION_TRIGGER=''
+bindkey '^T' fzf-completion
+bindkey '^I' $fzf_default_completion
+export FZF_CTRL_R_OPTS='--sort --exact'
 
