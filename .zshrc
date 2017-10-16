@@ -78,4 +78,3 @@ export FZF_COMPLETION_TRIGGER=''
 bindkey '^T' fzf-completion
 bindkey '^I' $fzf_default_completion
 export FZF_CTRL_R_OPTS='--sort --exact'
-
