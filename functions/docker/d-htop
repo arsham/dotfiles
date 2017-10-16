@@ -1,1 +1,9 @@
-docker run --rm -it --pid host jess/htop
+local name=htop
+local state=$(docker inspect --format "{{.State.Running}}" $name 2>/dev/null)
+if [[ "$state" == "false" ]]; then
+    docker start $name
+else
+    docker run -d -it --name $name --pid host jess/htop htop -d 2
+fi
+
+docker attach $name

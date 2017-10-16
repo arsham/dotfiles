@@ -1,3 +1,6 @@
+# completion generator
+export GENCOMPL_FPATH=~/dotfiles/completions
+
 POWERLEVEL9K_MODE=awesome-patched
 source ~/antigen/bin/antigen.zsh
 
@@ -25,6 +28,7 @@ antigen bundles <<EOBUNDLES
     pip
     virtualenv
     virtualenvwrapper
+    RobSis/zsh-completion-generator
 
 EOBUNDLES
 

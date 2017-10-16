@@ -1,0 +1,19 @@
+#compdef logpipe
+
+# zsh completions for 'logpipe'
+# automatically generated with http://github.com/RobSis/zsh-completion-generator
+local arguments
+
+arguments=(
+    {-c,--config-file}'[configuration file \[$CONFIGFILE\]]'
+    {-l,--log-level}'[application log level (default: error) \[$LOGLEVEL\]]'
+    {-p,--port}'[port to listen for incoming payload (default: 8080) \[$PORT\]]'
+    {-h,--help}'[Show this help message]'
+    {-c,--config-file}'[configuration file \[$CONFIGFILE\]]'
+    {-l,--log-level}'[application log level (default: error) \[$LOGLEVEL\]]'
+    {-p,--port}'[port to listen for incoming payload (default: 8080) \[$PORT\]]'
+    {-h,--help}'[Show this help message]'
+    '*:filename:_files'
+)
+
+_arguments -s $arguments
