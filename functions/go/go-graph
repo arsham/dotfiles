@@ -1,5 +1,4 @@
-#!/bin/zsh
-
+# shows dependencies graph of the current project
 typeset -A DONE
 
 _get_dependencies() {
@@ -17,7 +16,6 @@ _build_graph() {
         done
     fi
 }
-
 
 (
 	echo "digraph G {"

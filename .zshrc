@@ -28,6 +28,7 @@ antigen bundles <<EOBUNDLES
 
 EOBUNDLES
 
+# zsh settings
 export HISTFILE=/home/arsham/Dropbox/Home/.zsh_history
 export HISTSIZE=999999999
 export SAVEHIST=$HISTSIZE
@@ -35,6 +36,19 @@ export LANG=en_GB.UTF-8
 export LC_CTYPE=en_GB.UTF8
 export EDITOR=nano
 export VISUAL=nano
+
+# zsh functions
+export fpath=(
+    ~/dotfiles/functions
+    "${fpath[@]}"
+)
+
+if [[ -d ~/dotfiles/functions ]]; then
+   for func in $(find ~/dotfiles/functions -type f -exec realpath {} +); do
+      unhash -f $func 2>/dev/null
+      autoload +X $func
+   done
+fi
 
 # Load the theme.
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
@@ -59,13 +73,10 @@ POWERLEVEL9K_PYTHON_ICON=$'\UE63C '
 antigen theme bhilburn/powerlevel9k powerlevel9k
 
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
-[ -f ~/dotfiles/functions ] && source ~/dotfiles/functions
 [ -f ~/dotfiles/.zaliases ] && source ~/dotfiles/.zaliases
 
 # Tell Antigen that you're done.
 antigen apply
-
-#[[ -s "/home/arsham/.gvm/scripts/gvm" ]] && source "/home/arsham/.gvm/scripts/gvm"
 
 # fzf settings
 

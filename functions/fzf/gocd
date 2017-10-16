@@ -1,0 +1,15 @@
+local targetlist=$(tree --noreport -f -L 5 -d -i $GOPATH/src/ )
+
+if [[ -z "$targetlist" ]]
+then
+    echo "Could not find any packages"
+    return
+fi
+if [[ "${@:1}" ]]
+then
+    local query=${@:1}
+    cd $(echo $targetlist | fzf --preview 'ls {}' --query $query)
+    return
+else
+    cd $(echo $targetlist | fzf --preview 'ls {}')
+fi

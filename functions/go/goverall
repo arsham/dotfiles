@@ -1,0 +1,16 @@
+echo "mode: set" > coverage.out
+for folder in $(find ./* -type d | grep -v vendor) .;
+do
+    if ls $folder/*.go &> /dev/null;
+    then
+        go test -coverprofile=profile.out $folder
+        if [ -f profile.out ]
+        then
+            cat profile.out | grep -v "mode: set" >> coverage.out
+        fi
+    fi
+done
+
+rm -rf ./profile.out
+go tool cover -html=coverage.out
+rm -rf ./coverage.out
