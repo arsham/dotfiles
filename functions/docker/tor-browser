@@ -1,7 +1,6 @@
-del_stopped tor-browser
 xhost local:$(whoami)
 
-docker run -it \
+docker run --rm -it \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -e DISPLAY=unix$DISPLAY \
     -v /dev/snd:/dev/snd --privileged \
