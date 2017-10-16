@@ -28,7 +28,8 @@ antigen bundles <<EOBUNDLES
 
 EOBUNDLES
 
-export HISTSIZE=100000000
+export HISTFILE=/home/arsham/Dropbox/Home/.zsh_history
+export HISTSIZE=999999999
 export SAVEHIST=$HISTSIZE
 export LANG=en_GB.UTF-8
 export LC_CTYPE=en_GB.UTF8
