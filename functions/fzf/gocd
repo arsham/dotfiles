@@ -1,4 +1,4 @@
-local targetlist=$(tree --noreport -f -L 5 -d -i $GOPATH/src/ )
+local targetlist=$(find $GOPATH/src/ -type d -not -path '*/\.*' -exec realpath {} +)
 
 if [[ -z "$targetlist" ]]
 then
