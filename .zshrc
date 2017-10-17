@@ -14,11 +14,8 @@ antigen bundles <<EOBUNDLES
     docker
     command-not-found
     ssh-agent
-    gitfast
-    git-extras
     tmux
     golang
-    docker-compose
     psprint/history-search-multi-word
     colored-man-pages
     z
@@ -51,6 +48,12 @@ if [[ -d ~/dotfiles/functions ]]; then
    for func in $(find ~/dotfiles/functions -type f -exec realpath {} +); do
       unhash -f $func 2>/dev/null
       autoload +X $func
+   done
+fi
+
+if [[ -d ~/dotfiles/widgets ]]; then
+   for func in $(find ~/dotfiles/widgets -type f -exec realpath {} +); do
+      source $func
    done
 fi
 
@@ -93,7 +96,12 @@ export FZF_DEFAULT_OPTS='
 --bind alt-j:preview-down,alt-k:preview-up
 '
 
+# note that you can get key binding codes with "showkey -a"
+# '^I' is for <tab>
+
 export FZF_COMPLETION_TRIGGER=''
-bindkey '^T' fzf-completion
+bindkey '^@' fzf-completion
 bindkey '^I' $fzf_default_completion
 export FZF_CTRL_R_OPTS='--sort'
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+export FZF_CTRL_T_OPTS="--preview 'tree -C {} | head -200'"
