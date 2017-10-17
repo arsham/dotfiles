@@ -1,0 +1,7 @@
+if [[ "${@:-.}" ]]
+then
+    local query="${@:-.}"
+    locate "${@:1}" | fzf --preview 'ls {}' --query $query
+else
+    echo "I need some arguments"
+fi
