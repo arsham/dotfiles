@@ -1,1 +1,1 @@
-cd $(find . -type d 2> /dev/null | fzf)
+cd $(find . -type d 2> /dev/null | fzf --preview 'ls {}' --height 80%)
