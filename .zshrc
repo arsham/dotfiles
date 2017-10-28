@@ -26,6 +26,7 @@ antigen bundles <<EOBUNDLES
     virtualenv
     virtualenvwrapper
     RobSis/zsh-completion-generator
+    boot2docker
 
 EOBUNDLES
 
@@ -57,27 +58,7 @@ if [[ -d ~/dotfiles/widgets ]]; then
    done
 fi
 
-# Load the theme.
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator context dir virtualenv vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time background_jobs disk_usage ram battery)
-POWERLEVEL9K_SHOW_CHANGESET=true
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_PRECISION=4
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S \uE868  %d/%m}"
-
-## Information about the icon unicodes are available in https://github.com/bhilburn/powerlevel9k/blob/master/functions/icons.zsh
-## Also running get_icon_names will show you the list
-POWERLEVEL9K_HOME_ICON=$'\uE12C '
-POWERLEVEL9K_HOME_SUB_ICON=$'\uE18D '
-#POWERLEVEL9K_RAM_ICON=$'\uE1E2 '
-POWERLEVEL9K_EXECUTION_TIME_ICON=$'\UE89C '
-POWERLEVEL9K_FOLDER_ICON=$'\uE818 '
-POWERLEVEL9K_VCS_BRANCH_ICON=$'\uF126 '
-POWERLEVEL9K_PYTHON_ICON=$'\UE63C '
-
-# Apply theme
-antigen theme bhilburn/powerlevel9k powerlevel9k
+. ~/dotfiles/zsh_conf/powerlevel9k.zsh-theme
 
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
 [ -f ~/dotfiles/.zaliases ] && source ~/dotfiles/.zaliases
@@ -86,22 +67,4 @@ antigen theme bhilburn/powerlevel9k powerlevel9k
 antigen apply
 
 # fzf settings
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export FZF_DEFAULT_OPTS='
---height 40% --reverse --border
---color dark,hl:33,hl+:37,fg+:235,bg+:136,fg+:254
---color info:254,prompt:37,spinner:108,pointer:235,marker:235
---bind alt-j:preview-down,alt-k:preview-up
-'
-
-# note that you can get key binding codes with "showkey -a"
-# '^I' is for <tab>
-
-export FZF_COMPLETION_TRIGGER=''
-bindkey '^@' fzf-completion
-bindkey '^I' $fzf_default_completion
-export FZF_CTRL_R_OPTS='--sort'
-export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
-export FZF_CTRL_T_OPTS="--preview 'tree -C {} | head -200'"
+. ~/dotfiles/zsh_conf/fzf
