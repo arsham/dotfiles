@@ -14,7 +14,6 @@ antigen bundles <<EOBUNDLES
     docker
     command-not-found
     ssh-agent
-    tmux
     golang
     colored-man-pages
     z
@@ -25,6 +24,7 @@ antigen bundles <<EOBUNDLES
     virtualenvwrapper
     RobSis/zsh-completion-generator
     boot2docker
+    emoji
 
 EOBUNDLES
 
