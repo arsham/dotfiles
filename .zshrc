@@ -16,12 +16,10 @@ antigen bundles <<EOBUNDLES
     ssh-agent
     tmux
     golang
-    psprint/history-search-multi-word
     colored-man-pages
     z
     zsh-users/zsh-syntax-highlighting
     zsh-users/zsh-autosuggestions
-    httpie
     pip
     virtualenv
     virtualenvwrapper
@@ -68,3 +66,5 @@ antigen apply
 
 # fzf settings
 . ~/dotfiles/zsh_conf/fzf
+
+[ -f /usr/share/doc/pkgfile/command-not-found.zsh ] && source /usr/share/doc/pkgfile/command-not-found.zsh
