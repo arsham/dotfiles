@@ -1,4 +1,6 @@
 # Load the theme.
+POWERLEVEL9K_MODE="compatible"
+POWERLEVEL9K_MODE=awesome-fontconfig
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon root_indicator context dir virtualenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time background_jobs disk_usage load ram swap custom_random_emoji battery)
@@ -22,8 +24,5 @@ POWERLEVEL9K_BATTERY_LOW_THRESHOLD='10'
 POWERLEVEL9K_BATTERY_LOW_COLOR='red'
 
 POWERLEVEL9K_SWAP_ICON='\uE87D '
-
-# Apply theme
-antigen theme bhilburn/powerlevel9k powerlevel9k
 
 POWERLEVEL9K_CUSTOM_RANDOM_EMOJI="random_emoji"
