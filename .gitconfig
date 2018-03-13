@@ -7,3 +7,11 @@
 	excludesfile = /home/arsham/.gitignore
 [push]
 	default = simple
+[alias]
+	st = status
+	co = checkout
+	aliases = "!git config -l | grep alias | cut -c 7-"
+        ls = "log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate"
+        save = !git add -A && git commit -m 'SAVEPOINT'
+        wip = commit -am "WIP"
+        undo = reset HEAD~1 --mixed

@@ -6,6 +6,9 @@ export ZPLUG_HOME=$HOME/.zplug
 }
 source ~/.zplug/init.zsh
 
+# the shell starts slow if this file does not exist
+[ -f $ZPLUG_LOADFILE ] || touch $ZPLUG_LOADFILE
+
 # zsh-completion-generator folder
 export GENCOMPL_FPATH=~/dotfiles/completions
 
@@ -19,41 +22,33 @@ export EDITOR=nano
 export VISUAL=nano
 
 # zsh functions
-export fpath=(
-    ~/dotfiles/functions
-    "${fpath[@]}"
-)
+export fpath=(~/dotfiles/functions "${fpath[@]}")
 
 . ~/dotfiles/zsh_conf/powerlevel9k.zsh-theme
 
 zplug "junegunn/fzf-bin",                        from:gh-r, as:command, rename-to:fzf, use:"*linux*amd64*"
 zplug "bhilburn/powerlevel9k",                   use:powerlevel9k.zsh-theme, as:theme
+zplug "tarruda/zsh-autosuggestions"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-history-substring-search"
-zplug "lib/key-bindings",                        from:oh-my-zsh
 zplug "zsh-users/zsh-syntax-highlighting",       defer:2
-zplug "modules/git",                             from:prezto
-zplug "modules/docker",                          from:prezto
+zplug "lib/key-bindings",                        from:oh-my-zsh
 zplug "plugins/command-not-found",               from:oh-my-zsh
-zplug "modules/ssh-agent",                       from:prezto
+zplug "plugins/RobSis/zsh-completion-generator", from:oh-my-zsh
+zplug "plugins/git",                             from:oh-my-zsh
+zplug "plugins/emoji",                           from:oh-my-zsh
+zplug "plugins/docker",                          from:oh-my-zsh
+zplug "modules/boot2docker",                     from:prezto
+zplug "plugins/ssh-agent",                       from:prezto
+zplug "plugins/completion",                      from:prezto
 zplug "modules/golang",                          from:prezto
 zplug "modules/colored-man-pages",               from:prezto
-zplug "modules/z",                               from:prezto
+zplug "plugins/z",                               from:prezto
 zplug "modules/pip",                             from:prezto
-zplug "tarruda/zsh-autosuggestions"
 zplug "modules/virtualenv",                      from:prezto
 zplug "modules/virtualenvwrapper",               from:prezto
-zplug "plugins/RobSis/zsh-completion-generator", from:oh-my-zsh
-zplug "modules/boot2docker",                     from:prezto
-zplug "modules/completion",                      from:prezto
-zplug "plugins/emoji",                           from:oh-my-zsh
 # zplug 'zplug/zplug',                             hook-build:'zplug --self-manage'
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-  zplug install
-fi
-
+# after adding new plugins, you must run: zplug install
 
 zplug load
 
