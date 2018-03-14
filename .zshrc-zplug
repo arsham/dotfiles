@@ -44,10 +44,7 @@ zplug "plugins/completion",                      from:prezto
 zplug "modules/golang",                          from:prezto
 zplug "modules/colored-man-pages",               from:prezto
 zplug "plugins/z",                               from:prezto
-zplug "modules/pip",                             from:prezto
-zplug "modules/virtualenv",                      from:prezto
-zplug "modules/virtualenvwrapper",               from:prezto
-# zplug 'zplug/zplug',                             hook-build:'zplug --self-manage'
+
 # after adding new plugins, you must run: zplug install
 
 zplug load
