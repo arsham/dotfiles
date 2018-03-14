@@ -38,11 +38,10 @@ zplug "plugins/RobSis/zsh-completion-generator", from:oh-my-zsh
 zplug "plugins/git",                             from:oh-my-zsh
 zplug "plugins/emoji",                           from:oh-my-zsh
 zplug "plugins/docker",                          from:oh-my-zsh
-zplug "modules/boot2docker",                     from:prezto
+zplug "plugins/colored-man-pages",               from:oh-my-zsh
 zplug "plugins/ssh-agent",                       from:prezto
 zplug "plugins/completion",                      from:prezto
 zplug "modules/golang",                          from:prezto
-zplug "modules/colored-man-pages",               from:prezto
 zplug "plugins/z",                               from:prezto
 
 # after adding new plugins, you must run: zplug install
