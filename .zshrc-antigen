@@ -13,29 +13,11 @@ POWERLEVEL9K_MODE=awesome-patched
 . ~/dotfiles/zsh_conf/powerlevel9k.zsh-theme
 
 # zsh functions
-export fpath=(
-    ~/dotfiles/functions
-    "${fpath[@]}"
-)
-
-if [[ -d ~/dotfiles/functions ]]; then
-   for func in $(find ~/dotfiles/functions -type f -exec realpath {} +); do
-      unhash -f $func 2>/dev/null
-      autoload +X $func
-   done
-fi
-
-if [[ -d ~/dotfiles/widgets ]]; then
-   for func in $(find ~/dotfiles/widgets -type f -exec realpath {} +); do
-      source $func
-   done
-fi
+export fpath=(~/dotfiles/functions "${fpath[@]}")
 
 source ~/antigen/bin/antigen.zsh
-# Load the oh-my-zsh's library.
 antigen use oh-my-zsh
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
 antigen bundles <<EOBUNDLES
 
     git
@@ -43,7 +25,8 @@ antigen bundles <<EOBUNDLES
     command-not-found
     ssh-agent
     colored-man-pages
-    golang
+    robbyrussell/oh-my-zsh plugins/golang
+    zchee/go-zsh-completions
     zdharma/fast-syntax-highlighting
     zsh-users/zsh-autosuggestions
     zsh-users/zsh-completions
@@ -61,3 +44,16 @@ antigen apply
 [ -f ~/dotfiles/.zaliases ] && source ~/dotfiles/.zaliases
 
 . ~/dotfiles/zsh_conf/fzf
+
+if [[ -d ~/dotfiles/functions ]]; then
+   for func in $(find ~/dotfiles/functions -type f -exec realpath {} +); do
+      unhash -f $func 2>/dev/null
+      autoload +X $func 2>/dev/null
+   done
+fi
+
+if [[ -d ~/dotfiles/widgets ]]; then
+   for func in $(find ~/dotfiles/widgets -type f -exec realpath {} +); do
+      source $func
+   done
+fi

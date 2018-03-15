@@ -1,18 +1,4 @@
-export ZPLUG_HOME=$HOME/.zplug
-[[ -d ~/.zplug ]] || {
-  mkdir -p $ZPLUG_HOME
-  git clone https://github.com/zplug/zplug $ZPLUG_HOME
-  source ~/.zplug/init.zsh && zplug update
-}
-source ~/.zplug/init.zsh
-
-# the shell starts slow if this file does not exist
-[ -f $ZPLUG_LOADFILE ] || touch $ZPLUG_LOADFILE
-
-# zsh-completion-generator folder
 export GENCOMPL_FPATH=~/dotfiles/completions
-
-# zsh settings
 export HISTFILE=/home/arsham/Dropbox/Home/.zsh_history
 export HISTSIZE=999999999
 export SAVEHIST=$HISTSIZE
@@ -20,11 +6,20 @@ export LANG=en_GB.UTF-8
 export LC_CTYPE=en_GB.UTF8
 export EDITOR=nano
 export VISUAL=nano
-
-# zsh functions
 export fpath=(~/dotfiles/functions "${fpath[@]}")
-
 . ~/dotfiles/zsh_conf/powerlevel9k.zsh-theme
+
+export ZPLUG_HOME=$HOME/.zplug
+[[ -d ~/.zplug ]] || {
+  mkdir -p $ZPLUG_HOME
+  git clone https://github.com/zplug/zplug $ZPLUG_HOME
+  source ~/.zplug/init.zsh && zplug update
+}
+
+source ~/.zplug/init.zsh
+
+# the shell starts slow if this file does not exist
+[ -f $ZPLUG_LOADFILE ] || touch $ZPLUG_LOADFILE
 
 zplug "junegunn/fzf-bin",                        from:gh-r, as:command, rename-to:fzf, use:"*linux*amd64*"
 zplug "bhilburn/powerlevel9k",                   use:powerlevel9k.zsh-theme, as:theme
@@ -41,7 +36,7 @@ zplug "plugins/docker",                          from:oh-my-zsh
 zplug "plugins/colored-man-pages",               from:oh-my-zsh
 zplug "plugins/ssh-agent",                       from:prezto
 zplug "plugins/completion",                      from:prezto
-zplug "modules/golang",                          from:prezto
+zplug "plugins/golang",                          from:oh-my-zsh
 zplug "plugins/z",                               from:prezto
 
 # after adding new plugins, you must run: zplug install
@@ -51,7 +46,6 @@ zplug load
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
 [ -f ~/dotfiles/.zaliases ] && source ~/dotfiles/.zaliases
 
-# fzf settings
 . ~/dotfiles/zsh_conf/fzf
 
 # history search
