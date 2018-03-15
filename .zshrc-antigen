@@ -1,38 +1,36 @@
-export GENCOMPL_FPATH=~/dotfiles/completions
-export DISABLE_UPDATE_PROMPT=true
-export DISABLE_AUTO_UPDATE=true
-export HISTFILE=/home/arsham/Dropbox/Home/.zsh_history
-export HISTSIZE=999999999
-export SAVEHIST=$HISTSIZE
-export LANG=en_GB.UTF-8
-export LC_CTYPE=en_GB.UTF8
-export EDITOR=nano
-export VISUAL=nano
+# Known issues:
+# Some completions (like golang) doesn't work
 
-POWERLEVEL9K_MODE=awesome-patched
-. ~/dotfiles/zsh_conf/powerlevel9k.zsh-theme
+DOTFILES=~/dotfiles
+GENCOMPL_FPATH=$DOTFILES/completions
+DISABLE_UPDATE_PROMPT=true
+DISABLE_AUTO_UPDATE=true
+HISTFILE=/home/arsham/Dropbox/Home/.zsh_history
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
+LANG=en_GB.UTF-8
+LC_CTYPE=en_GB.UTF8
+EDITOR=nano
+VISUAL=nano
 
-# zsh functions
-export fpath=(~/dotfiles/functions "${fpath[@]}")
+. $DOTFILES/zsh_conf/powerlevel9k.zsh-theme
+fpath=($DOTFILES/functions "${fpath[@]}")
 
 source ~/antigen/bin/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundles <<EOBUNDLES
 
-    git
-    docker
     command-not-found
     ssh-agent
     colored-man-pages
-    robbyrussell/oh-my-zsh plugins/golang
-    zchee/go-zsh-completions
     zdharma/fast-syntax-highlighting
-    zsh-users/zsh-autosuggestions
+    tarruda/zsh-autosuggestions
     zsh-users/zsh-completions
     zsh-users/zsh-history-substring-search
     RobSis/zsh-completion-generator
     emoji
+    golang
 
 EOBUNDLES
 antigen theme bhilburn/powerlevel9k powerlevel9k
@@ -41,19 +39,20 @@ antigen theme bhilburn/powerlevel9k powerlevel9k
 antigen apply
 
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
-[ -f ~/dotfiles/.zaliases ] && source ~/dotfiles/.zaliases
+[ -f $DOTFILES/.zaliases ] && source $DOTFILES/.zaliases
 
-. ~/dotfiles/zsh_conf/fzf
+. $DOTFILES/zsh_conf/fzf
 
-if [[ -d ~/dotfiles/functions ]]; then
-   for func in $(find ~/dotfiles/functions -type f -exec realpath {} +); do
+if [[ -d $DOTFILES/functions ]]; then
+   for func in $(find $DOTFILES/functions -type f -exec realpath {} +); do
       unhash -f $func 2>/dev/null
       autoload +X $func 2>/dev/null
    done
 fi
 
-if [[ -d ~/dotfiles/widgets ]]; then
-   for func in $(find ~/dotfiles/widgets -type f -exec realpath {} +); do
+if [[ -d $DOTFILES/widgets ]]; then
+   for func in $(find $DOTFILES/widgets -type f -exec realpath {} +); do
       source $func
    done
 fi
+setopt share_history

@@ -1,52 +1,37 @@
+# Known issues:
+# Installing binaries (like fzf) from plugins is not supported.
+
 source <(antibody init)
 
+DOTFILES=~/dotfiles
 # zsh-completion-generator folder
-export GENCOMPL_FPATH=~/dotfiles/completions
+GENCOMPL_FPATH=$DOTFILES/completions
+HISTFILE=/home/arsham/Dropbox/Home/.zsh_history
 
-# zsh settings
-export HISTFILE=/home/arsham/Dropbox/Home/.zsh_history
-export HISTSIZE=999999999
-export SAVEHIST=$HISTSIZE
-export LANG=en_GB.UTF-8
-export LC_CTYPE=en_GB.UTF8
-export EDITOR=nano
-export VISUAL=nano
-
-# zsh functions
-export fpath=(~/dotfiles/functions "${fpath[@]}")
-
-. ~/dotfiles/zsh_conf/powerlevel9k.zsh-theme
+fpath=($GENCOMPL_FPATH $DOTFILES/functions "${fpath[@]}")
+. $DOTFILES/zsh_conf/powerlevel9k.zsh-theme
 
 # fix for oh-my-zsh tweaks that let's installing some plugins
 ZSH="${HOME}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
 DISABLE_AUTO_UPDATE=true
 
 antibody bundle robbyrussell/oh-my-zsh
-antibody bundle <<EOBUNDLES
-
-    tarruda/zsh-autosuggestions
-    zsh-users/zsh-completions
-    zsh-users/zsh-history-substring-search
-    zdharma/fast-syntax-highlighting
-    robbyrussell/oh-my-zsh folder:lib/key-bindings
-    robbyrussell/oh-my-zsh folder:plugins/command-not-found
-    robbyrussell/oh-my-zsh folder:plugins/RobSis/zsh-completion-generator
-    robbyrussell/oh-my-zsh folder:plugins/emoji
-    robbyrussell/oh-my-zsh folder:plugins/docker
-    robbyrussell/oh-my-zsh folder:plugins/git
-    robbyrussell/oh-my-zsh folder:plugins/golang
-    robbyrussell/oh-my-zsh folder:plugins/colored-man-pages
-    sorin-ionescu/prezto folder:plugins/ssh-agent
-    sorin-ionescu/prezto folder:plugins/completion
-    bhilburn/powerlevel9k
-
-EOBUNDLES
+antibody bundle tarruda/zsh-autosuggestions
+antibody bundle zdharma/fast-syntax-highlighting
+antibody bundle bhilburn/powerlevel9k
+antibody bundle sorin-ionescu/prezto folder:modules/ssh
+antibody bundle zsh-users/zsh-completions
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/history-substring-search
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/command-not-found
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/emoji
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/golang
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/colored-man-pages
+antibody bundle RobSis/zsh-completion-generator
 
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
-[ -f ~/dotfiles/.zaliases ] && source ~/dotfiles/.zaliases
+[ -f $DOTFILES/.zaliases ] && source $DOTFILES/.zaliases
 
-# fzf settings
-. ~/dotfiles/zsh_conf/fzf
+. $DOTFILES/zsh_conf/fzf
 
 # history search
 bindkey '^[[A' history-substring-search-up
@@ -54,15 +39,24 @@ bindkey '^[[B' history-substring-search-down
 
 zstyle ':prezto:module:autosuggestions' color 'yes'
 
-if [[ -d ~/dotfiles/functions ]]; then
-   for func in $(find ~/dotfiles/functions -type f -exec realpath {} +); do
+if [[ -d $DOTFILES/functions ]]; then
+   for func in $(find $DOTFILES/functions -type f -exec realpath {} +); do
       unhash -f $func 2>/dev/null
       autoload +X $func
    done
 fi
 
-if [[ -d ~/dotfiles/widgets ]]; then
-   for func in $(find ~/dotfiles/widgets -type f -exec realpath {} +); do
+if [[ -d $DOTFILES/widgets ]]; then
+   for func in $(find $DOTFILES/widgets -type f -exec realpath {} +); do
       source $func
    done
 fi
+
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
+LANG=en_GB.UTF-8
+LC_CTYPE=en_GB.UTF8
+EDITOR=nano
+VISUAL=nano
+
+setopt share_history
