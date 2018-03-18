@@ -27,7 +27,6 @@ antigen bundles <<EOBUNDLES
     zdharma/fast-syntax-highlighting
     tarruda/zsh-autosuggestions
     zsh-users/zsh-completions
-    zsh-users/zsh-history-substring-search
     RobSis/zsh-completion-generator
     emoji
     golang

@@ -28,7 +28,6 @@ source ~/.zplug/init.zsh
 zplug "junegunn/fzf-bin",                        from:gh-r, as:command, rename-to:fzf, use:"*linux*amd64*"
 zplug "bhilburn/powerlevel9k",                   use:powerlevel9k.zsh-theme, as:theme
 zplug "tarruda/zsh-autosuggestions"
-zplug "plugins/history-substring-search",        from:oh-my-zsh
 zplug "zdharma/fast-syntax-highlighting",        defer:2
 zplug "lib/key-bindings",                        from:oh-my-zsh
 zplug "plugins/command-not-found",               from:oh-my-zsh
