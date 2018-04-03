@@ -1,19 +1,21 @@
 [color]
-	ui = true
+    ui = true
 [user]
-	email = arshamshirvani@gmail.com
-	name = Arsham Shirvani
+    email = arshamshirvani@gmail.com
+    name = Arsham Shirvani
 [core]
-	excludesfile = /home/arsham/.gitignore
+    excludesfile = /home/arsham/.gitignore
 [push]
-	default = simple
+    default = simple
 [alias]
-	st = status
-	co = checkout
-	aliases = "!git config -l | grep alias | cut -c 7-"
+    st = status
+    co = checkout
+    aliases = "!git config -l | grep alias | cut -c 7-"
     ls = "log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate"
     save = !git add -A && git commit -m 'SAVEPOINT'
     wip = commit -am "WIP"
     undo = reset HEAD~1 --mixed
     lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
     lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+[http]
+	sslVerify = true

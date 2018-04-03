@@ -7,5 +7,5 @@ docker run --rm -it \
     -v $HOME/.gtkrc:/root/.gtkrc \
     -e GDK_SCALE \
     -e GDK_DPI_SCALE \
-    --name gimp \
+    --name firefox \
     jess/firefox
