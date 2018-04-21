@@ -1,0 +1,22 @@
+#compdef docker-machine
+
+# zsh completions for 'docker-machine'
+# automatically generated with http://github.com/RobSis/zsh-completion-generator
+local arguments
+
+arguments=(
+    {--debug,-D}'[Enable debug mode]'
+    {--storage-path,-s}'[/home/arsham/.docker/machine"	Configures storage path \[$MACHINE_STORAGE_PATH\]]'
+    '--tls-ca-cert[CA to verify remotes against \[$MACHINE_TLS_CA_CERT\]]'
+    '--tls-ca-key[Private key to generate certificates \[$MACHINE_TLS_CA_KEY\]]'
+    '--tls-client-cert[Client cert to use for TLS \[$MACHINE_TLS_CLIENT_CERT\]]'
+    '--tls-client-key[Private key used in client TLS auth \[$MACHINE_TLS_CLIENT_KEY\]]'
+    '--github-api-token[Token to use for requests to the Github API \[$MACHINE_GITHUB_API_TOKEN\]]'
+    '--native-ssh[Use the native (Go-based) SSH implementation. \[$MACHINE_NATIVE_SSH\]]'
+    '--bugsnag-api-token[BugSnag API token for crash reporting \[$MACHINE_BUGSNAG_API_TOKEN\]]'
+    {--help,-h}'[show help]'
+    {--version,-v}'[print the version]'
+    '*:filename:_files'
+)
+
+_arguments -s $arguments
