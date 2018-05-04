@@ -61,3 +61,4 @@ export VISUAL=nano
 setopt share_history
 
 export PATH="/usr/lib/ccache/bin/:$PATH"
+zstyle ':completion:*:make::' tag-order targets variables
