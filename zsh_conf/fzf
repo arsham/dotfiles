@@ -11,7 +11,7 @@ export FZF_DEFAULT_OPTS='
 # '^I' is for <tab>
 
 export FZF_COMPLETION_TRIGGER=''
-bindkey '^@' fzf-completion
+bindkey '^T' fzf-completion
 bindkey '^I' $fzf_default_completion
 export FZF_CTRL_R_OPTS='--sort'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
