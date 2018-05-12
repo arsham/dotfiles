@@ -44,4 +44,4 @@ fi
 setopt share_history
 
 # Grab it from https://github.com/arsham/figurine
-figurine
+figurine $(whoami)
