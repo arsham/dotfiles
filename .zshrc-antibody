@@ -1,5 +1,3 @@
-# Known issues:
-# Installing binaries (like fzf) from plugins is not supported.
 # Remember to link .zshrc in your home folder.
 
 source <(antibody init)
@@ -16,32 +14,4 @@ antibody bundle robbyrussell/oh-my-zsh folder:plugins/colored-man-pages
 antibody bundle RobSis/zsh-completion-generator
 antibody bundle zdharma/fast-syntax-highlighting
 
-[ -f ~/.zshrc-local ] && source ~/.zshrc-local
-[ -f $DOTFILES/.zaliases ] && source $DOTFILES/.zaliases
-
-. $DOTFILES/zsh_conf/fzf
-
-# history search
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
-zstyle ':prezto:module:autosuggestions' color 'yes'
-zstyle ':completion:*:make::' tag-order targets variables
-
-if [[ -d $DOTFILES/functions ]]; then
-   for func in $(find $DOTFILES/functions -type f -exec realpath {} +); do
-      unhash -f $func 2>/dev/null
-      autoload +X $func
-   done
-fi
-
-if [[ -d $DOTFILES/widgets ]]; then
-   for func in $(find $DOTFILES/widgets -type f -exec realpath {} +); do
-      source $func
-   done
-fi
-
-setopt share_history
-
-# Grab it from https://github.com/arsham/figurine
-figurine $(whoami)
+. $DOTFILES/zsh_conf/zsh_common

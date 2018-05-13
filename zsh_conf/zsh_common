@@ -1,0 +1,32 @@
+[ -f ~/.zshrc-local ] && source ~/.zshrc-local
+[ -f $DOTFILES/.zaliases ] && source $DOTFILES/.zaliases
+
+if ! which fzf > /dev/null; then
+    go get -u github.com/junegunn/fzf
+fi
+. $DOTFILES/zsh_conf/fzf
+
+# history search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+zstyle ':prezto:module:autosuggestions' color 'yes'
+zstyle ':completion:*:make::' tag-order targets variables
+setopt share_history
+
+if [[ -d $DOTFILES/functions ]]; then
+   for func in $(find $DOTFILES/functions -type f -exec realpath {} +); do
+      unhash -f $func 2>/dev/null
+      autoload +X $func
+   done
+fi
+
+if [[ -d $DOTFILES/widgets ]]; then
+   for func in $(find $DOTFILES/widgets -type f -exec realpath {} +); do
+      source $func
+   done
+fi
+
+if ! which figurine > /dev/null; then
+    go get -u github.com/arsham/figurine
+fi
+figurine $(whoami)
