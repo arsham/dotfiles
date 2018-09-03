@@ -13,4 +13,5 @@ done
 
 rm -rf ./profile.out
 go tool cover -html=coverage.out
+go tool cover -func=coverage.out | tail -n 1
 rm -rf ./coverage.out
