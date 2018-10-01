@@ -13,4 +13,3 @@ alias -g ....='../../..'
 alias -g .....='../../../..'
 
 alias open='xdg-open'
-alias gotestreflex="reflex -d none -r \"\.go$\"  -- zsh -c \"go test ./... ; repeat 100 printf '#'\""
