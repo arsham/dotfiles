@@ -5,6 +5,7 @@ alias grep='grep --color=tty -d skip'
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
+alias sl="ls"
 
 # cd by .. or ... or ... or mv file ..../.
 alias '..'='cd ..'
@@ -13,3 +14,5 @@ alias -g ....='../../..'
 alias -g .....='../../../..'
 
 alias open='xdg-open'
+alias port='netstat -tulanp'
+alias genpasswd="strings /dev/urandom | grep -o '[[:alnum:]]' | head -n 30 | tr -d '\n'; echo"
