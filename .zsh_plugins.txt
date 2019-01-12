@@ -1,11 +1,12 @@
 robbyrussell/oh-my-zsh
 bhilburn/powerlevel9k
-sorin-ionescu/prezto folder:modules/ssh
+sorin-ionescu/prezto path:modules/ssh
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
-robbyrussell/oh-my-zsh folder:plugins/command-not-found
-robbyrussell/oh-my-zsh folder:plugins/emoji
-robbyrussell/oh-my-zsh folder:plugins/golang
-robbyrussell/oh-my-zsh folder:plugins/colored-man-pages
+robbyrussell/oh-my-zsh path:plugins/command-not-found
+robbyrussell/oh-my-zsh path:plugins/emoji
+robbyrussell/oh-my-zsh path:plugins/golang
+robbyrussell/oh-my-zsh path:plugins/colored-man-pages
+robbyrussell/oh-my-zsh path:plugins/kubectl
 RobSis/zsh-completion-generator
 zdharma/fast-syntax-highlighting
