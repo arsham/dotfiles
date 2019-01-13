@@ -8,5 +8,6 @@ robbyrussell/oh-my-zsh path:plugins/emoji
 robbyrussell/oh-my-zsh path:plugins/golang
 robbyrussell/oh-my-zsh path:plugins/colored-man-pages
 robbyrussell/oh-my-zsh path:plugins/kubectl
+robbyrussell/oh-my-zsh path:plugins/vagrant
 RobSis/zsh-completion-generator
 zdharma/fast-syntax-highlighting
