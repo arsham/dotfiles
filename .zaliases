@@ -16,3 +16,4 @@ alias -g .....='../../../..'
 alias open='xdg-open'
 alias port='netstat -tulanp'
 alias genpasswd="strings /dev/urandom | grep -o '[[:alnum:]]' | head -n 30 | tr -d '\n'; echo"
+alias k='kubectl'

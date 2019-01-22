@@ -26,7 +26,19 @@ for p in "${arr[@]}"; do
         echo $VALUE_FILE "not found!"
         continue
     fi
-    rm -rf $PROJECT/rendered/$p
+    ## removing old rendered folder.
+    if [ -d $(eval echo $PROJECT/rendered/$p) ]; then
+        rm -rf $PROJECT/rendered/$p
+    fi
     local SOURCE=$(eval echo $SOURCE_LOC/$p)
+    ## to ignore dependencies
+    local REQUIREMENTS=$(eval echo $SOURCE/requirements.yaml)
+    local REQUIREMENTS_BACKUP=$(eval echo $SOURCE/requirements.yaml.backup)
+    if [ -f $REQUIREMENTS ]; then
+        mv $REQUIREMENTS $REQUIREMENTS_BACKUP
+    fi
     helm template --name $p $SOURCE -f $VALUE_FILE --output-dir $PROJECT/rendered
+    if [ -f $REQUIREMENTS_BACKUP ]; then
+        mv $REQUIREMENTS_BACKUP $REQUIREMENTS
+    fi
 done

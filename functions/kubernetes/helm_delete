@@ -29,5 +29,5 @@ for p in "${arr[@]}"; do
         echo $TEMPLATES "does not exists!"
         continue
     fi
-    k delete --namespace $namespace -f $TEMPLATES
+    k delete --namespace $namespace --recursive -f $TEMPLATES
 done

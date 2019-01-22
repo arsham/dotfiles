@@ -29,5 +29,5 @@ for p in "${arr[@]}"; do
         echo $TEMPLATES "does not exists!"
         continue
     fi
-    k create --namespace $namespace --save-config -f $TEMPLATES
+    k create --namespace $namespace --save-config --recursive -f $TEMPLATES
 done
