@@ -8,8 +8,8 @@ fi
 if [[ "${@:1}" ]]
 then
     local query=${@:1}
-    cd $(echo $targetlist | fzf --preview 'ls {}' --query $query)
+    cd "$(echo $targetlist | fzf --preview 'ls {}' --query $query)"
     return
 else
-    cd $(echo $targetlist | fzf --preview 'ls {}')
+    cd "$(echo $targetlist | fzf --preview 'ls {}')"
 fi
