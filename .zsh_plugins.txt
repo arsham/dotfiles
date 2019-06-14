@@ -1,5 +1,5 @@
 robbyrussell/oh-my-zsh
-bhilburn/powerlevel9k
+romkatv/powerlevel10k
 sorin-ionescu/prezto path:modules/ssh
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
