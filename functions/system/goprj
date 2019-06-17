@@ -1,8 +1,10 @@
-local targetlist=$(find $GOPATH/src/ -type d -not -path '*/\.*' -exec realpath {} +)
+# Quick change to project directory
+
+local targetlist=$(find $HOME/Projects/ -type d -not -path '*/\.*' -exec realpath {} +)
 
 if [[ -z "$targetlist" ]]
 then
-    echo "Could not find any packages"
+    echo "Could not find any projects"
     return
 fi
 if [[ "${@:1}" ]]

@@ -1,4 +1,4 @@
-DOTFILES=~/dotfiles
+DOTFILES=$HOME/dotfiles
 
 # zsh-completion-generator folder
 GENCOMPL_FPATH=$DOTFILES/completions
@@ -19,8 +19,7 @@ export VISUAL=nano
 export CFLAGS="-march=native -mtune=native -O2 -pipe -fstack-protector-strong"
 export CXXFLAGS="${CFLAGS}"
 
-export GOPATH=$HOME/Projects/Go
-export PATH="/usr/lib/ccache/bin/:$GOPATH/bin:$PATH"
+export PATH="/usr/lib/ccache/bin/:$HOME/go/bin:$PATH"
 
 . $DOTFILES/zsh_conf/powerlevel9k.zsh-theme
 
