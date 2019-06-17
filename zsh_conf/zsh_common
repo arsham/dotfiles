@@ -3,6 +3,7 @@
 
 if ! which fzf > /dev/null; then
     go get -u github.com/junegunn/fzf
+    ln -s $DOTFILES/zsh_conf/.fzf.zsh ~/ 2> /dev/null
 fi
 . $DOTFILES/zsh_conf/fzf
 
