@@ -19,7 +19,8 @@ export VISUAL=nano
 export CFLAGS="-march=native -mtune=native -O2 -pipe -fstack-protector-strong"
 export CXXFLAGS="${CFLAGS}"
 
-export PATH="/usr/lib/ccache/bin/:$HOME/go/bin:$PATH"
+export GOPATH=$HOME/Projects/Go
+export PATH="/usr/lib/ccache/bin/:$GOPATH/bin:$PATH"
 
 . $DOTFILES/zsh_conf/powerlevel9k.zsh-theme
 
