@@ -1,0 +1,9 @@
+# Copy password from lastpass.
+
+local item=$(lpass ls  | fzf | awk '{print $(NF)}' | sed 's/\]//g')
+if [[ -z "$item" ]]
+then
+    return
+fi
+
+lpass show -c --password $item

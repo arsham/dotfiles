@@ -1,6 +1,6 @@
-# Quick change to project directory
+# Quick change to go project
 
-local targetlist=$(find $HOME/Projects/ -maxdepth 8 -type d -not -path '*/\.*' -not -path '*\/pkg\/mod\/*')
+local targetlist=$(find $HOME/Projects/Go -maxdepth 8 -type d -not -path '*/\.*' -not -path '*\/pkg\/mod\/*' -not -path '*\/vendor\/*')
 
 if [[ -z "$targetlist" ]]
 then
