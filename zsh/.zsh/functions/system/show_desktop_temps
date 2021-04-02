@@ -1,0 +1,1 @@
+watch 'sensors | grep -v "+0.0°C\| V \| 0 RPM  \| mV\|intrusion\|disabled" | sed -s "s/ *sensor = thermistor//g" | sed -s "s/,\s*hyst[^C]*C//g"'

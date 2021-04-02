@@ -1,2 +1,4 @@
-.zsh_plugins.sh
-
+vim/tmp/.vim/undodir/*
+vim/tmp/.nvim/undodir/*
+vim/tmp/.vim/tmp/*
+vim/tmp/.nvim/tmp/*

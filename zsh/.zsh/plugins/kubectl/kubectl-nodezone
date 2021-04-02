@@ -1,0 +1,2 @@
+#!/bin/bash
+kubectl get nodes -L failure-domain.beta.kubernetes.io/region,failure-domain.beta.kubernetes.io/zone,failure-domain.beta.kubernetes.io/region

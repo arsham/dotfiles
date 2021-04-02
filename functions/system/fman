@@ -1,2 +1,0 @@
-# man pages
-man $(apropos "${@:-.}" | fzf --preview-window=right:70% --height=100% --preview 'echo {} | cut -f 1 -d " " | xargs man' | cut -f 1 -d " ")

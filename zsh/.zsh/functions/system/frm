@@ -1,0 +1,8 @@
+# removing files with fzf
+local filename
+filename=$(ls -lha | fzf -m | tr -s " " | cut -d " " -f 8-)
+
+if [ "x$filename" != "x" ]
+then
+    echo "$filename" | xargs -d \\n rm
+fi

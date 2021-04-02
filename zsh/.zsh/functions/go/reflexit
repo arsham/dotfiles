@@ -1,0 +1,8 @@
+local query
+query="go test ./..."
+if [[ "${@:1}" ]]
+then
+    query=${@:1}
+fi
+zsh -c "$query ; repeat 100 printf '#'"
+reflex -d none -r "\.go$"  -- zsh -c "$query ; repeat 100 printf '#'"

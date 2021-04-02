@@ -1,0 +1,10 @@
+{
+	"gorename_autofill": false,
+	"gorename_debug": false,
+	"gorename_env":
+	{
+		"GOPATH": "/home/arsham/go:/usr/bin/go",
+		"PATH": "/home/arsham/go/bin:$PATH:/usr/bin"
+	},
+	"gorename_output": "output_panel"
+}

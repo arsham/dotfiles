@@ -1,0 +1,34 @@
+#compdef VBoxManage
+
+# zsh completions for 'VBoxManage'
+# automatically generated with http://github.com/RobSis/zsh-completion-generator
+local arguments
+
+arguments=(
+    '--passwordfile[| <password>]'
+    '--password[|]'
+    '--storagectl[\[--port <number>\]]'
+    '--name[\[--add ide|sata|scsi|floppy|sas|usb|pcie\]]'
+    '--limit[per second>\[k|m|g|K|M|G\] |]'
+    '--limit[per second>\[k|m|g|K|M|G\] |]'
+    '--target[]'
+    '--name[]'
+    '--action[(global filters only)]'
+    '--target[\[--name <string>\]]'
+    '--target[]'
+    {--name,--hostpath}'[\[--transient\] \[--readonly\] \[--automount\]]'
+    '--name[\[--transient\]]'
+    '--network[\[--enable|--disable\]]'
+    '--ip[<ipv4> \[--netmask<ipv4> (def: 255.255.255.0)\] |]'
+    '--ipv6[<ipv6> \[--netmasklengthv6<length> (def: 64)\]\]]'
+    '--ifname[\[--ip <ip_address>]'
+    '--netmask[]'
+    '--lowerip[]'
+    '--upperip[\[--enable | --disable\]]'
+    '--ifname[]'
+    '--backend[]'
+    '--address[usbdevsource              remove <source name>]'
+    '*:filename:_files'
+)
+
+_arguments -s $arguments

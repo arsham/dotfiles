@@ -1,1 +1,0 @@
-find $1/ -type f -exec md5sum {} + | awk '{print $1}' | sort | md5sum

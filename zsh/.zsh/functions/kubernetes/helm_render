@@ -1,0 +1,44 @@
+#############################################
+# This function renders the templates.
+# Usage: helm_render project1 [project2 ...]
+# Example 1:
+#    helm_render elasticsearch metricbeat
+#
+# Example 2:
+#    sources=(elasticsearch metricbeat)
+#    helm_render $sources
+#
+# This function uses two environment variables:
+#   PROJECT: for writing the rendered templates; default is ~/Projects/Docker/Orchestration.
+#   SOURCE_LOC: for reading the source helm chats; default is $PROJECT/helm/charts/stable.
+#
+# The values are loaded from $PROJECT/values/<project>.yaml file. The name of
+# the project should match the input.
+# Note: this function will remove existing rendered files.
+#############################################
+local arr=("$@")
+local PROJECT=$(eval echo "${PROJECT:-~/Projects/Docker/Orchestration}")
+local SOURCE_LOC=$(eval echo "${SOURCE_LOC:-$PROJECT/helm/charts/stable}")
+mkdir -p $PROJECT/rendered
+for p in "${arr[@]}"; do
+    local VALUE_FILE=$(eval echo $PROJECT/values/$p.yaml)
+    if [ ! -f $VALUE_FILE ]; then
+        echo $VALUE_FILE "not found!"
+        continue
+    fi
+    ## removing old rendered folder.
+    if [ -d $(eval echo $PROJECT/rendered/$p) ]; then
+        rm -rf $PROJECT/rendered/$p
+    fi
+    local SOURCE=$(eval echo $SOURCE_LOC/$p)
+    ## to ignore dependencies
+    local REQUIREMENTS=$(eval echo $SOURCE/requirements.yaml)
+    local REQUIREMENTS_BACKUP=$(eval echo $SOURCE/requirements.yaml.backup)
+    if [ -f $REQUIREMENTS ]; then
+        mv $REQUIREMENTS $REQUIREMENTS_BACKUP
+    fi
+    helm template --name $p $SOURCE -f $VALUE_FILE --output-dir $PROJECT/rendered
+    if [ -f $REQUIREMENTS_BACKUP ]; then
+        mv $REQUIREMENTS_BACKUP $REQUIREMENTS
+    fi
+done

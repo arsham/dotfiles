@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# this script prints all dependencies of the passed argument recursively.
+local name=( $1 )
+local check1=0
+local check2=${#name[*]}
+while [ $check1 -ne $check2 ]; do
+    check1=$check2
+    t1=( "${name[@]}" )
+    t2=( `pacman -Qi "${t1[@]}" 2>/dev/null | \
+          sed -n 's/Depends On.*: \(.*\)$/\1/p'` )
+    t3=( "${t1[@]}" "${t2[@]}" )
+    name=( $(echo "$(printf "\n%s" "${t3[@]}")" | \
+              sed -e '/^None$/d' -e 's/^\([^><=]\+\).*/\1/' | \
+              sort | uniq) )
+    check2=${#name[*]}
+done
+pacman -Q "${name[@]}"

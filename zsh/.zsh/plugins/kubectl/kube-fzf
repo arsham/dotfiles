@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+get_api_resources() {
+    kubectl api-resources -o name --no-headers | sort
+}
+
+filter_api_resources() {
+    fzf --preview='kubectl get --all-namespaces {}' \
+        --preview-window=up:75%:wrap
+}
+
+is_namespaced() {
+    kind=$1
+    kubectl api-resources -o name --no-headers --namespaced=true | grep $kind 2>&1 >/dev/null
+}
+
+get_resources() {
+    kind=$1
+    kubectl get --all-namespaces --no-headers $kind | sort
+}
+
+filter_cluster_resource() {
+    kind=$1
+    fzf --preview="kubectl get '${kind}' {1} -o yaml | pygmentize -l yaml" \
+        --preview-window=up:75%:wrap
+}
+
+filter_namespaced_resource() {
+    fzf --preview="kubectl get '${kind}' -n {1} {2} -o yaml | pygmentize -l yaml" \
+        --preview-window=up:75%:wrap
+}
+
+
+filter_resource() {
+    kind=$1
+    if is_namespaced $kind; then
+        filter_namespaced_resource $kind
+    else
+        filter_cluster_resource $kind
+    fi
+}
+
+kind=`get_api_resources | filter_api_resources`
+get_resources $kind | filter_resource $kind

@@ -1,0 +1,35 @@
+alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias ll='ls -l --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias la='ls -la --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
+alias grep='grep --color=tty -d skip'
+alias cp="cp -i"                          # confirm before overwriting something
+alias df='df -h'                          # human-readable sizes
+alias free='free -h'                      # show sizes for humans
+alias sl="ls"
+
+# cd by .. or ... or ... or mv file ..../.
+alias '..'='cd ..'
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
+alias -g .......='../../../../../..'
+
+alias open='xdg-open'
+alias open-ports='netstat -tulanp'
+alias genpasswd="strings /dev/urandom | grep -o '[[:alnum:]]' | head -n 30 | tr -d '\n'; echo"
+
+alias k=kubectl
+alias k-dirty="kubectl-dirty"
+alias k-pending="kubectl-pending"
+alias k-nodezone="kubectl-nodezone"
+alias k-nodex="kubectl-nodex"
+alias k-podnode="kubectl-podnode"
+alias k-all='kubectl-all'
+
+#alias yay="yay --pacman powerpill"
+alias yay-git="pacman -Qmq | grep -Ee '-(cvs|svn|git|hg|bzr|darcs)$' | yay -S --needed -"
+alias yay-installed="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
+alias yayz="yay -Slq | fzf -m --preview 'pacman -Si {1}' | xargs -ro yay -S"
+alias tmux="systemd-run --scope --user tmux"
+alias htops="HTOPRC=~/.config/htop/htoprc-s htop -d 3"

@@ -1,0 +1,5 @@
+[
+	{ "command": "move_to", "args": {"extend": false, "to": "eol"} },
+	{ "command": "insert_snippet", "args": {"contents": "{$0}"} },
+	{ "command": "run_macro_file", "args": {"file": "res://Packages/Default/Add Line in Braces.sublime-macro"} },
+]

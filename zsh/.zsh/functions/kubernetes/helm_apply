@@ -1,0 +1,33 @@
+#############################################
+# This function applies all objects in the rendered templates folder.
+# Usage: helm_apply namespace project1 [project2 ...]
+# Example 1:
+#    helm_apply logging elasticsearch metricbeat
+#
+# Example 2:
+#    sources=(elasticsearch metricbeat)
+#    helm_apply logging $sources
+#
+# This function uses this environment variable:
+#   PROJECT: to look for the rendered templates; default is ~/Projects/Docker/Orchestration.
+#
+# The files are loaded from $PROJECT/rendered/<project>/template folder. The
+# name of the project should match the input.
+#############################################
+local namespace=$1
+shift
+local arr=("$@")
+local PROJECT=$(eval echo "${PROJECT:-~/Projects/Docker/Orchestration}")
+local RENDERED=$(eval echo $PROJECT/rendered)
+if [ ! -d $RENDERED ]; then
+    echo $RENDERED "not found!"
+    return
+fi
+for p in "${arr[@]}"; do
+    local TEMPLATES=$(eval echo $(eval echo $RENDERED/$p/templates))
+    if [ ! -d $TEMPLATES ]; then
+        echo $TEMPLATES "does not exists!"
+        continue
+    fi
+    k apply --namespace $namespace --recursive -f $TEMPLATES
+done

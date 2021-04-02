@@ -1,0 +1,19 @@
+pkgname=kube-fzf
+pkgver=1.6.1
+pkgrel=1
+pkgdesc='Command-line fuzzy searching of Kubernetes pods'
+arch=(any)
+url='https://github.com/thecasualcoder/kube-fzf'
+license=(MIT)
+depends=('kubectl' 'fzf')
+source=("$pkgname-$pkgver::https://github.com/thecasualcoder/kube-fzf/archive/v$pkgver.tar.gz")
+sha512sums=('be143cbdb06cc675c45151879c8d98c4f33fd17ec5d9d838914ccc34c14bb4c7df372ce8469aa4cc1e909943bc0fa4bc8dca4b2da808382c01a9ce8f825db8e9')
+
+package() {
+  install -Dm 755 "$srcdir/$pkgname-$pkgver/findpod" "$pkgdir/usr/bin/findpod"
+  install -Dm 755 "$srcdir/$pkgname-$pkgver/execpod" "$pkgdir/usr/bin/execpod"
+  install -Dm 755 "$srcdir/$pkgname-$pkgver/tailpod" "$pkgdir/usr/bin/tailpod"
+  install -Dm 755 "$srcdir/$pkgname-$pkgver/describepod" "$pkgdir/usr/bin/describepod"
+  install -Dm 755 "$srcdir/$pkgname-$pkgver/pfpod" "$pkgdir/usr/bin/pfpod"
+  install -Dm 755 "$srcdir/$pkgname-$pkgver/kube-fzf.sh" "$pkgdir/usr/bin/kube-fzf.sh"
+}

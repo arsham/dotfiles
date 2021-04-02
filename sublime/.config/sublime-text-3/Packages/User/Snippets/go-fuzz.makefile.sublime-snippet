@@ -1,0 +1,19 @@
+<snippet>
+    <content><![CDATA[
+# Remember to add the following to your fuzz files:
+# // +build gofuzz
+
+procs=12
+
+.PHONY: build_${1:package}
+build_${1:package}:
+    go-fuzz-build -func FUNCNAME -o tmp/${1:package}-fuzz.zip github.com/PACKAGE
+
+.PHONY: ${1:package}
+${1:package}:
+    go-fuzz -bin=tmp/${1:package}-fuzz.zip -workdir=testdata/DATA -procs=\$(procs)
+
+]]></content>
+    <tabTrigger>go-fuzz</tabTrigger>
+    <scope>source.makefile</scope>
+</snippet>

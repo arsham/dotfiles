@@ -1,0 +1,23 @@
+[
+    {
+        "button": "button2",
+        "modifiers": ["super"],
+        "command": "anaconda_goto",
+        "press_command": "drag_select",
+        "context": [
+            {
+                "key": "selector",
+                "operator": "equal",
+                "operand": "source.Python (Django),source.py,source.python",
+                "match_all": true,
+            }
+        ]
+    },
+    {
+        "button": "button2",
+        "modifiers": ["ctrl"],
+        "press_command": "drag_select",
+        "command": "lsp_symbol_definition",
+        "context": [{ "key": "selector", "operator": "equal", "operand": "source.go" }],
+    },
+]

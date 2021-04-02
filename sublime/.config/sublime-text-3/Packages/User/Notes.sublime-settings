@@ -1,0 +1,10 @@
+{
+    "root": "~/Dropbox/Notes/",
+    "enable_yaml": false,
+    "note_yaml": ["tags"],
+    "list_options": {
+        "display_modified_date": false,
+        "display_folder": false,
+        "display_full_path": false
+    }
+}

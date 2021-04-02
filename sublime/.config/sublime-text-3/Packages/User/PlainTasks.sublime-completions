@@ -1,0 +1,12 @@
+{
+    "scope": "text.todo",
+    "completions": [
+        { "trigger": "m\t@medium",         "contents": "@medium" },
+        { "trigger": "n\t@do-now",         "contents": "@do-now" },
+        { "trigger": "e\t@eye-candy",      "contents": "@eye-candy" },
+        { "trigger": "i\t@important",      "contents": "@important" },
+        { "trigger": "sonic\t@sonic",      "contents": "@sonic" },
+        { "trigger": "post\t@postino",     "contents": "@postino" },
+        { "trigger": "infra\t@infra",      "contents": "@infrastructure" },
+    ]
+}

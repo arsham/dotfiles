@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -z "$1" ]
+  then
+    namespace="--all-namespaces"
+else
+    namespace="-n $1"
+fi
+
+kubectl get po $namespace | grep -v -e "1\/1\|2\/2\|3\/3\|4\/4\|5\/5" | grep -v Completed

@@ -1,0 +1,13 @@
+[
+    {"caption": "Reveal File In SideBar",      "command": "reveal_in_side_bar"},
+    {"caption": "Open Mouse Settings",         "command": "open_file", "args": {"file": "${packages}/User/Default (Linux).sublime-mousemap"}},
+    {"caption": "Open Project",                "command": "prompt_open_project_or_workspace"},
+    {"caption": "LSP: Code Actions",           "command": "lsp_code_actions"},
+    {"caption": "LSP: Find Symbol References", "command": "lsp_symbol_references"},
+    {"caption": "LSP: Go To Definition",       "command": "lsp_symbol_definition"},
+    {"caption": "LSP: Rename Symbol",          "command": "lsp_symbol_rename"},
+    {"caption": "List Commands",               "command": "list_commands" },
+    {"caption": "Toggle Line Numbers",         "command": "run_macro_file", "args": { "file": "Packages/User/Macros/toggle_line_numbers.sublime-macro" } },
+    // {"caption": "Toggle Line Numbers",         "command": "toggle_setting" ,"args": {"setting": "line_numbers"}},
+    {"caption": "Toggle Gutter",         "command": "toggle_setting" ,"args": {"setting": "gutter"}},
+]

@@ -1,0 +1,8 @@
+{
+    "env": {
+        // "GOPATH": "/home/arsham/go:/usr/lib/go",
+        "PATH": "/home/arsham/go/bin:$PATH:/usr/lib/go/bin:/usr/bin",
+        // "GO111MODULE": "auto",
+    },
+    "gohtml_extensions": [".html.go", ".tmpl"],
+}

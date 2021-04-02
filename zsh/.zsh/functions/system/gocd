@@ -1,0 +1,17 @@
+# Quick change to go project
+
+local targetlist=$(find $HOME/Projects/ -maxdepth 20 -type d -not -path '*/\.*' -not -path '*\/pkg\/mod\/*' -not -path '*\/vendor\/*')
+
+if [[ -z "$targetlist" ]]
+then
+    echo "Could not find any projects"
+    return
+fi
+if [[ "${@:1}" ]]
+then
+    local query=${@:1}
+    cd "$(echo $targetlist | fzf --preview 'ls {}' --height 80% --query $query)"
+    return
+else
+    cd "$(echo $targetlist | fzf --preview 'ls {}' --height 80%)"
+fi

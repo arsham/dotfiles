@@ -1,0 +1,2 @@
+pip list --outdated
+pip freeze | cut -d = -f 1 | grep -v '^\-e' | xargs -n 1 pip search | grep -B2 'LATEST:'

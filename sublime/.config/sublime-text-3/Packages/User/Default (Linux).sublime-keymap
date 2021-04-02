@@ -1,0 +1,157 @@
+[
+    // [ MULTI EDIT ]
+    { "keys": ["ctrl+alt+f"],        "command": "multi_find_all" },
+    // jump and remove current selection in selection_fields
+    { "keys": ["ctrl+alt+x"],        "command": "selection_fields",             "args": { "mode": "smart", "only_other": true} },
+    // add the current selections as a fields
+    { "keys": ["ctrl+alt+a"],        "command": "selection_fields",             "args": { "mode": "add" } },
+    { "keys": ["ctrl+alt+d"],        "command": "selection_fields",             "args": { "mode": "smart" } },
+
+    { "keys": ["ctrl+alt+u"],        "command": "add_last_selection" },
+    { "keys": ["ctrl+alt+c"],        "command": "cycle_through_regions" },
+    { "keys": ["ctrl+alt+n"],        "command": "normalize_region_ends" },
+    { "keys": ["ctrl+alt+,"],        "command": "split_selection" },
+    { "keys": ["ctrl+alt+s"],        "command": "strip_selection" },
+    { "keys": ["ctrl+alt+r"],        "command": "remove_empty_regions",
+        "context": [{ "key": "setting.is_widget", "operator": "equal", "operand": false}],
+    },
+
+    // [ CLIPBOARD ]
+    { "keys": ["shift+insert"],      "command": "paste",                        "args": { "clipboard": "selection" } },
+    { "keys": ["ctrl+alt+v"],        "command": "paste_from_history" },
+
+    // [ ORIGAMI ]
+    { "keys": ["super+ctrl+up"],     "command": "create_pane",                  "args": { "direction": "up" } },
+    { "keys": ["super+ctrl+right"],  "command": "create_pane",                  "args": { "direction": "right" } },
+    { "keys": ["super+ctrl+down"],   "command": "create_pane",                  "args": { "direction": "down" } },
+    { "keys": ["super+ctrl+left"],   "command": "create_pane",                  "args": { "direction": "left" } },
+
+    { "keys": ["super+alt+up"],      "command": "destroy_pane",                 "args": { "direction": "up" } },
+    { "keys": ["super+alt+right"],   "command": "destroy_pane",                 "args": { "direction": "right" } },
+    { "keys": ["super+alt+down"],    "command": "destroy_pane",                 "args": { "direction": "down" } },
+    { "keys": ["super+alt+left"],    "command": "destroy_pane",                 "args": { "direction": "left" } },
+
+    { "keys": ["super+up"],          "command": "travel_to_pane",               "args": { "direction": "up" } },
+    { "keys": ["super+right"],       "command": "travel_to_pane",               "args": { "direction": "right" } },
+    { "keys": ["super+down"],        "command": "travel_to_pane",               "args": { "direction": "down" } },
+    { "keys": ["super+left"],        "command": "travel_to_pane",               "args": { "direction": "left" } },
+
+    { "keys": ["super+shift+up"],    "command": "carry_file_to_pane",           "args": { "direction": "up" } },
+    { "keys": ["super+shift+right"], "command": "carry_file_to_pane",           "args": { "direction": "right" } },
+    { "keys": ["super+shift+down"],  "command": "carry_file_to_pane",           "args": { "direction": "down" } },
+    { "keys": ["super+shift+left"],  "command": "carry_file_to_pane",           "args": { "direction": "left" } },
+
+    { "keys": ["super+z"],           "command": "max_pane" },
+    { "keys": ["super+c"],           "command": "resize_pane",                  "args": { "orientation": "cols" } },
+    { "keys": ["super+r"],           "command": "resize_pane",                  "args": { "orientation": "rows" } },
+
+    // increase/decrease width/height
+    { "keys": ["super+,"],           "command": "pane_pane_resize",             "args": { "dimension": "width", "resize": "decrease" } },
+    { "keys": ["super+."],           "command": "pane_pane_resize",             "args": { "dimension": "width", "resize": "increase" } },
+    { "keys": ["ctrl+super+,"],      "command": "pane_pane_resize",             "args": { "dimension": "height", "resize": "decrease" } },
+    { "keys": ["ctrl+super+."],      "command": "pane_pane_resize",             "args": { "dimension": "height", "resize": "increase" } },
+
+    // [ CODE Intellisense ]
+    { "keys": ["ctrl+space"],        "command": "auto_complete",
+        "context": [{ "key": "selector", "operator": "equal", "operand": "text.9o" }],
+        "args": { "disable_auto_insert": true, "api_completions_only": true, "next_completion_if_showing": false},
+    },
+
+    { "keys": ["ctrl+.", "ctrl+g"],  "command": "gs9o_open",
+        "context": [{ "key": "selector", "operator": "equal", "operand": "source.go" }],
+        "args": { "run": ["goto.definition"], "focus_view": false, "show_view": false},
+    },
+    { "keys": ["ctrl+g"],            "command": "lsp_symbol_definition",        "context": [{ "key": "setting.lsp_active" }] },
+    { "keys": ["ctrl+g"],            "command": "anaconda_goto",                "context": [{ "key": "selector", "operator": "equal", "operand": "source.python" }] },
+
+    // { "keys": ["ctrl+g"],         "command": "go_guru_goto_definition", "context": [{ "key": "selector", "operator": "equal", "operand": "source.go" }] },
+    // { "keys": ["ctrl+g"],         "command": "go_guru_goto_definition", "args": { "output": false}, "context": [{ "key": "selector", "operator": "equal", "operand": "source.go" }] },
+    { "keys": ["ctrl+alt+shift+space"],  "command": "noop",                         "context": [{ "key": "lsp.signature_help", "operator": "equal", "operand": 0}] },
+    { "keys": ["ctrl+alt+space"],        "command": "lsp_hover",                    "context": [{ "key": "lsp.session_with_capability", "operator": "equal", "operand": "hoverProvider"}] },
+
+    // { "keys": ["ctrl+h"],            "command": "lsp_symbol_type_definition",   "context": [{ "key": "setting.lsp_active" }] },
+
+    // Go To Implementation
+    {"keys":  ["ctrl+h"],            "command": "lsp_symbol_implementation",    "context": [{"key": "setting.lsp_active"}]},
+
+     // Find Symbol References
+    { "keys": ["ctrl+alt+r"],        "command": "lsp_symbol_references",        "context": [{ "key": "setting.lsp_active" }] },
+    { "keys": ["ctrl+alt+r"],        "command": "anaconda_find_usages",         "context": [{ "key": "selector", "operator": "equal", "operand": "source.python" }] },
+
+    { "keys": ["ctrl+.", "ctrl+r"],  "command": "lsp_symbol_rename",            "context": [{ "key": "setting.lsp_active" }] },
+    { "keys": ["ctrl+r"],            "command": "anaconda_rename",              "context": [{ "key": "selector", "operator": "equal", "operand": "source.python" }] },
+
+    { "keys": ["ctrl+.", "ctrl+f"],  "command": "lsp_code_actions",             "context": [{ "key": "setting.lsp_active" }] },
+
+    // Symbol Hover
+    { "keys": ["ctrl+alt+h"],        "command": "lsp_hover",                    "context": [{ "key": "setting.lsp_active" }]},
+
+    // Next/Prevous diagnostics
+    { "keys": ["ctrl+alt+k"],        "command": "lsp_next_diagnostic",          "context": [{ "key": "setting.lsp_active" }] },
+    { "keys": ["shift+ctrl+alt+k"],  "command": "lsp_previous_diagnostic",      "context": [{ "key": "setting.lsp_active" }] },
+
+    // Show a list of available LSP commands
+    { "keys": ["ctrl+.", "ctrl+l"],  "command": "show_overlay",
+        "args": {"overlay": "command_palette", "text": "LSP: ", },
+        "context": [{ "key": "selector", "operator": "equal", "operand": "source.go" }],
+    },
+
+    // [ CODE NAVIGATION ]
+    { "keys": ["alt+z"],             "command": "jump_back" },
+    { "keys": ["alt+shift+z"],       "command": "jump_forward" },
+
+    // [ BOOKMARKS ]
+    { "keys": ["ctrl+b", "ctrl+b"],  "command": "toggle_bookmark" },
+    { "keys": ["ctrl+b", "ctrl+n"],  "command": "next_bookmark" },
+    { "keys": ["ctrl+b", "ctrl+p"],  "command": "prev_bookmark" },
+    { "keys": ["ctrl+b", "ctrl+c"],  "command": "clear_bookmarks" },
+    { "keys": ["ctrl+b", "ctrl+a"],  "command": "select_all_bookmarks" },
+
+    { "keys": ["ctrl+alt+b", "ctrl+alt+b"], "command": "sublime_bookmark", "args" : { "type" : "add"  } },
+    { "keys": ["ctrl+alt+b", "ctrl+alt+n"], "command": "sublime_bookmark", "args" : { "type" : "goto_next" } },
+    { "keys": ["ctrl+alt+b", "ctrl+alt+p"], "command": "sublime_bookmark", "args" : { "type" : "goto_previous" } },
+    { "keys": ["ctrl+alt+b", "ctrl+alt+g"], "command": "sublime_bookmark", "args" : { "type" : "goto" } },
+    { "keys": ["ctrl+alt+b", "ctrl+alt+t"], "command": "sublime_bookmark", "args" : { "type" : "toggle_line"  } },
+
+    // [ MARKS ]
+    { "keys": ["ctrl+k", "ctrl+space"], "command": "set_mark" },
+    { "keys": ["ctrl+k", "ctrl+a"],  "command": "select_to_mark" },
+    { "keys": ["ctrl+k", "ctrl+w"],  "command": "delete_to_mark" },
+    { "keys": ["ctrl+k", "ctrl+x"],  "command": "swap_with_mark" },
+    { "keys": ["ctrl+k", "ctrl+g"],  "command": "clear_bookmarks",              "args": { "name": "mark" } },
+    { "keys": ["ctrl+k", "ctrl+y"],  "command": "yank" },
+
+    // [ FONTS ]
+    // { "keys": ["ctrl+shift+8"],      "command": "previous_font" },
+    // { "keys": ["ctrl+shift+9"],      "command": "next_font" },
+
+    // [ MISC ]
+    { "keys": ["ctrl+shift+enter"],  "command": "run_macro_file",
+        "args": { "file": "res://Packages/Default/Add Line Before.sublime-macro" },
+    },
+    { "keys": ["ctrl+alt+o"],        "command": "project_manager",              "args": { "action": "new" } },
+    { "keys": ["super+a"],           "command": "alignment" },
+
+    // [ MY MACROS ]
+    { "keys": ["ctrl+alt+enter"],    "command": "run_macro_file",               "args": { "file": "Packages/User/Macros/bracket_end_return.sublime-macro" } },
+    { "keys": ["ctrl+,"],            "command": "run_macro_file",               "args": { "file": "Packages/User/Macros/comma_at_eol.sublime-macro" } },
+    { "keys": ["ctrl+shift+;"],      "command": "run_macro_file",               "args": { "file": "Packages/User/Macros/colon_at_eol.sublime-macro" } },
+
+    // [ TERMINUS ]
+    { "keys": ["alt+`"],             "command": "toggle_terminus_panel" },
+    { "keys": ["ctrl+alt+t"],        "command": "terminus_open",
+        "args": {
+            "post_window_hooks": [
+                ["carry_file_to_pane", {"direction": "down"}]
+            ]
+        }
+    },
+    { "keys": ["ctrl+d"], "command": "terminus_close", "context": [{ "key": "terminus_view"}] },
+    // { "keys": ["up"], "command": "terminus_keypress", "args": {"key": "pageup"}, "context": [{"key": "terminus_view"}] },
+    // { "keys": ["down"], "command": "terminus_keypress", "args": {"key": "pagedown"}, "context": [{"key": "terminus_view"}] },
+    { "keys": ["shift+pageup"], "command": "scroll_lines", "args" : {"amount": 50.0}, "context": [{"key": "terminus_view"}] },
+    { "keys": ["shift+pagedown"], "command": "scroll_lines", "args" : {"amount": -50.0}, "context": [{"key": "terminus_view"}] },
+
+    { "keys": ["ctrl+r"], "command": "st_execute",     "context": [{ "key": "selector", "operator": "equal", "operand": "source.sql" }] },
+    { "keys": ["ctrl+r"], "command": "requester",      "context": [{ "key": "selector", "operator": "equal", "operand": "source.requester, source.requester-response" }] },
+]

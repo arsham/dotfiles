@@ -1,0 +1,13 @@
+del_stopped gimp
+xhost local:$(whoami)
+
+docker run --rm -it \
+    -v /etc/localtime:/etc/localtime:ro \
+    -v /tmp/.X11-unix:/tmp/.X11-unix \
+    -e DISPLAY=unix$DISPLAY \
+    -v $HOME/Pictures:/root/Pictures \
+    -v $HOME/.gtkrc:/root/.gtkrc \
+    -e GDK_SCALE \
+    -e GDK_DPI_SCALE \
+    --name gimp \
+    jess/gimp

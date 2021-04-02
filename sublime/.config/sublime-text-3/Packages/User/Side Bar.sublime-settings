@@ -1,0 +1,20 @@
+{
+    "statusbar_file_size": true,
+    "disabled_menuitem_edit": true,
+    "disabled_menuitem_open_run": true,
+    "disabled_menuitem_open_in_new_window": true,
+    "disabled_menuitem_find_in_project": true,
+    "disabled_menuitem_copy_name": true,
+    "disabled_menuitem_copy_path": true,
+    "disabled_menuitem_folder_save": true,
+    "disabled_menuitem_folder_close": true,
+    "default_browser": "chrome",
+    "open_all_browsers": [
+        "chrome",
+        "chromium",
+        "firefox",
+        "opera",
+        "vivaldi",
+    ],
+    "use_powershell": false,
+}

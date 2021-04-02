@@ -1,0 +1,25 @@
+{
+    "patterns": {
+        "TODO": "TODO[\\s]*?:[\\s]*(?P<todo>.*)$",
+        "TEST": "TEST[\\s]*?:[\\s]*(?P<test>.*)$",
+        "NOTE": "NOTE[\\s]*?:[\\s]*(?P<note>.*)$",
+        "FIXME": "FIX ?ME[\\s]*?:[\\s]*(?P<fixme>.*)$",
+        "CHECK": "CHECK[\\s]*?:[\\s]*(?P<check>.*)$",
+        "IDEA": "IDEA[\\s]*?:[\\s]*(?P<idea>.*)$",
+        "PLAN": "PLAN[\\s]*?:[\\s]*(?P<plan>.*)$",
+    },
+    "patterns_weight": {
+        "FIXME": 0,
+        "TEST": 1,
+        "CHECK": 2,
+        "PLAN": 3,
+        "TODO": 4,
+        "NOTE": 5,
+        "IDEA": 6,
+    },
+
+    "exclude_folders": [
+        "*.git*",
+        "vendor/*",
+    ],
+}

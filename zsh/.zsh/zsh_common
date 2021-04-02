@@ -1,0 +1,25 @@
+# ignoring some lines to be written in history.
+function zshaddhistory() {
+    emulate -L zsh
+    if [[ $1 =~ "^kill\ *|^less\ *|^man\ *|^rm\ *|^cat\ *\>|^dd\ *|^locate\ *|^cd\ *|^ls\ *|^which\ *|^where\ *|^file\ *" ]]; then
+        return 1
+    fi
+}
+
+[ -f $HOME/.zaliases ] && source $HOME/.zaliases
+
+source $ZSH_HOME/fzf/fzf.zsh
+
+if [[ -d $ZSH_HOME/functions ]]; then
+   for func in $(find $ZSH_HOME/functions -type f -exec realpath {} +); do
+      unhash -f $func 2>/dev/null
+      # autoload +X $func
+      autoload -z $func
+   done
+fi
+
+if [[ -d $ZSH_HOME/widgets ]]; then
+   for func in $(find $ZSH_HOME/widgets -type f -exec realpath {} +); do
+      source $func
+   done
+fi

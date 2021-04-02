@@ -1,0 +1,7 @@
+[
+	{ "command": "set_mark" },
+	{ "command": "move_to", "args": {"to": "eol"} },
+	{ "command": "insert", "args": {"characters": ":"} },
+	{ "command": "swap_with_mark" },
+	{ "command": "clear_bookmarks", "args": {"name": "mark"} },
+]

@@ -1,0 +1,16 @@
+robbyrussell/oh-my-zsh
+romkatv/powerlevel10k
+sorin-ionescu/prezto path:modules/ssh
+Aloxaf/fzf-tab
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions
+robbyrussell/oh-my-zsh path:plugins/golang
+# zsh-users/zsh-syntax-highlighting
+zdharma/fast-syntax-highlighting
+
+# robbyrussell/oh-my-zsh path:plugins/command-not-found
+# robbyrussell/oh-my-zsh path:plugins/colored-man-pages
+# RobSis/zsh-completion-generator
+# robbyrussell/oh-my-zsh path:plugins/emoji
+# jeffreytse/zsh-vi-mode
+

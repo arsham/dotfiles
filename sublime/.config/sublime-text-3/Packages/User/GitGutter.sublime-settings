@@ -1,0 +1,7 @@
+// GitGutter Settings - User
+{
+    "theme": "Default HiDPI.gitgutter-theme",
+    "live_mode": false,
+    "show_status_bar_text": false,
+    "show_line_annotation": false,
+}

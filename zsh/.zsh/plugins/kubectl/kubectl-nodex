@@ -1,0 +1,2 @@
+#!/bin/bash
+kubectl get nodes -L beta.kubernetes.io/instance-type,kops.k8s.io/instancegroup,failure-domain.beta.kubernetes.io/zone
