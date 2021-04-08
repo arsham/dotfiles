@@ -14,6 +14,4 @@
 \pset border 2
 \set paste
 \set clear '\\! clear;'
--- personal settings, place your own file in ~/.psqlrc.local
-\i ~/.psqlrc.local
 \unset QUIET

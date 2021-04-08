@@ -34,6 +34,6 @@ enable_mouse=1
 delay=3
 left_meters=CPU Memory Swap
 left_meter_modes=1 1 1
-right_meters=LoadAverage DiskIO NetworkIO
+right_meters=Uptime DiskIO NetworkIO
 right_meter_modes=2 2 2
 hide_function_bar=0

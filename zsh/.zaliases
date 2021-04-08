@@ -33,3 +33,4 @@ alias yay-installed="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=revers
 alias yayz="yay -Slq | fzf -m --preview 'pacman -Si {1}' | xargs -ro yay -S"
 alias tmux="systemd-run --scope --user tmux"
 alias htops="HTOPRC=~/.config/htop/htoprc-s htop -d 3"
+alias vim="nvim"
