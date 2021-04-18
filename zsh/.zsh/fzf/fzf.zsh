@@ -8,8 +8,7 @@
 
 # Default key bindings
 # ------------
-# source "$DOTFILES/fzf/key-bindings.zsh"
-source "/usr/share/fzf/key-bindings.zsh"
+# source "/usr/share/fzf/key-bindings.zsh"
 
 export FZF_DEFAULT_OPTS="
 --height=80%
@@ -20,10 +19,10 @@ export FZF_DEFAULT_OPTS="
 --bind alt-j:preview-down,alt-k:preview-up
 --multi
 --info=inline
---preview-window=:hidden
 --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
 --bind '?:toggle-preview'
 --bind 'ctrl-a:select-all'
+--bind 'ctrl-f:page-down,ctrl-b:page-up'
 "
 
 
@@ -34,7 +33,7 @@ export FZF_DEFAULT_OPTS="
 
 # bindkey '^T' fzf-completion
 #export FZF_COMPLETION_TRIGGER=''
-bindkey '^I' $fzf_default_completion
+# bindkey '^I' $fzf_default_completion
 export FZF_CTRL_R_OPTS='--sort'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 export FZF_CTRL_T_OPTS="--preview 'tree -C {} | head -200'"

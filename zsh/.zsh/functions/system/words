@@ -1,0 +1,10 @@
+# Search for the words
+
+if [[ "${@:1}" ]]
+then
+    local wordlist=$(rg ${@:1} /usr/share/dict/words-insane)
+else
+    local wordlist=$(cat /usr/share/dict/words-insane)
+fi
+
+echo $wordlist | fzf --preview-window hidden | xsel -i

@@ -12,9 +12,9 @@ POWERLEVEL9K_TIME_FORMAT="%D{\uf017 %T}"
 
 ## Information about the icon unicodes are available in https://github.com/bhilburn/powerlevel9k/blob/master/functions/icons.zsh
 ## Also running get_icon_names will show you the list
-POWERLEVEL9K_HOME_ICON=$'\uE12C'
-POWERLEVEL9K_HOME_SUB_ICON=$'\uE18D'
-POWERLEVEL9K_EXECUTION_TIME_ICON=$'\UE89C'
+# POWERLEVEL9K_HOME_ICON=$'\uE12C'
+# POWERLEVEL9K_HOME_SUB_ICON=$'\uE18D'
+# POWERLEVEL9K_EXECUTION_TIME_ICON=$'\UE89C'
 POWERLEVEL9K_FOLDER_ICON=$'\uE818'
 POWERLEVEL9K_VCS_BRANCH_ICON=$'\uF126'
 POWERLEVEL9K_VCS_UNTRACKED_ICON=$'\uF059'

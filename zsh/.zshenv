@@ -24,7 +24,8 @@ setopt HIST_VERIFY               # Don't execute immediately upon history expans
 setopt share_history
 
 export PATH="/usr/lib/ccache/bin/:$HOME/go/bin:$PATH:$ZSH_HOME/plugins/git:$ZSH_HOME/plugins/kubectl"
-
+export PATH="$PATH:$HOME/.node_modules/bin"
+export npm_config_prefix=~/.node_modules
 source $ZSH_HOME/powerlevel9k.zsh-theme
 
 export WORDCHARS=""

@@ -43,8 +43,8 @@ export HISTSIZE=9999999999
 export SAVEHIST=999999999
 export LANG=en_GB.UTF-8
 export LC_CTYPE=en_GB.UTF8
-export EDITOR=nano
-export VISUAL=nano
+export EDITOR=nvim
+export VISUAL=nvim
 
 export CFLAGS="-march=native -mtune=native -O2 -pipe -fstack-protector-strong"
 export CXXFLAGS="${CFLAGS}"
@@ -79,3 +79,4 @@ figurine $(whoami)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 xset r rate 250 60
+setxkbmap -option caps:escape
