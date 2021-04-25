@@ -15,3 +15,5 @@ source /home/arsham/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-r
 fpath+=( /home/arsham/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/golang )
 source /home/arsham/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zdharma-SLASH-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 fpath+=( /home/arsham/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zdharma-SLASH-fast-syntax-highlighting )
+source /home/arsham/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-olets-SLASH-zsh-abbr/zsh-abbr.plugin.zsh
+fpath+=( /home/arsham/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-olets-SLASH-zsh-abbr )

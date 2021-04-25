@@ -1,7 +1,7 @@
 # ignoring some lines to be written in history.
 function zshaddhistory() {
     emulate -L zsh
-    if [[ $1 =~ "^kill\ *|^less\ *|^man\ *|^rm\ *|^cat\ *\>|^dd\ *|^locate\ *|^cd\ *|^ls\ *|^which\ *|^where\ *|^file\ *" ]]; then
+    if [[ $1 =~ "^kill\ *|^less\ *|^man\ *|^rm\ *|^dd\ *|^cd\ *|^ls\ *|^which\ *|^where\ *|^file\ *" ]]; then
         return 1
     fi
 }

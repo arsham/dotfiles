@@ -73,6 +73,7 @@ if [[ "$ZPROF" = true ]]; then
 fi
 
 export WORDCHARS=""
+typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile|fluxctl|stern'
 
 source $ZSH_HOME/extra/_fubectl
 figurine $(whoami)
