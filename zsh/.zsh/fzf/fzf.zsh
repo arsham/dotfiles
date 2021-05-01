@@ -10,6 +10,7 @@
 # ------------
 # source "/usr/share/fzf/key-bindings.zsh"
 
+export FZF_DEFAULT_COMMAND="fd -H -I -i -p -L --type f -E '.git'"
 export FZF_DEFAULT_OPTS="
 --height=80%
 --layout=reverse
@@ -37,3 +38,13 @@ export FZF_DEFAULT_OPTS="
 export FZF_CTRL_R_OPTS='--sort'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 export FZF_CTRL_T_OPTS="--preview 'tree -C {} | head -200'"
+
+# Use fd instead of the default find command for listing path candidates.
+_fzf_compgen_path() {
+    fd --hidden --follow --exclude ".git" . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+    fd --type d --hidden --follow --exclude ".git" . "$1"
+}

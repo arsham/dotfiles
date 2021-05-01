@@ -1,6 +1,6 @@
 # Quick change to go project
 
-local targetlist=$(find $HOME/Projects/ -type d -not -path '*/\.*' -not -path '*\/pkg\/mod\/*' -not -path '*\/vendor\/*')
+local targetlist=$(fd -H -I -i -p -L --type d -E '.git' -E 'pkg/mod' -E 'vendor' '' $HOME/Projects)
 
 if [[ -z "$targetlist" ]]
 then
