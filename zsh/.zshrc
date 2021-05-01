@@ -1,3 +1,11 @@
+figurine $(whoami)
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # To improve performance, see https://htr3n.github.io/2018/07/faster-zsh/
 
 # To profile zsh startup, uncomment the followin.
@@ -73,11 +81,13 @@ if [[ "$ZPROF" = true ]]; then
 fi
 
 export WORDCHARS=""
-typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile|fluxctl|stern'
+bindkey -v
 
 source $ZSH_HOME/extra/_fubectl
-figurine $(whoami)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 xset r rate 250 60
 setxkbmap -option caps:escape
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f $ZSH_HOME/p10k.zsh ]] || source $ZSH_HOME/p10k.zsh
