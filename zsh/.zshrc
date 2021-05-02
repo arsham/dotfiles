@@ -82,6 +82,7 @@ fi
 
 export WORDCHARS=""
 bindkey -v
+bindkey '^x^e' edit-command-line
 
 source $ZSH_HOME/extra/_fubectl
 
