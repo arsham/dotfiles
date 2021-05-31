@@ -2,3 +2,4 @@ autoload/plugin.vim
 plugged/
 tmp/
 settings/sql_connections.vim
+.netrwhist
