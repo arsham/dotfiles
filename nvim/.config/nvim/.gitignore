@@ -3,3 +3,4 @@ plugged/
 tmp/
 settings/sql_connections.vim
 .netrwhist
+plugin/packer_compiled.lua

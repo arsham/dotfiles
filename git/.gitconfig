@@ -1,7 +1,5 @@
 [color]
     ui = true
-[diff]
-    wsErrorHighlight = all
 [user]
     email = arshamshirvani@gmail.com
     name = Arsham Shirvani
@@ -9,6 +7,7 @@
 [core]
     excludesfile = /home/arsham/.gitignore
     pager = sed 's/\t/.   /g' | less -R
+    editor = nvim
 [push]
     default = simple
 [alias]
@@ -36,3 +35,22 @@
 	insteadOf = https://github.com/
 [pull]
 	rebase = false
+[diff]
+    wsErrorHighlight = all
+	tool = vimdiff3
+[difftool]
+    prompt = false
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[merge]
+	tool = vimdiff
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
+	keepBackup = false
+[mergetool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c 'wincmd w' -c 'wincmd J'"
+[mergetool "vimdiff"]
+	path = nvim
+[difftool "vimdiff3"]
+	path = nvim
