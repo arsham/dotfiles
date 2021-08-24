@@ -105,7 +105,7 @@
   typeset -g POWERLEVEL9K_MODE=nerdfont-complete
   # When set to `moderate`, some icons will have an extra space after them. This is meant to avoid
   # icon overlap when using non-monospace fonts. When set to `none`, spaces are not added.
-  typeset -g POWERLEVEL9K_ICON_PADDING=moderate
+  typeset -g POWERLEVEL9K_ICON_PADDING=none
 
   # When set to true, icons appear before content on both sides of the prompt. When set
   # to false, icons go after content. If empty or not set, icons go before content in the left
@@ -157,7 +157,7 @@
   # Separator between different-color segments on the left.
   typeset -g POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR='\uE0BC '
   # Separator between different-color segments on the right.
-  typeset -g POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\uE0BA '
+  typeset -g POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR='\uE0BA'
   # The right end of left prompt.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL='\uE0B0'
   # The left end of right prompt.
@@ -356,7 +356,7 @@
 
   # Formatter for Git status.
   #
-  # Example output: master ⇣42⇡42 *42 merge ~42 +42 !42 ?42.
+  # Example output: master wip ⇣42⇡42 *42 merge ~42 +42 !42 ?42.
   #
   # You can edit the function to customize how Git status looks.
   #
@@ -413,7 +413,12 @@
       res+="${meta}:${clean}${(V)VCS_STATUS_REMOTE_BRANCH//\%/%%}"
     fi
 
-    #" ⇣42 if behind the remote.
+    # Display "wip" if the latest commit's summary contains "wip" or "WIP".
+    if [[ $VCS_STATUS_COMMIT_SUMMARY == (|*[^[:alnum:]])(wip|WIP)(|[^[:alnum:]]*) ]]; then
+      res+=" ${modified}wip"
+    fi
+
+    # ⇣42 if behind the remote.
     (( VCS_STATUS_COMMITS_BEHIND )) && res+=" ${clean}⇣${VCS_STATUS_COMMITS_BEHIND}"
     # ⇡42 if ahead of the remote; no leading space if also behind the remote: ⇣42⇡42.
     (( VCS_STATUS_COMMITS_AHEAD && !VCS_STATUS_COMMITS_BEHIND )) && res+=" "
@@ -438,7 +443,7 @@
     # Remove the next line if you don't want to see untracked files at all.
     (( VCS_STATUS_NUM_UNTRACKED  )) && res+=" ${untracked}${(g::)POWERLEVEL9K_VCS_UNTRACKED_ICON}${VCS_STATUS_NUM_UNTRACKED}"
     # "─" if the number of unstaged files is unknown. This can happen due to
-    #" POWERLEVEL9K_VCS_MAX_INDEX_SIZE_DIRTY (see below) being set to a non-negative number lower
+    # POWERLEVEL9K_VCS_MAX_INDEX_SIZE_DIRTY (see below) being set to a non-negative number lower
     # than the number of files in the Git index, or due to bash.showDirtyState being set to false
     # in the repository config. The number of staged and untracked files may also be unknown
     # in this case.
@@ -733,6 +738,13 @@
   # Custom icon.
   # typeset -g POWERLEVEL9K_NNN_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
+  ##################[ xplr: xplr shell (https://github.com/sayanarijit/xplr) ]##################
+  # xplr shell color.
+  typeset -g POWERLEVEL9K_XPLR_FOREGROUND=0
+  typeset -g POWERLEVEL9K_XPLR_BACKGROUND=6
+  # Custom icon.
+  # typeset -g POWERLEVEL9K_XPLR_VISUAL_IDENTIFIER_EXPANSION='⭐'
+
   ###########################[ vim_shell: vim shell indicator (:sh) ]###########################
   # Vim shell indicator color.
   typeset -g POWERLEVEL9K_VIM_SHELL_FOREGROUND=0
@@ -973,10 +985,10 @@
   #
   # The default format has the following logic:
   #
-  # 1. Display "$P9K_CONTENT $P9K_PYENV_PYTHON_VERSION" if $P9K_PYENV_PYTHON_VERSION is not
-  #   empty and unequal to $P9K_CONTENT.
-  # 2. Otherwise display just "$P9K_CONTENT".
-  typeset -g POWERLEVEL9K_PYENV_CONTENT_EXPANSION='${P9K_CONTENT}${${P9K_PYENV_PYTHON_VERSION:#$P9K_CONTENT}:+ $P9K_PYENV_PYTHON_VERSION}'
+  # 1. Display just "$P9K_CONTENT" if it's equal to "$P9K_PYENV_PYTHON_VERSION" or
+  #    starts with "$P9K_PYENV_PYTHON_VERSION/".
+  # 2. Otherwise display "$P9K_CONTENT $P9K_PYENV_PYTHON_VERSION".
+  typeset -g POWERLEVEL9K_PYENV_CONTENT_EXPANSION='${P9K_CONTENT}${${P9K_CONTENT:#$P9K_PYENV_PYTHON_VERSION(|/*)}:+ $P9K_PYENV_PYTHON_VERSION}'
 
   # Custom icon.
   # typeset -g POWERLEVEL9K_PYENV_VISUAL_IDENTIFIER_EXPANSION='⭐'
@@ -1258,10 +1270,20 @@
   typeset -g POWERLEVEL9K_TERRAFORM_OTHER_BACKGROUND=0
   # typeset -g POWERLEVEL9K_TERRAFORM_OTHER_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
+  #############[ terraform_version: terraform version (https://www.terraform.io) ]##############
+  # Terraform version color.
+  typeset -g POWERLEVEL9K_TERRAFORM_VERSION_FOREGROUND=4
+  typeset -g POWERLEVEL9K_TERRAFORM_VERSION_BACKGROUND=0
+  # Custom icon.
+  # typeset -g POWERLEVEL9K_TERRAFORM_VERSION_VISUAL_IDENTIFIER_EXPANSION='⭐'
+
+  ################[ terraform_version: It shows active terraform version (https://www.terraform.io) ]#################
+  typeset -g POWERLEVEL9K_TERRAFORM_VERSION_SHOW_ON_COMMAND='terraform|tf'
+
   #############[ kubecontext: current kubernetes context (https://kubernetes.io/) ]#############
   # Show kubecontext only when the the command you are typing invokes one of these tools.
   # Tip: Remove the next line to always show kubecontext.
-  typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile|fluxctl|stern'
+  typeset -g POWERLEVEL9K_KUBECONTEXT_SHOW_ON_COMMAND='kubectl|helm|kubens|kubectx|oc|istioctl|kogito|k9s|helmfile|flux|fluxctl|stern'
 
   # Kubernetes context classes for the purpose of using different colors, icons and expansions with
   # different contexts.
@@ -1382,6 +1404,12 @@
   typeset -g POWERLEVEL9K_AWS_DEFAULT_FOREGROUND=7
   typeset -g POWERLEVEL9K_AWS_DEFAULT_BACKGROUND=1
   # typeset -g POWERLEVEL9K_AWS_DEFAULT_VISUAL_IDENTIFIER_EXPANSION='⭐'
+
+  # AWS segment format. The following parameters are available within the expansion.
+  #
+  # - P9K_AWS_PROFILE  The name of the current AWS profile.
+  # - P9K_AWS_REGION   The region associated with the current AWS profile.
+  typeset -g POWERLEVEL9K_AWS_CONTENT_EXPANSION='${P9K_AWS_PROFILE//\%/%%}${P9K_AWS_REGION:+ ${P9K_AWS_REGION//\%/%%}}'
 
   #[ aws_eb_env: aws elastic beanstalk environment (https://aws.amazon.com/elasticbeanstalk/) ]#
   # AWS Elastic Beanstalk environment color.
@@ -1528,13 +1556,15 @@
   # The following parameters are accessible within the expansion:
   #
   #   Parameter             | Meaning
-  #   ----------------------+---------------
-  #   P9K_IP_IP         | IP address
-  #   P9K_IP_INTERFACE  | network interface
-  #   P9K_IP_RX_BYTES   | total number of bytes received
-  #   P9K_IP_TX_BYTES   | total number of bytes sent
-  #   P9K_IP_RX_RATE    | receive rate (since last prompt)
-  #   P9K_IP_TX_RATE    | send rate (since last prompt)
+  #   ----------------------+-------------------------------------------
+  #   P9K_IP_IP             | IP address
+  #   P9K_IP_INTERFACE      | network interface
+  #   P9K_IP_RX_BYTES       | total number of bytes received
+  #   P9K_IP_TX_BYTES       | total number of bytes sent
+  #   P9K_IP_RX_BYTES_DELTA | number of bytes received since last prompt
+  #   P9K_IP_TX_BYTES_DELTA | number of bytes sent since last prompt
+  #   P9K_IP_RX_RATE        | receive rate (since last prompt)
+  #   P9K_IP_TX_RATE        | send rate (since last prompt)
   typeset -g POWERLEVEL9K_IP_CONTENT_EXPANSION='${P9K_IP_RX_RATE:+⇣$P9K_IP_RX_RATE }${P9K_IP_TX_RATE:+⇡$P9K_IP_TX_RATE }$P9K_IP_IP'
   # Show information for the first network interface whose name matches this regular expression.
   # Run `ifconfig` or `ip -4 a show` to see the names of all network interfaces.
@@ -1646,7 +1676,7 @@
   #   - always:   Trim down prompt when accepting a command line.
   #   - same-dir: Trim down prompt when accepting a command line unless this is the first command
   #               typed after changing current working directory.
-  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=always
+  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=same-dir
 
   # Instant prompt mode.
   #
