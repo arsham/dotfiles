@@ -13,17 +13,17 @@
 export FZF_DEFAULT_COMMAND="fd -H -I -i -p -L --type f -E '.git'"
 export FZF_DEFAULT_OPTS="
 --height=80%
---layout=reverse
---border
---color dark,hl:33,hl+:37,fg+:235,bg+:136,fg+:254
+--color dark,hl:33,hl+:37,fg+:235,bg+:136,fg+:254,bg:#1F2527
 --color info:254,prompt:37,spinner:108,pointer:235,marker:235
---bind alt-j:preview-down,alt-k:preview-up
 --multi
 --info=inline
 --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
+--preview-window hidden,border-none
 --bind '?:toggle-preview'
 --bind 'ctrl-a:select-all'
+--bind 'alt-j:preview-down,alt-k:preview-up'
 --bind 'ctrl-f:page-down,ctrl-b:page-up'
+--bind 'tab:toggle-out,shift-tab:toggle-in'
 "
 
 
@@ -33,11 +33,11 @@ export FZF_DEFAULT_OPTS="
 # '^]' is for ALT
 
 # bindkey '^T' fzf-completion
-#export FZF_COMPLETION_TRIGGER=''
+# export FZF_COMPLETION_TRIGGER=''
 # bindkey '^I' $fzf_default_completion
-export FZF_CTRL_R_OPTS='--sort'
-export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
-export FZF_CTRL_T_OPTS="--preview 'tree -C {} | head -200'"
+export FZF_CTRL_R_OPTS='--sort --layout=reverse'
+export FZF_ALT_C_OPTS="--preview -m 'tree -C {} | head -200'"
+export FZF_CTRL_T_OPTS="--preview -m 'tree -C {} | head -200'"
 
 # Use fd instead of the default find command for listing path candidates.
 _fzf_compgen_path() {

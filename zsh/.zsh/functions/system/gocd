@@ -10,7 +10,7 @@ fi
 
 if [[ "${@:1}" ]]
 then
-    cd "$(echo $targetlist | fzf +m --query ${1:-})"
+    cd "$(echo $targetlist | fzf +m --preview-window=nohidden,border --query ${1:-})"
 else
-    cd "$(echo $targetlist | fzf +m)"
+    cd "$(echo $targetlist | fzf +m --preview-window=nohidden,border)"
 fi
