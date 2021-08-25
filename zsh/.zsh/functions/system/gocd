@@ -1,6 +1,6 @@
 # Quick change to go project
 
-local targetlist=$(fd -H -I -i -p -L --type d -E '.git' -E 'pkg/mod' -E 'vendor' '' $HOME/Projects)
+local targetlist=$(fd -H -I -i -p -L --type d -E '.git' -E 'pkg/mod' -E 'vendor' -E 'node_modules' '' $HOME/Projects $HOME/dotfiles)
 
 if [[ -z "$targetlist" ]]
 then
