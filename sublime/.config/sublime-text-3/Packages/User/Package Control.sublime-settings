@@ -39,6 +39,8 @@
         "LSP-dockerfile",
         "LSP-json",
         "LSP-yaml",
+        "LuaAutocomplete",
+        "LuaExtended",
         "Macroptimize",
         "MarkdownPreview",
         "Material Theme",
@@ -69,6 +71,7 @@
         "Unicode Character Highlighter",
         "UnicodeMath",
         "URLEncode",
+        "Vintageous",
         "ZSH",
     ],
     "repositories":

@@ -32,9 +32,13 @@
     { "keys": ["super+alt+left"],    "command": "destroy_pane",                 "args": { "direction": "left" } },
 
     { "keys": ["super+up"],          "command": "travel_to_pane",               "args": { "direction": "up" } },
+    { "keys": ["ctrl+k"],          "command": "travel_to_pane",               "args": { "direction": "up" } },
     { "keys": ["super+right"],       "command": "travel_to_pane",               "args": { "direction": "right" } },
+    { "keys": ["ctrl+l"],       "command": "travel_to_pane",               "args": { "direction": "right" } },
     { "keys": ["super+down"],        "command": "travel_to_pane",               "args": { "direction": "down" } },
+    { "keys": ["ctrl+j"],        "command": "travel_to_pane",               "args": { "direction": "down" } },
     { "keys": ["super+left"],        "command": "travel_to_pane",               "args": { "direction": "left" } },
+    { "keys": ["ctrl+h"],        "command": "travel_to_pane",               "args": { "direction": "left" } },
 
     { "keys": ["super+shift+up"],    "command": "carry_file_to_pane",           "args": { "direction": "up" } },
     { "keys": ["super+shift+right"], "command": "carry_file_to_pane",           "args": { "direction": "right" } },
@@ -72,7 +76,7 @@
     // { "keys": ["ctrl+h"],            "command": "lsp_symbol_type_definition",   "context": [{ "key": "setting.lsp_active" }] },
 
     // Go To Implementation
-    {"keys":  ["ctrl+h"],            "command": "lsp_symbol_implementation",    "context": [{"key": "setting.lsp_active"}]},
+    // {"keys":  ["ctrl+h"],            "command": "lsp_symbol_implementation",    "context": [{"key": "setting.lsp_active"}]},
 
      // Find Symbol References
     { "keys": ["ctrl+alt+r"],        "command": "lsp_symbol_references",        "context": [{ "key": "setting.lsp_active" }] },

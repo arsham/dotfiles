@@ -328,4 +328,15 @@
 		"*.txt",
 		"*.sql",
 	],
+	"vintage_start_in_command_mode": true,
+	"vintage_use_clipboard": false,
+
+	// By default Vintage will interpret all ctrl+<key> key bindings as
+	// regular Sublime Text key bindings. Set this to true to make ctrl keys
+	// act as they do in vim, instead (e.g., ctrl+f to move forward a page).
+	"vintage_ctrl_keys": false,
+
+	// relative_line_numbers will draw each line number as the distance from
+	// the current line. Useful in conjunction with Vintage.
+	"relative_line_numbers": true,
 }
