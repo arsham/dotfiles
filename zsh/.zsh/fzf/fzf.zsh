@@ -20,7 +20,7 @@ export FZF_DEFAULT_OPTS="
 --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
 --preview-window hidden,border-none
 --bind '?:toggle-preview'
---bind 'ctrl-a:select-all'
+--bind 'ctrl-a:select-all,ctrl-d:deselect-all'
 --bind 'alt-j:preview-down,alt-k:preview-up'
 --bind 'ctrl-f:page-down,ctrl-b:page-up'
 --bind 'tab:toggle-out,shift-tab:toggle-in'
@@ -36,8 +36,8 @@ export FZF_DEFAULT_OPTS="
 # export FZF_COMPLETION_TRIGGER=''
 # bindkey '^I' $fzf_default_completion
 export FZF_CTRL_R_OPTS='--sort --layout=reverse'
-export FZF_ALT_C_OPTS="--preview -m 'tree -C {} | head -200'"
-export FZF_CTRL_T_OPTS="--preview -m 'tree -C {} | head -200'"
+export FZF_ALT_C_OPTS="--preview -m"
+export FZF_CTRL_T_OPTS="--preview -m"
 
 # Use fd instead of the default find command for listing path candidates.
 _fzf_compgen_path() {
