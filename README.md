@@ -24,3 +24,15 @@ configurations.
 Almost everything is setup with lua. The aim to have a fast start-up time and
 provide the functionalities I need for day-to-day tasks. At the moment it takes
 about 20ms to start.
+
+You can read more about it [here](./nvim/.config/nvim/README.md).
+
+## Tmux
+
+Nothing special [here](./tmux/.tmux.conf), just is functional with my vim
+setup.
+
+## Kitty
+
+I have disabled a few of the default key bindings because I wanted full control
+to what I can do with vim.
