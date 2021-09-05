@@ -11,6 +11,14 @@ If you need only the `nvim` setup:
 stow nvim
 ```
 
+## Polybar
+
+![Polybar](./polybar/.config/polybar/images/polybar.laptop.1.png?raw=true "Polybar")
+
+I've tried to make this work on my laptop, which has a HiDPI setup, and on my
+desktop. They share most of the setup, however they come with specific
+configurations.
+
 ## Nvim
 
 Almost everything is setup with lua. The aim to have a fast start-up time and
