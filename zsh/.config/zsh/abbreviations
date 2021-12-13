@@ -1,5 +1,4 @@
 abbr -g vimconf="~/.config/nvim"
-abbr k="kubectl"
 abbr k-all="kubectl-all"
 abbr k-dirty="kubectl-dirty"
 abbr k-nodex="kubectl-nodex"

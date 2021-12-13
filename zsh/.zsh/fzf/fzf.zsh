@@ -8,7 +8,7 @@
 
 # Default key bindings
 # ------------
-# source "/usr/share/fzf/key-bindings.zsh"
+[[ -f "/usr/share/fzf/key-bindings.zsh" ]] && source "/usr/share/fzf/key-bindings.zsh"
 
 export FZF_DEFAULT_COMMAND="fd -H -I -i -p -L --type f -E '.git'"
 export FZF_DEFAULT_OPTS="
