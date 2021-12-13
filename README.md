@@ -36,3 +36,8 @@ setup.
 
 I have disabled a few of the default key bindings because I wanted full control
 to what I can do with vim.
+
+## Sublime text
+
+I have been using ST for years and I absolutely love it. But I have stopped
+using it as I found myself more productive with vim.
