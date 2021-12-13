@@ -3,7 +3,7 @@
 [user]
     email = arshamshirvani@gmail.com
     name = Arsham Shirvani
-	signingkey = CD1DF4EEAA9655CE99B991EFBB208F95160CE40E
+    signingkey = CD1DF4EEAA9655CE99B991EFBB208F95160CE40E
 [core]
     excludesfile = /home/arsham/.gitignore
     pager = sed 's/\t/.   /g' | less -R
@@ -27,31 +27,33 @@
 [http]
     sslVerify = true
 [gpg]
-	program = gpg2
+    program = gpg2
 [commit]
-	gpgSign = true
+    gpgSign = true
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+    insteadOf = https://github.com/
 [pull]
-	rebase = false
+    rebase = false
 [diff]
     wsErrorHighlight = all
-	tool = vimdiff3
+    tool = vimdiff3
 [difftool]
     prompt = false
-	trustExitCode = true
+    trustExitCode = true
 [difftool "nvimdiff"]
     cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [merge]
-	tool = vimdiff
-	conflictstyle = diff3
+    tool = vimdiff
+    conflictstyle = diff3
 [mergetool]
-	prompt = false
-	keepBackup = false
-	trustExitCode = true
+    prompt = false
+    keepBackup = false
+    trustExitCode = true
 [mergetool "nvimdiff"]
     cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c 'wincmd w' -c 'wincmd J'"
 [mergetool "vimdiff"]
-	path = nvim
+    path = nvim
 [difftool "vimdiff3"]
-	path = nvim
+    path = nvim
+[github]
+	user = arsham
