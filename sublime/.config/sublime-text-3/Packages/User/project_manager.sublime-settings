@@ -1,3 +1,4 @@
 {
-    "projects_path":["/home/arsham/Projects/Sublime Text Projects"],
+    /*"projects_path":["/home/arsham/Projects/Sublime Text Projects"],*/
+    "projects": "/home/arsham/Projects/Sublime Text Projects",
 }

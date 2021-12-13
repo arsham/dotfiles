@@ -172,6 +172,7 @@
 		"TCL",
 		"Unicode Character Highlighter",
 		"Vintage",
+		"Vintageous",
 	],
 	"ignored_words":
 	[
@@ -293,7 +294,7 @@
 		"draw_active"
 	],
 	"font_face": "Consolas",
-	"font_size": 11,
+	"font_size": 10,
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
 	"margin": -1,

@@ -158,4 +158,6 @@
 
     { "keys": ["ctrl+r"], "command": "st_execute",     "context": [{ "key": "selector", "operator": "equal", "operand": "source.sql" }] },
     { "keys": ["ctrl+r"], "command": "requester",      "context": [{ "key": "selector", "operator": "equal", "operand": "source.requester, source.requester-response" }] },
+
+    { "keys": ["ctrl+p"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
 ]
