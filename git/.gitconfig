@@ -57,3 +57,5 @@
     path = nvim
 [github]
 	user = arsham
+[fetch]
+	prune = true
