@@ -8,3 +8,5 @@ else
 fi
 
 echo $wordlist | fzf --preview-window hidden | xsel -i
+
+# vim: ft=zsh
