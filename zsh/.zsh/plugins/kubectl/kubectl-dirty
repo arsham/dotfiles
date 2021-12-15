@@ -1,10 +1,8 @@
 #!/bin/bash
 
-if [ -z "$1" ]
-  then
-    namespace="--all-namespaces"
+if [ -z "$1" ]; then
+    kubectl get po --all-namespaces | awk '{split($3,a,"/"); if (a[1] != a[2] && $4 != "Completed"){print $0}}'
 else
-    namespace="-n $1"
+    kubectl get po -n $1 | awk '{split($2,a,"/"); if (a[1] != a[2] && $3 != "Completed"){print $0}}'
 fi
 
-kubectl get po $namespace | grep -v -e "1\/1\|2\/2\|3\/3\|4\/4\|5\/5" | grep -v Completed
