@@ -25,6 +25,7 @@ setopt share_history
 
 export PATH="/usr/lib/ccache/bin/:$HOME/go/bin:$PATH:$ZSH_HOME/plugins/git:$ZSH_HOME/plugins/kubectl"
 export PATH="$PATH:$HOME/.node_modules/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 export npm_config_prefix=~/.node_modules
 
 export WORDCHARS=""

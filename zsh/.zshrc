@@ -53,6 +53,7 @@ export LANG=en_GB.UTF-8
 export LC_CTYPE=en_GB.UTF8
 export EDITOR=nvim
 export VISUAL=nvim
+export MANPAGER='nvim +Man!'
 
 export CFLAGS="-march=native -mtune=native -O2 -pipe -fstack-protector-strong"
 export CXXFLAGS="${CFLAGS}"
