@@ -15,4 +15,4 @@ else
     cd "$(echo $targetlist | fzf +m --preview-window=nohidden,border)"
 fi
 
-# vim: ft=zsh
+# vim: ft=zsh:nowrap

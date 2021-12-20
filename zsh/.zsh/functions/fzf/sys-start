@@ -1,7 +1,8 @@
-sys-start() {
-  sudo systemctl list-unit-files | grep disabled | awk '{print $1}' | fzf -m |
+sudo echo '' > /dev/null
+sudo systemctl list-unit-files | grep disabled | awk '{print $1}' | fzf -m |
     while read unit; do
-      sudo systemctl start $unit &&
-        journalctl -u $unit --since "10 sec ago" --no-pager
-    done
-}
+        sudo systemctl start $unit &&
+            journalctl -u $unit --since "10 sec ago" --no-pager
+        done
+
+# vim: ft=zsh:nowrap

@@ -1,0 +1,11 @@
+# removing files with fzf
+
+if [[ "$#" -eq 0 ]]; then
+    local files
+    files=$(find . -maxdepth 1 -type f | fzf --multi)
+    echo $files | xargs -I '{}' rm {}
+else
+    command rm "$@"
+fi
+
+# vim: ft=zsh:nowrap

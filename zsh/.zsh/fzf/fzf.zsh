@@ -17,12 +17,15 @@ export FZF_DEFAULT_OPTS="
 --color info:254,prompt:37,spinner:108,pointer:235,marker:235
 --multi
 --info=inline
+--history=/home/arsham/.local/share/fzf-history/history-files
 --preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
 --preview-window hidden,border-none
 --bind '?:toggle-preview'
+--bind 'ctrl-/:change-preview-window(right,80%|hidden|right,20%|right)'
 --bind 'ctrl-a:select-all,ctrl-d:deselect-all'
 --bind 'alt-j:preview-down,alt-k:preview-up'
 --bind 'ctrl-f:page-down,ctrl-b:page-up'
+--bind alt-h:next-history,alt-l:previous-history
 --bind 'tab:toggle-out,shift-tab:toggle-in'
 "
 

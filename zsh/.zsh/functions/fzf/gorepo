@@ -1,0 +1,18 @@
+# Quick change to a repository
+
+local targetlist=$(fd -H -i -p -L --type d -d 4 -E 'pkg/mod' -E 'vendor' -E 'node_modules' '' $HOME/Projects $HOME/dotfiles | sed 's/\/.git.*//' | sort -u)
+
+if [[ -z "$targetlist" ]]
+then
+    echo "Could not find any projects"
+    return
+fi
+
+if [[ "${@:1}" ]]
+then
+    cd "$(echo $targetlist | fzf +m --preview-window=nohidden,border --query ${1:-})"
+else
+    cd "$(echo $targetlist | fzf +m --preview-window=nohidden,border)"
+fi
+
+# vim: ft=zsh:nowrap
