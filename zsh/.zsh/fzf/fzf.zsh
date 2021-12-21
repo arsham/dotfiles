@@ -24,11 +24,11 @@ export FZF_DEFAULT_OPTS="
 --bind 'ctrl-/:change-preview-window(right,80%|hidden|right,20%|right)'
 --bind 'ctrl-a:select-all,ctrl-d:deselect-all'
 --bind 'alt-j:preview-down,alt-k:preview-up'
---bind 'ctrl-f:page-down,ctrl-b:page-up'
+--bind 'alt-J:preview-bottom,alt-K:preview-top'
+--bind 'ctrl-d:page-down,ctrl-u:page-up'
 --bind alt-h:next-history,alt-l:previous-history
 --bind 'tab:toggle-out,shift-tab:toggle-in'
 "
-
 
 # note that you can get key binding codes with "showkey -a"
 # '^I' is for <tab>
