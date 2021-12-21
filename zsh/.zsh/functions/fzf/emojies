@@ -1,0 +1,3 @@
+echo $(curl -sSL 'https://git.io/JXXO7' | fzf)
+
+# vim: ft=zsh:nowrap
