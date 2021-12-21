@@ -1,7 +1,11 @@
 # killing a process with fzf
 fzf-kill() {
     local pid
-    pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+    pid=$((date; ps -ef) |
+        fzf --bind='ctrl-r:reload(date; ps -ef)' \
+            --header=$'Press CTRL-R to reload\n\n' --header-lines=2 \
+            --preview='echo {}' --preview-window=down,3,wrap \
+            --layout=reverse --height=80% | awk '{print $2}')
 
     if [ "x$pid" != "x" ]
     then
@@ -11,3 +15,5 @@ fzf-kill() {
 
 zle -N fzf-kill
 bindkey '^Q' fzf-kill
+
+# vim: ft=zsh:nowrap
