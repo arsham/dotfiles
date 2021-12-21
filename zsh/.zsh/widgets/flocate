@@ -6,5 +6,8 @@ fzf-locate-widget() {
     zle redisplay
 }
 
+# Alt-i
 zle     -N    fzf-locate-widget
 bindkey '\ei' fzf-locate-widget
+
+# vim: ft=zsh:nowrap

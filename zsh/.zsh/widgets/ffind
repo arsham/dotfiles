@@ -1,0 +1,27 @@
+# find files/folders under current location
+fzf-find() {
+    local selected
+    local query=$(echo $LBUFFER | awk '{print $NF}')
+    local rest=$(echo $LBUFFER | sed '$s/\w*$//')
+    local last_char=$(echo $LBUFFER | sed 's/.*\(.\)/\1/')
+    if [[ -z "${last_char// }" ]]; then
+        query=''
+        rest=$LBUFFER
+    fi
+    if selected=$(fd . -uu | fzf --prompt 'All> ' \
+                -q "$query" \
+                --header 'CTRL-D: Directories / CTRL-F: Files' \
+                --bind 'ctrl-d:change-prompt(Directories> )+reload(fd . -t d)' \
+                --bind 'ctrl-f:change-prompt(Files> )+reload(fd . -t f)' \
+                --preview-window nohidden
+    ); then
+        selected=$(echo $selected | tr '\n' ' ')
+        LBUFFER="$rest $selected"
+    fi
+    zle redisplay
+}
+
+zle -N fzf-find
+bindkey '^F' fzf-find
+
+# vim: ft=zsh:nowrap
