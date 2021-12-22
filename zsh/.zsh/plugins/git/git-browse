@@ -2,9 +2,10 @@
 #
 # Shows the list of commits and opens in vim when you select one.
 
-git log --graph --no-abbrev --decorate --format=format:'%H\t%h) (%ar) %s - %an %d' --all |
+local format=$(echo "%H\t%h\t%ar\t%an\t%s\t%d" | sed 's/\t/%x09/g')
+git log --graph --decorate --format=format:"$format" --all |
     fzf --ansi --no-sort --preview-window nohidden +m \
-        --delimiter " " --nth 2,7.. --with-nth 4.. \
+        --delimiter "\t" --nth 3.. --with-nth 2.. \
         --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
                     xargs -I % sh -c 'git show --color=always %'" \
         --bind "enter:execute:echo {} |
