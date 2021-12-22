@@ -1,0 +1,14 @@
+#!/bin/zsh
+#
+# Shows the list of commits and opens in vim when you select one.
+
+git log --graph --no-abbrev --decorate --format=format:'%H\t%h) (%ar) %s - %an %d' --all |
+    fzf --ansi --no-sort --preview-window nohidden +m \
+        --delimiter " " --nth 2,7.. --with-nth 4.. \
+        --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
+                    xargs -I % sh -c 'git show --color=always %'" \
+        --bind "enter:execute:echo {} |
+                grep -o '[a-f0-9]\{40\}' | head -1 |
+                xargs -I % sh -c '$EDITOR fugitive://\$(git rev-parse --show-toplevel)/.git//% < /dev/tty'"
+
+# vim: ft=zsh:nowrap

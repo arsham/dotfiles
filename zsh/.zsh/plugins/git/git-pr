@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/zsh
 # reset environment variables that could interfere with normal usage
 export GREP_OPTIONS=
 # put all utility functions here
