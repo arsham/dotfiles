@@ -1,0 +1,20 @@
+#!/bin/zsh
+# Grep in all commits and open the editor for the selection.
+# Usage: git rev-grep <pattern>
+
+if [ -z $1 ]; then
+    echo Please provide an input
+    exit 1
+fi
+
+local format=$(echo "%H\t* %h\t%ar\t%an\t%s\t%d" | sed 's/\t/%x09/g')
+git --no-pager log -G $@ --format=format:"$format" |
+    fzf --ansi --no-sort --preview-window nohidden +m --exit-0 \
+        --delimiter "\t" --nth 1.. --with-nth 2.. \
+        --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
+                    xargs -I % sh -c 'git show --color=always %'" \
+        --bind "enter:execute:echo {} |
+                grep -o '[a-f0-9]\{40\}' | head -1 |
+                xargs -I % sh -c '$EDITOR fugitive://\$(git rev-parse --show-toplevel)/.git//% < /dev/tty'"
+
+# vim: ft=zsh:nowrap
