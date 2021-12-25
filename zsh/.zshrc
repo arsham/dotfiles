@@ -92,3 +92,5 @@ setxkbmap -option caps:escape
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f $ZSH_HOME/p10k.zsh ]] || source $ZSH_HOME/p10k.zsh
+
+eval "$(zoxide init zsh --cmd cd)"
