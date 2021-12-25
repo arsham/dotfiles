@@ -1,9 +1,31 @@
 #!/bin/bash
 
-if [ -z "$1" ]; then
-    kubectl get po --all-namespaces | awk '{split($3,a,"/"); if (a[1] != a[2] && $4 != "Completed"){print $0}}'
-else
-    kubectl get po -n $1 | awk '{split($2,a,"/"); if (a[1] != a[2] && $3 != "Completed"){print $0}}'
-fi
+# Shows failed pods.
+# Usage:
+#    k dirty [-c=CONTEXT] [-n=NAMESPACE]
+#
+# By default it shows all failed pods from all namespaces in the current
+# context.
+
+_namespace="--all-namespaces"
+_context=""
+
+for ARGUMENT in "$@"
+do
+    KEY=$(echo $ARGUMENT | cut -f1 -d '=')
+    VALUE=$(echo $ARGUMENT | cut -f2 -d '=')
+
+    case "$KEY" in
+        --namespace|-n)      _namespace="-n ${VALUE}" ;;
+          --context|-c) _context="--context ${VALUE}" ;;
+        *)
+        echo "Unrecognised option ${KEY}"
+        exit 1
+        ;;
+    esac
+
+done
+
+kubectl get po $_context $_namespace -o="custom-columns=NAME:.metadata.name,READY:.status.containerStatuses[*].ready,PHASE:.status.phase,RESTARTS:.status.containerStatuses[*].restartCount" --field-selector=status.phase=Failed
 
 # vim: ft=zsh:nowrap
