@@ -36,5 +36,6 @@ alias vim="nvim"
 alias vi="nvim"
 alias qvim="nvim -nNu NONE -c 'set lazyredraw noshowmatch nohlsearch'"
 alias icat="kitty +kitten icat"
+alias tm="tmuxinator"
 
 # vim: ft=zsh:nowrap
