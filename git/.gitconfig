@@ -1,61 +1,63 @@
 [color]
-    ui = true
+  ui = true
 [user]
-    email = arshamshirvani@gmail.com
-    name = Arsham Shirvani
-    signingkey = CD1DF4EEAA9655CE99B991EFBB208F95160CE40E
+  email = arshamshirvani@gmail.com
+  name = Arsham Shirvani
+  signingkey = CD1DF4EEAA9655CE99B991EFBB208F95160CE40E
 [core]
-    excludesfile = /home/arsham/.gitignore
-    pager = sed 's/\t/.   /g' | less -R
-    editor = nvim
+  excludesfile = /home/arsham/.gitignore
+  pager = sed 's/\t/.   /g' | less -R
+  editor = nvim
 [push]
-    default = simple
+  default = simple
 [alias]
-    st = status
-    co = checkout
-    aliases = "!git config -l | grep alias | cut -c 7-"
-    ls = "log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate"
-    undo = reset HEAD~1 --mixed
-    lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-    wip = commit --no-gpg-sign -am "WIP"
-    up = !git pull --rebase --prune
-    save = !git add -A && git commit --no-gpg-sign -m 'SAVEPOINT'
+  st = status
+  co = checkout
+  aliases = "!git config -l | grep alias | cut -c 7-"
+  ls = "log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate"
+  undo = reset HEAD~1 --mixed
+  lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+  wip = commit --no-gpg-sign -am "WIP"
+  up = !git pull --rebase --prune
+  save = !git add -A && git commit --no-gpg-sign -m 'SAVEPOINT'
     # wipe will create an untracked commit in case later you want to find it # from reflogs.
-    wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
-    conflicts = "!git ls-files -u | awk '{print $4}' | sort -u"
-    ignored = !git ls-files --others --i --exclude-standard
+  wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
+  conflicts = "!git ls-files -u | awk '{print $4}' | sort -u"
+  ignored = !git ls-files --others --i --exclude-standard
 [http]
-    sslVerify = true
+  sslVerify = true
 [gpg]
-    program = gpg2
+  program = gpg2
 [commit]
-    gpgSign = true
+  gpgSign = true
 [url "git@github.com:"]
-    insteadOf = https://github.com/
+  insteadOf = https://github.com/
 [pull]
-    rebase = false
+  rebase = false
 [diff]
-    wsErrorHighlight = all
-    tool = vimdiff3
+  wsErrorHighlight = all
+  tool = vimdiff3
 [difftool]
-    prompt = false
-    trustExitCode = true
+  prompt = false
+  trustExitCode = true
 [difftool "nvimdiff"]
-    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [merge]
-    tool = vimdiff
-    conflictstyle = diff3
+  tool = vimdiff
+  conflictstyle = diff3
 [mergetool]
-    prompt = false
-    keepBackup = false
-    trustExitCode = true
+  prompt = false
+  keepBackup = false
+  trustExitCode = true
 [mergetool "nvimdiff"]
-    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c 'wincmd w' -c 'wincmd J'"
+  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c 'wincmd w' -c 'wincmd J'"
 [mergetool "vimdiff"]
-    path = nvim
+  path = nvim
 [difftool "vimdiff3"]
-    path = nvim
+  path = nvim
 [github]
-	user = arsham
+  user = arsham
 [fetch]
-	prune = true
+  prune = true
+[remote "origin"]
+  prune = true
