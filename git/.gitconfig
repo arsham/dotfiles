@@ -24,6 +24,7 @@
   wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
   conflicts = "!git ls-files -u | awk '{print $4}' | sort -u"
   ignored = !git ls-files --others --i --exclude-standard
+  diff-json = !git -c diff.default.textconv=\"`git config diff.json.textconv`\" diff
 [http]
   sslVerify = true
 [gpg]
@@ -59,5 +60,7 @@
   user = arsham
 [fetch]
   prune = true
+[diff "json"]
+	textconv = gojq '.' $1
 [remote "origin"]
   prune = true
