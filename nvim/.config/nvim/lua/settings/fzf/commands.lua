@@ -2,7 +2,7 @@ local nvim = require('nvim')
 local util = require('settings.fzf.util')
 local command = require('util').command
 
-command("GGrep",  util.git_grep, {bang=true, nargs="+"})
+command("GGrep",  util.git_grep, {bang=true, nargs="*"})
 command("BLines", util.lines_grep)
 command("Reload", util.reload_config)
 command("ReloadWatch", function() util.reload_config(true) end)
