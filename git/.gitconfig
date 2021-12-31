@@ -6,7 +6,6 @@
   signingkey = CD1DF4EEAA9655CE99B991EFBB208F95160CE40E
 [core]
   excludesfile = /home/arsham/.gitignore
-  pager = sed 's/\t/.   /g' | less -R
   editor = nvim
 [push]
   default = simple

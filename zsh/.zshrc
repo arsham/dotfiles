@@ -53,7 +53,7 @@ export LANG=en_GB.UTF-8
 export LC_CTYPE=en_GB.UTF8
 export EDITOR=nvim
 export VISUAL=nvim
-export MANPAGER='nvim +Man!'
+export PAGER='nvim +Man!'
 
 export CFLAGS="-march=native -mtune=native -O2 -pipe -fstack-protector-strong"
 export CXXFLAGS="${CFLAGS}"
@@ -94,3 +94,5 @@ setxkbmap -option caps:escape
 [[ ! -f $ZSH_HOME/p10k.zsh ]] || source $ZSH_HOME/p10k.zsh
 
 eval "$(zoxide init zsh --cmd cd)"
+
+# vim: ft=zsh:nowrap
