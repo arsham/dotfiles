@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+# Choose and remove items from zoxide database.
+zoxide remove $(zoxide query -ls | fzf | tr -s ' ' | cut -f 3 -d ' ')
+
+# vim: ft=zsh:nowrap
