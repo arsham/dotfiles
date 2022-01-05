@@ -45,7 +45,6 @@ else
     compinit -C;
 fi;
 
-
 # these variables moved here to override values in plugins.
 export HISTSIZE=9999999999
 export SAVEHIST=999999999

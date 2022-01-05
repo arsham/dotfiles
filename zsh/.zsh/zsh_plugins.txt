@@ -5,5 +5,5 @@ Aloxaf/fzf-tab
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 robbyrussell/oh-my-zsh path:plugins/golang
-zsh-users/zsh-syntax-highlighting
+zdharma-continuum/fast-syntax-highlighting
 olets/zsh-abbr
