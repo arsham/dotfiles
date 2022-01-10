@@ -7,8 +7,8 @@ if [ -z $1 ]; then
     term="''"
 fi
 
-local format=$(echo "%H\t* %h\t%ar\t%an\t%s\t%d" | sed 's/\t/%x09/g')
-git --no-pager log -G $term --format=format:"$format" |
+local format=$(echo "%H\t%C(yellow)%h%C(red)%C(reset)\t%C(bold green)(%ar)%C(reset)\t%s\t%C(green)<%an>%C(reset)\t%C(blue)%d%C(reset)")
+git --no-pager log -G $term --format=format:"$format" --color=always |
     fzf --ansi --no-sort --preview-window nohidden +m --exit-0 \
         --header="<Alt-Enter>:Reload on current query" \
         --phony \
@@ -17,7 +17,7 @@ git --no-pager log -G $term --format=format:"$format" |
         --with-nth 3.. --nth 2.. \
         --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
                     xargs -I % sh -c 'git show --color=always %'" \
-        --bind "change:reload:git --no-pager log -G {q} --format=format:'$format'" \
+        --bind "change:reload:git --no-pager log -G {q} --format=format:'$format' --color=always" \
         --bind "alt-enter:unbind(change,alt-enter)+change-prompt(2. FZF> )+enable-search+clear-query" \
         --bind "enter:execute:echo {} |
                 grep -o '[a-f0-9]\{40\}' | head -1 |
