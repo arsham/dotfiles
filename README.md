@@ -21,11 +21,7 @@ configurations.
 
 ## Nvim
 
-Almost everything is setup with lua. The aim to have a fast start-up time and
-provide the functionalities I need for day-to-day tasks. At the moment it takes
-about 20ms to start.
-
-You can read more about it [here](./nvim/.config/nvim/README.md).
+This is been relocated to [Shark](https://github.com/arsham/shark)
 
 ## Tmux
 

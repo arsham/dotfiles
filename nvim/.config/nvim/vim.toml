@@ -1,8 +1,0 @@
-[selene]
-base = "lua52"
-
-[vim]
-any = true
-
-[_t]
-any = true
