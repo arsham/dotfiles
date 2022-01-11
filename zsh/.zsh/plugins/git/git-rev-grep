@@ -7,7 +7,7 @@ if [ -z $1 ]; then
     term="''"
 fi
 
-local format="%H\t%C(yellow)%h%C(red)%C(reset)\t%C(bold green)(%ar)%C(reset)\t%s\t%C(green)<%an>%C(reset)\t%C(blue)%d%C(reset)"
+local format=$(echo "%H\t%C(yellow)%h%C(red)%C(reset)\t%C(bold green)(%ar)%C(reset)\t%s\t%C(green)<%an>%C(reset)\t%C(blue)%d%C(reset)" | sed 's/\t/%x09/g')
 git --no-pager log -G $term --format=format:"$format" --color=always |
     fzf --ansi --no-sort --preview-window nohidden +m --exit-0 \
         --header="<Alt-Enter>:Reload on current query" \
