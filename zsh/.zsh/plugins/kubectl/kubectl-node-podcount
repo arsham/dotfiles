@@ -1,0 +1,10 @@
+#!/bin/bash
+# Shows the nodes and pod counts on each.
+
+source _kubectl-arguments
+
+kubectl get $_context $_namespace pods --all-namespaces -o json \
+    | jq '.items[] | .spec.nodeName' -r \
+    | sort \
+    | uniq -c \
+    | sort -nr
