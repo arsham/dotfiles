@@ -1,0 +1,7 @@
+#!/bin/zsh
+#
+# Shows the list of commits in reflog and opens in vim when you select one.
+
+_git-browser reflog $@
+
+# vim: ft=zsh:nowrap
