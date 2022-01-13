@@ -7,7 +7,7 @@
 [core]
   excludesfile = /home/arsham/.gitignore
   editor = nvim
-  pager = nvim +Man! -c 'set ft=diff'
+  pager = nvim +Man!
 [push]
   default = simple
 [alias]
