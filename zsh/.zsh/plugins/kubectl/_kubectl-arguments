@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Usage:
+#    k <command> [-c=CONTEXT] [-n=NAMESPACE]
+#
+# By default it operates on all namespaces in the current context.
+
+_namespace="--all-namespaces"
+_context=""
+
+for ARGUMENT in "$@"
+do
+    KEY=$(echo $ARGUMENT | cut -f1 -d '=')
+    VALUE=$(echo $ARGUMENT | cut -f2 -d '=')
+
+    case "$KEY" in
+        --namespace|-n)      _namespace="-n ${VALUE}" ;;
+          --context|-c) _context="--context ${VALUE}" ;;
+        *)
+        echo "Unrecognised option ${KEY}"
+        exit 1
+        ;;
+    esac
+
+done
+
+# vim: ft=zsh:nowrap
