@@ -19,7 +19,7 @@ export FZF_DEFAULT_OPTS="
 --multi
 --info=inline
 --history=/home/arsham/.local/share/fzf-history/history-files
---preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
+--preview '([[ -f {} ]] && (bat --style=numbers --color=always {} || <{})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
 --preview-window nohidden,border-none
 --bind '?:toggle-preview'
 --bind 'ctrl-/:change-preview-window(right,80%|hidden|right,20%|right)'
