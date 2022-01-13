@@ -1,0 +1,11 @@
+#!/bin/bash
+
+source _kubectl-arguments
+
+kubectl get $_context $_namespace events --field-selector type=Warning -o json \
+    | jq '[.items | .[] | {
+    message,
+    reason,
+    name: .metadata.name,
+    host: .source.host
+}]'
