@@ -5,4 +5,4 @@ sudo systemctl list-unit-files | grep disabled | awk '{print $1}' | fzf -m |
             journalctl -u $unit --since "10 sec ago" --no-pager
         done
 
-# vim: ft=zsh:nowrap
+# vim: ft=zsh nowrap

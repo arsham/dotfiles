@@ -65,6 +65,6 @@
 [fetch]
   prune = true
 [diff "json"]
-	textconv = gojq '.' $1
+  textconv = gojq '.' $1
 [remote "origin"]
   prune = true
