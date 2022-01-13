@@ -3,7 +3,7 @@
 # Shows the list of commits and opens in vim when you select one.
 
 local format=$(echo "%H\t%C(yellow)%h%C(red)%C(reset)\t%C(bold green)(%ar)%C(reset)\t%s\t%C(green)<%an>%C(reset)\t%C(blue)%d%C(reset)" | sed 's/\t/%x09/g')
-git log --graph --decorate --format=format:"$format" --all --color=always |
+git log --decorate --format=format:"$format" --all --color=always |
     fzf --ansi --no-sort --preview-window nohidden +m \
         --delimiter "\t" --nth 3.. --with-nth 2.. \
         --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
