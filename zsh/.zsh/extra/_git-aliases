@@ -1,0 +1,7 @@
+_git-tree () {
+    _git-log
+}
+
+_git-reflog-browser () {
+    _git-log
+}

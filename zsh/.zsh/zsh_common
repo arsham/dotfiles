@@ -23,3 +23,7 @@ if [[ -d $ZSH_HOME/widgets ]]; then
       source $func
    done
 fi
+
+for cmp in $(find $ZSH_HOME/extra -type f -exec realpath {} +); do
+    source $cmp
+done
