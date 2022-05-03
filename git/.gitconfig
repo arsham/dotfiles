@@ -51,7 +51,7 @@
   cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [merge]
   tool = vimdiff
-  conflictstyle = diff3
+  conflictstyle = zdiff3
 [mergetool]
   prompt = false
   keepBackup = false
