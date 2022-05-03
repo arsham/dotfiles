@@ -1,0 +1,12 @@
+# vim: ft=rc commentstring=#\ %s
+# Don't let ripgrep vomit really long lines to my terminal, and show a preview.
+--max-columns=150
+--max-columns-preview
+--no-heading
+--smart-case
+--follow
+--hidden
+--type-add
+web:*.{html,css,js}*
+--type-add
+csv:*.tsv
