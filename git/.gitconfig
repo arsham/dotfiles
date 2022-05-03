@@ -43,6 +43,7 @@
 [diff]
   wsErrorHighlight = all
   tool = vimdiff3
+  algorithm = patience
 [difftool]
   prompt = false
   trustExitCode = true
