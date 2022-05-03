@@ -1,5 +1,6 @@
 [color]
   ui = true
+  pager = no
 [user]
   email = arshamshirvani@gmail.com
   name = Arsham Shirvani
@@ -7,7 +8,7 @@
 [core]
   excludesfile = /home/arsham/.gitignore
   editor = nvim
-  pager = nvim +Man!
+  pager = nvim -R -c 'set ft=git foldmethod=syntax'
 [push]
   default = simple
 [alias]
