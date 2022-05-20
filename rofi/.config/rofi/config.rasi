@@ -1,0 +1,26 @@
+configuration {
+    font: "MesloLGS NF 11";
+    modi: "combi";
+    combi-modi: "drun,window,run";
+    terminal: "kitty --hold";
+    run-shell-command: "{terminal} -e zsh -ic '{cmd}'";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    drun-match-fields: "name,generic,exec,categories,keywords";
+    dpi: 250;
+    max-history-size: 50;
+    kb-remove-to-eol: "";
+    kb-accept-entry: "Control+m,Return,KP_Enter";
+    kb-row-up: "Up,Control+k,ISO_Left_Tab";
+    kb-row-down: "Down,Control+j";
+    timeout {
+        action: "kb-cancel";
+        delay:  0;
+    }
+    filebrowser {
+        directories-first: true;
+        sorting-method:    "name";
+    }
+}
+
+@theme "theme.rasi"
