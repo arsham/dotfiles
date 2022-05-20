@@ -1,0 +1,13 @@
+# vim: commentstring=#%s
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=kitty
+GenericName=Terminal emulator
+Comment=Fast, feature-rich, GPU based terminal
+# TryExec=prime-run kitty
+Exec=prime-run kitty
+# TryExec=kitty
+# Exec=kitty
+Icon=kitty
+Categories=System;TerminalEmulator;
