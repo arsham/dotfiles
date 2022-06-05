@@ -45,25 +45,8 @@ else
     compinit -C;
 fi;
 
-# these variables moved here to override values in plugins.
-export HISTSIZE=9999999999
-export SAVEHIST=999999999
-export LANG=en_GB.UTF-8
-export LC_CTYPE=en_GB.UTF8
-export EDITOR=nvim
-export VISUAL=nvim
-export PAGER='nvim +Man!'
-
-export CFLAGS="-march=native -mtune=native -O2 -pipe -fstack-protector-strong"
-export CXXFLAGS="${CFLAGS}"
-export LDFLAGS="-Wl,-O1,--sort-common,--as-needed,-z,relro"
-export MAKEFLAGS="-j$(nproc)"
-export CARCH="x86_64"
-export CHOST="x86_64-pc-linux-gnu"
-export CPPFLAGS="-D_FORTIFY_SOURCE=2"
-
-source $ZSH_HOME/lazy_completions.sh
-source $ZSH_HOME/bindkeys.sh
+export WORKON_HOME=~/.virtualenvs
+[ -f /usr/bin/virtualenvwrapper_lazy.sh ] && source /usr/bin/virtualenvwrapper_lazy.sh
 
 [ -f ~/.zshrc-local ] && source ~/.zshrc-local
 
@@ -79,11 +62,6 @@ fi
 if [[ "$ZPROF" = true ]]; then
   zprof
 fi
-
-export WORDCHARS=""
-bindkey '^x^e' edit-command-line
-
-source $ZSH_HOME/extra/_fubectl
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 xset r rate 250 60

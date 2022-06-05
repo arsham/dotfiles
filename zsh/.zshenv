@@ -22,10 +22,39 @@ setopt HIST_SAVE_NO_DUPS         # Don't write duplicate entries in the history 
 setopt HIST_REDUCE_BLANKS        # Remove superfluous blanks before recording entry.
 setopt HIST_VERIFY               # Don't execute immediately upon history expansion.
 setopt share_history
+export HISTTIMEFORMAT="[%F %T] "
 
-export PATH="/usr/lib/ccache/bin/:$HOME/go/bin:$PATH:$ZSH_HOME/plugins/git:$ZSH_HOME/plugins/kubectl"
-export PATH="$PATH:$HOME/.node_modules/bin"
-export PATH="$PATH:$HOME/.cargo/bin"
+# these variables moved here to override values in plugins.
+export HISTSIZE=10000000
+export SAVEHIST=10000000
+export LANG=en_GB.UTF-8
+export LC_CTYPE=en_GB.UTF-8
+export EDITOR=nvim
+export VISUAL=nvim
+export PAGER='nvim +Man!'
+
+export CFLAGS="-march=native -mtune=native -O2 -pipe -fstack-protector-strong"
+export CXXFLAGS="${CFLAGS}"
+export LDFLAGS="-Wl,-O1,--sort-common,--as-needed,-z,relro"
+export MAKEFLAGS="-j$(nproc)"
+export CARCH="x86_64"
+export CHOST="x86_64-pc-linux-gnu"
+export CPPFLAGS="-D_FORTIFY_SOURCE=2"
+
+source $ZSH_HOME/lazy_completions.sh
+source $ZSH_HOME/bindkeys.sh
+
+export PATH=/usr/lib/ccache/bin/:$HOME/go/bin:$PATH
+export PATH=$PATH:$ZSH_HOME/plugins/git
+export PATH=$PATH:$ZSH_HOME/plugins/kubectl
+export PATH=$PATH:$HOME/.node_modules/bin
+export PATH=$PATH:$CARGO_HOME/bin
+export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:~/bin
+export PATH=$PATH:~/.config/awesome/scripts
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH=$PATH:$HOME/.nimble/bin
 export npm_config_prefix=~/.node_modules
+export DOCKER_BUILDKIT=1
 
 export WORDCHARS=""
