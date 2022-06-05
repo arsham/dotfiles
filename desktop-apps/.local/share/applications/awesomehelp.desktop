@@ -1,0 +1,10 @@
+# vim: commentstring=#%s
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Awesome Help
+GenericName=Awesome Help
+Comment=Show awesomewm shortcuts
+Exec=awesome-client 'require("awful.hotkeys_popup").show_help()'
+Icon=awesomewm
+Categories=System;TerminalEmulator;
