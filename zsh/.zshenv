@@ -1,4 +1,6 @@
 ZSH_HOME=$HOME/.zsh
+export XDG_CONFIG_HOME=$HOME/.config
+export CCACHE_DIR=$XDG_CACHE_HOME/ccache
 
 # zsh-completion-generator folder
 GENCOMPL_FPATH=$ZSH_HOME/completions
