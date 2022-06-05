@@ -1,0 +1,16 @@
+[Unit]
+Description=Dropbox
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/dropbox
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+Environment=DISPLAY=
+RestartSec=5s
+StartLimitInterval=0
+
+[Install]
+WantedBy=default.target
