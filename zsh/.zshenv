@@ -1,6 +1,16 @@
 ZSH_HOME=$HOME/.zsh
 export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+export XDG_CACHE_HOME=$HOME/.cache
+
+export RIPGREP_CONFIG_PATH=$HOME/.config/ripgreprc
 export CCACHE_DIR=$XDG_CACHE_HOME/ccache
+export CUDA_CACHE_PATH=$XDG_CACHE_HOME/nv
+export DOCKER_CONFIG=$XDG_CONFIG_HOME/docker
+export GNUPGHOME=$XDG_DATA_HOME/gnupg
+export CARGO_HOME=$XDG_DATA_HOME/cargo
+export K9SCONFIG=$XDG_CONFIG_HOME/k9s
 
 # zsh-completion-generator folder
 GENCOMPL_FPATH=$ZSH_HOME/completions
