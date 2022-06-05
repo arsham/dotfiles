@@ -70,3 +70,6 @@ export npm_config_prefix=~/.node_modules
 export DOCKER_BUILDKIT=1
 
 export WORDCHARS=""
+
+export VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+export VI_MODE_SET_CURSOR=true
