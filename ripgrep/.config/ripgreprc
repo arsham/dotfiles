@@ -6,7 +6,12 @@
 --smart-case
 --follow
 --hidden
+
+--glob
+!.git/
+
 --type-add
 web:*.{html,css,js}*
+
 --type-add
 csv:*.tsv
