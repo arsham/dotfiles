@@ -6,9 +6,9 @@
   name = Arsham Shirvani
   signingkey = CD1DF4EEAA9655CE99B991EFBB208F95160CE40E
 [core]
-  excludesfile = /home/arsham/.gitignore
+  excludesfile = ~/.config/git/ignore
   editor = nvim
-  pager = nvim -R -c 'set ft=git foldmethod=syntax'
+  pager = nvim -R -c 'set ft=git foldmethod=syntax | nnoremap q :q<CR>'
 [push]
   default = simple
 [alias]
@@ -30,13 +30,17 @@
   root = !pwd
   dv = difftool -t vimdiff3 -y
   latest-tag = describe --tags --abbrev=0
+  # Creates a patch from the result of a merge, without applying it.
+  # Usage: git merge-patch feature/example..master > <name.patch>
+  # Apply with: git apply -3 <name.patch>
+  merge-patch = log --patch --reverse --binary --pretty=email --stat -m --first-parent --full-index
 [http]
   sslVerify = true
 [gpg]
   program = gpg2
 [commit]
   gpgSign = true
-  template = ~/.gitmessage
+  template = ~/.config/git/message
 [url "git@github.com:"]
   insteadOf = https://github.com/
 [pull]
@@ -71,3 +75,7 @@
   textconv = gojq '.' $1
 [remote "origin"]
   prune = true
+[tag]
+	sort = version:refname
+[versionsort]
+	suffix = -
