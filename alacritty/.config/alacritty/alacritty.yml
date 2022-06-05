@@ -1,0 +1,76 @@
+env:
+  TERM: xterm-256color
+
+scrolling:
+  history: 100000
+
+font:
+  normal:
+    family: "monospace"
+
+  bold:
+    family: "monospace"
+    style: Bold
+
+  italic:
+    family: "monospace"
+    style: Italic
+
+  bold_italic:
+    family: "monospace"
+    style: Bold Italic
+
+  size: 10.5
+
+  glyph_offset:
+    x: 0
+    y: 0
+
+colors:
+  primary:
+    background: "#232627"
+    foreground: "#dddddd"
+    dim_foreground: "#828482"
+    bright_foreground: "#eaeaea"
+    dim_background: "0x31363b"
+    bright_background: "0x000000"
+
+  normal:
+    black: "#232627"
+    red: "#cc0403"
+    green: "#19cb00"
+    yellow: "#F29541"
+    blue: "#1D99F3"
+    magenta: "#cb1ed1"
+    cyan: "#0dcdcd"
+    white: "#dddddd"
+
+  bright:
+    black: "#767676"
+    red: "#f2201f"
+    green: "#23fd00"
+    yellow: "#F0EE11"
+    blue: "#1a8fff"
+    magenta: "#fd28ff"
+    cyan: "#14ffff"
+    white: "#ffffff"
+
+  dim:
+    black: "#31363b"
+    red: "#783228"
+    green: "#17a262"
+    yellow: "#b65619"
+    blue: "#1b668f"
+    magenta: "#614a73"
+    cyan: "#186c60"
+    white: "#63686d"
+
+# Keyboard
+# \x1b[ is a CSI (control sequence introducer), meaning ESC+[
+# 74 is the decimal value of char J (https://en.wikipedia.org/wiki/List_of_Unicode_characters)
+# 5 is the sum of bits for the ctrl and shift modifiers (1 is shift, 2 is alt, 4 is ctrl);
+# u stands for unicode.
+key_bindings:
+  - { key: C, mods: Control|Shift, action: Copy }
+  - { key: V, mods: Control|Shift, action: Paste }
+  - { key: C, mods: Control, mode: Vi, action: ClearSelection }
