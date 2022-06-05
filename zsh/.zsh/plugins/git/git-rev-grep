@@ -12,7 +12,7 @@ git --no-pager log -G $term --format=format:"$format" --color=always |
     fzf --ansi --no-sort --preview-window nohidden +m --exit-0 \
         --header="<Alt-Enter>:Reload on current query" \
         --phony \
-        --header-lines=1 \
+        --header-lines=0 \
         --delimiter "\t" \
         --with-nth 3.. --nth 2.. \
         --preview "echo {} | grep -o '[a-f0-9]\{7\}' | head -1 |
