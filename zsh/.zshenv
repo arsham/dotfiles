@@ -68,6 +68,7 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH=$PATH:$HOME/.nimble/bin
 export npm_config_prefix=~/.node_modules
 export DOCKER_BUILDKIT=1
+export RUSTC_WRAPPER=sccache
 
 export WORDCHARS=""
 
