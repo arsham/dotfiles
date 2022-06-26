@@ -1,10 +1,10 @@
 * {
-  bg: #11121D11;
+  bg:     #11121D66;
   bg-alt: #444b6a;
-
-  fg: #FFFFFF;
+  fg:     #FFFFFF;
   fg-alt: #787c99;
 
+  foreground: #7256B3;
   background-color: @bg;
 
   border: 0;
@@ -56,7 +56,6 @@ listview {
 
 mainbox {
   background-color: @bg;
-  children: [inputbar, listview];
 }
 
 prompt {
@@ -66,4 +65,29 @@ prompt {
   text-color: @fg;
 }
 
-/* vim: ft=sass
+message {
+  border:       2px 0px 0px ;
+  border-color: @bg;
+  foreground-color: @fg;
+  padding:      1px ;
+}
+
+textbox {
+  text-color: @foreground;
+}
+
+listview {
+  padding: 8 12;
+  background-color: @bg;
+  columns: 1;
+  lines: 12;
+}
+
+prompt, button{
+  background-color: @bg-alt;
+  enabled: true;
+  padding: 12 0 0 12;
+  text-color: @fg;
+}
+
+// vim: ft=sass
