@@ -12,22 +12,6 @@ fi
 # PROFILE_ZSH=true
 # ZPROF=true
 
-if [ "$PROFILE_ZSH" = true ] ; then
-    mkdir -p $HOME/tmp/zsh_profiles
-    zmodload zsh/datetime
-    setopt PROMPT_SUBST
-    PS4='+$EPOCHREALTIME %N:%i> '
-
-    LOG_FILE=$(mktemp $HOME/tmp/zsh_profiles/zsh_profile.XXXXXXXX)
-    exec 3>&2 2>$LOG_FILE
-
-    setopt XTRACE
-fi
-
-if [[ "$ZPROF" = true ]]; then
-  zmodload zsh/zprof
-fi
-
 source $ZSH_HOME/install_deps.sh
 
 source $ZSH_HOME/zsh_plugins.sh 2> /dev/null
@@ -59,11 +43,6 @@ if [ "$PROFILE_ZSH" = true ] ; then
     echo "To see the results: zsh_profiling.sh $LOG_FILE | head"
 fi
 
-if [[ "$ZPROF" = true ]]; then
-  zprof
-fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 function my_init() {
     source $ZSH_HOME/fzf/fzf.zsh
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
