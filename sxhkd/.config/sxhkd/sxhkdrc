@@ -1,0 +1,33 @@
+super + {_, shift +} Return
+    {prime-run kitty, prime-run alacritty}
+
+alt + @space
+	rofi -show combi -terminal alacritty
+
+# Reload sxhkd
+super + BackSpace
+	pkill -USR1 -x sxhkd
+
+super + f
+    prime-run firefox
+
+super + b
+    prime-run brave
+
+# clipmenu.sh
+super + a
+    copyq toggle
+
+super + e
+    prime-run alacritty -e env TERM=alacritty-direct vifmrun
+
+super + c
+    rofi -show calc -modi calc -no-show-match -no-sort
+
+super + o; {e,c}
+    rofi -show {emoji,calc} -modi emoji,calc
+
+super + v
+    pavucontrol
+
+# vim: commentstring=#%s formatoptions-=t
