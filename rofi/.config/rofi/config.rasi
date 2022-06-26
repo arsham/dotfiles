@@ -1,6 +1,6 @@
 configuration {
     font: "MesloLGS NF 11";
-    modi: "combi";
+    modi: "window,drun,combi,run,emoji";
     combi-modi: "drun,window,run";
     terminal: "kitty --hold";
     run-shell-command: "{terminal} -e zsh -ic '{cmd}'";
