@@ -5,7 +5,6 @@ alias grep='grep --color=tty -d skip'
 alias cp="cp -i"                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -h'                      # show sizes for humans
-alias sl="ls"
 
 # cd by .. or ... or ... or mv file ..../.
 alias '..'='cd ..'

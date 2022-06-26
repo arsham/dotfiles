@@ -6,6 +6,5 @@ zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 robbyrussell/oh-my-zsh path:plugins/golang
 zdharma-continuum/fast-syntax-highlighting
-robbyrussell/oh-my-zsh path:plugins/vi-mode
-# has to come after vi-mode
+jeffreytse/zsh-vi-mode
 momo-lab/zsh-abbrev-alias
