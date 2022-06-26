@@ -8,11 +8,19 @@ configuration {
     icon-theme: "Papirus-Dark";
     drun-match-fields: "name,generic,exec,categories,keywords";
     dpi: 250;
-    max-history-size: 50;
+    max-history-size: 1000;
+    kb-remove-char-back: "BackSpace,Shift+BackSpace";
     kb-remove-to-eol: "";
     kb-accept-entry: "Control+m,Return,KP_Enter";
-    kb-row-up: "Up,Control+k,ISO_Left_Tab";
-    kb-row-down: "Down,Control+j";
+    kb-mode-next: "Control+l,Control+Tab";
+    kb-mode-previous: "Control+h,Control+ISO_Left_Tab";
+    kb-mode-complete: "";
+    kb-row-up: "Up,Control+k,ISO_Left_Tab,Super+k";
+    kb-row-down: "Down,Control+j,Super+j";
+    kb-remove-char-forward: "Delete";
+    kb-remove-to-sol: "";
+    kb-page-prev: "Control+u";
+    kb-page-next: "Control+d";
     timeout {
         action: "kb-cancel";
         delay:  0;
