@@ -1,0 +1,11 @@
+abbrev-alias -g G="| grep"
+abbrev-alias -g got="git"
+abbrev-alias -g vimc="~/.config/nvim"
+abbrev-alias k-all="kubectl-all"
+abbrev-alias k-dirty="kubectl-dirty"
+abbrev-alias k-nodex="kubectl-nodex"
+abbrev-alias k-nodezone="kubectl-nodezone"
+abbrev-alias k-pending="kubectl-pending"
+abbrev-alias k-podnode="kubectl-podnode"
+abbrev-alias sl="ls"
+abbrev-alias -ge B='$(git symbolic-ref --short HEAD 2> /dev/null)'

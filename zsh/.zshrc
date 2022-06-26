@@ -69,5 +69,6 @@ fi
 [[ ! -f $ZSH_HOME/p10k.zsh ]] || source $ZSH_HOME/p10k.zsh
 
 eval "$(zoxide init zsh --cmd cd)"
+source $ZSH_HOME/plugins/abbreviations
 
 # vim: ft=zsh:nowrap
