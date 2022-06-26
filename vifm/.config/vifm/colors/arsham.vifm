@@ -1,0 +1,43 @@
+highlight clear
+
+highlight Win gui=none guifg=#ACA1D6 guibg=#000000
+highlight AuxWin guifg=default guibg=default
+highlight Border gui=none guibg=#000000 guifg=#3884D6
+highlight BrokenLink gui=bold guifg=#DE7185 guibg=default
+highlight CmdLine gui=none guifg=#FFF1F3 guibg=#000000
+highlight CmpMismatch gui=bold guifg=#FFF1F3 guibg=#DE7185
+highlight CurrLine gui=bold,reverse guifg=default guibg=default
+highlight Device gui=bold guifg=#DE7185 guibg=default
+highlight Directory gui=bold guifg=#A5CAF7 guibg=default
+highlight ErrorMsg gui=none guifg=#DE7185 guibg=#000000
+highlight Executable gui=bold guifg=#BFDCA1 guibg=default
+highlight Fifo gui=bold guifg=#119999 guibg=default
+highlight HardLink gui=none guifg=#D6C596 guibg=default
+highlight JobLine gui=bold,reverse guifg=#000000 guibg=#FFF1F3
+highlight LineNr guifg=default guibg=default
+highlight Link gui=bold guifg=#D6C596 guibg=default
+highlight OddLine guifg=default guibg=default
+highlight OtherLine guifg=default guibg=default
+highlight OtherWin guifg=default guibg=default
+highlight Selected gui=bold guifg=#CF4CC9 guibg=default
+highlight Socket gui=bold guifg=#CF4CC9 guibg=default
+highlight StatusLine gui=bold guifg=#000000 guibg=#FFF1F3
+highlight SuggestBox gui=bold guifg=default guibg=default
+highlight TabLine gui=none guifg=#FFF1F3 guibg=#000000
+highlight TabLineSel gui=bold,reverse guifg=default guibg=default
+highlight TopLine gui=none guifg=#000000 guibg=#537196
+highlight TopLineSel gui=bold guifg=#000000 guibg=default
+highlight User1 guifg=default guibg=default
+highlight User2 guifg=default guibg=default
+highlight User3 guifg=default guibg=default
+highlight User4 guifg=default guibg=default
+highlight User5 guifg=default guibg=default
+highlight User6 guifg=default guibg=default
+highlight User7 guifg=default guibg=default
+highlight User8 guifg=default guibg=default
+highlight User9 guifg=default guibg=default
+highlight WildMenu gui=underline,reverse guifg=#3B6085 guibg=#000000
+
+highlight /^.*\.(mp3|ogg|oga|flac|m4a)$/ ctermfg=magenta
+highlight /^.*\.(jpg|jpeg|png|gif|tiff|webp|bmp|svg|svgz)$/ ctermfg=yellow
+highlight /^.*\.(zip|gz|bz2|xz|tar|tgz|tbz2|7z|rar|iso|rpm|deb)$/ ctermfg=red
