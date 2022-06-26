@@ -27,9 +27,10 @@ alias k-nodex="kubectl-nodex"
 alias k-podnode="kubectl-podnode"
 alias k-all='kubectl-all'
 
-alias yay-git="pacman -Qmq | grep -Ee '-(cvs|svn|git|hg|bzr|darcs)$' | yay -S --needed -"
-alias yay-installed="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
-alias yayz="yay -Slq | fzf -m --preview 'yay -Qil {1} 2> /dev/null || yay -Si {1}' | xargs -ro yay -S"
+alias paru-git="pacman -Qmq | grep -Ee '-(cvs|svn|git|hg|bzr|darcs)$' | paru -S --needed -"
+alias paru-installed="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | nvim -R -)'"
+alias paru-remove="paru -Qq | fzf -m --preview 'paru -Qil {1} 2> /dev/null || paru -Si {1}' | xargs -ro paru -Rnsu"
+alias paru-orphans="paru -Qtdq | vipe | paru -Rnsu -"
 alias tmux="systemd-run --scope --user tmux"
 alias htops="HTOPRC=~/.config/htop/htoprc-s htop -d 3"
 alias vim="nvim"
