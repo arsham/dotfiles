@@ -62,7 +62,6 @@ export PATH=$PATH:$ZSH_HOME/plugins/kubectl
 export PATH=$PATH:$HOME/.node_modules/bin
 export PATH=$PATH:$CARGO_HOME/bin
 export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:~/bin
 export PATH=$PATH:~/.config/awesome/scripts
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH=$PATH:$HOME/.nimble/bin
