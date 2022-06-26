@@ -2,7 +2,7 @@ configuration {
     font: "MesloLGS NF 11";
     modi: "window,drun,combi,run,emoji";
     combi-modi: "drun,window,run";
-    terminal: "kitty --hold";
+    terminal: "alacritty";
     run-shell-command: "{terminal} -e zsh -ic '{cmd}'";
     show-icons: true;
     icon-theme: "Papirus-Dark";
