@@ -71,12 +71,68 @@ colors:
     cyan: "#186c60"
     white: "#63686d"
 
-# Keyboard
-# \x1b[ is a CSI (control sequence introducer), meaning ESC+[
-# 74 is the decimal value of char J (https://en.wikipedia.org/wiki/List_of_Unicode_characters)
-# 5 is the sum of bits for the ctrl and shift modifiers (1 is shift, 2 is alt, 4 is ctrl);
-# u stands for unicode.
 key_bindings:
-  - { key: C, mods: Control|Shift, action: Copy }
-  - { key: V, mods: Control|Shift, action: Paste }
-  - { key: C, mods: Control, mode: Vi, action: ClearSelection }
+  # \x1b[ is a CSI (control sequence introducer), meaning ESC+[
+  # 74 is the decimal value of char J (https://en.wikipedia.org/wiki/List_of_Unicode_characters)
+  # 6 is the sum of bits for the ctrl and shift modifiers;
+  # u stands for unicode.
+  #   Code     Modifiers
+  # ---------+---------------------------
+  #    2     | Shift
+  #    3     | Alt
+  #    4     | Shift + Alt
+  #    5     | Control
+  #    6     | Shift + Control
+  #    7     | Alt + Control
+  #    8     | Shift + Alt + Control
+  #    9     | Meta
+  #    10    | Meta + Shift
+  #    11    | Meta + Alt
+  #    12    | Meta + Alt + Shift
+  #    13    | Meta + Ctrl
+  #    14    | Meta + Ctrl + Shift
+  #    15    | Meta + Ctrl + Alt
+  #    16    | Meta + Ctrl + Alt + Shift
+  # ---------+---------------------------
+
+  - { mods: Control|Shift, key: C, action: Copy }
+  - { mods: Control|Shift, key: J, chars: "^J" }
+  - { mods: Control|Shift, key: V, action: Paste }
+
+  - { mods: Control|Shift, key: Key0, chars: "\x1b[48;6u" }
+  - { mods: Control|Shift, key: Key1, chars: "\x1b[49;6u" }
+  - { mods: Control|Shift, key: Key2, chars: "\x1b[50;6u" }
+  - { mods: Control|Shift, key: Key3, chars: "\x1b[51;6u" }
+  - { mods: Control|Shift, key: Key4, chars: "\x1b[52;6u" }
+  - { mods: Control|Shift, key: Key5, chars: "\x1b[53;6u" }
+  - { mods: Control|Shift, key: Key6, chars: "\x1b[54;6u" }
+  - { mods: Control|Shift, key: Key7, chars: "\x1b[55;6u" }
+  - { mods: Control|Shift, key: Key8, chars: "\x1b[56;6u" }
+  - { mods: Control|Shift, key: Key9, chars: "\x1b[57;6u" }
+
+
+  - { mods: Control, key: C, mode: Vi, action: ClearSelection }
+  - { mods: Control, key: I, chars: "\x1b[105;5u" }
+  - { mods: Control, key: M, chars: "\x1b[109;5u" }
+
+  - { mods: Control, key: Key1, chars: "\x1b[49;5u" }
+  - { mods: Control, key: Key2, chars: "\x1b[50;5u" }
+  - { mods: Control, key: Key3, chars: "\x1b[51;5u" }
+  - { mods: Control, key: Key4, chars: "\x1b[52;5u" }
+  - { mods: Control, key: Key5, chars: "\x1b[53;5u" }
+  - { mods: Control, key: Key6, chars: "\x1b[54;5u" }
+  - { mods: Control, key: Key7, chars: "\x1b[55;5u" }
+  - { mods: Control, key: Key8, chars: "\x1b[56;5u" }
+  - { mods: Control, key: Key9, chars: "\x1b[57;5u" }
+  - { mods: Control, key: Return, chars: "\x1b[13;5u" }
+
+  - { mods: Alt, key: Key0, chars: "\x1b0" }
+  - { mods: Alt, key: Key1, chars: "\x1b1" }
+  - { mods: Alt, key: Key2, chars: "\x1b2" }
+  - { mods: Alt, key: Key3, chars: "\x1b3" }
+  - { mods: Alt, key: Key4, chars: "\x1b4" }
+  - { mods: Alt, key: Key5, chars: "\x1b5" }
+  - { mods: Alt, key: Key6, chars: "\x1b6" }
+  - { mods: Alt, key: Key7, chars: "\x1b7" }
+  - { mods: Alt, key: Key8, chars: "\x1b8" }
+  - { mods: Alt, key: Key9, chars: "\x1b9" }
