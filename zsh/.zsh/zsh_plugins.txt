@@ -1,3 +1,4 @@
+momo-lab/zsh-abbrev-alias
 robbyrussell/oh-my-zsh
 romkatv/powerlevel10k
 sorin-ionescu/prezto path:modules/ssh
@@ -7,4 +8,3 @@ zsh-users/zsh-completions
 robbyrussell/oh-my-zsh path:plugins/golang
 zdharma-continuum/fast-syntax-highlighting
 jeffreytse/zsh-vi-mode
-momo-lab/zsh-abbrev-alias
