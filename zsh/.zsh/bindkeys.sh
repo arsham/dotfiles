@@ -13,3 +13,4 @@ function zvm_before_init() {
 
 }
 bindkey '^x^e' edit-command-line
+bindkey '^[l' clear-screen
