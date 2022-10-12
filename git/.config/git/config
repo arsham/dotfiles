@@ -19,12 +19,15 @@
   undo = reset HEAD~1 --mixed
   lg = log --graph --abbrev-commit --decorate --all --date-order \
            --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- <%an>%C(reset)%C(bold yellow)%d%C(reset)'
+  # Commit staged changes with WIP title.
   wip = commit --no-gpg-sign -am "WIP"
   up = !git pull --rebase --prune
   save = !git add -A && git commit --no-gpg-sign -m 'SAVEPOINT'
   # wipe will create an untracked commit in case later you want to find it # from reflogs.
   wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
-  conflicts = "!git ls-files -u | awk '{print $4}' | sort -u"
+  # Show conflict-only diff patches.
+  conflicts = diff --diff-filter=U
+  conflict-files = "!git conflicts --name-only"
   ignored = !git ls-files --others --i --exclude-standard
   diff-json = !git -c diff.default.textconv=\"`git config diff.json.textconv`\" diff
   root = !pwd
