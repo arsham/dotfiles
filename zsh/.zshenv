@@ -65,7 +65,9 @@ export CPPFLAGS="-D_FORTIFY_SOURCE=2"
 source $ZSH_HOME/lazy_completions.sh
 source $ZSH_HOME/bindkeys.sh
 
-export PATH=/usr/lib/ccache/bin/:$HOME/go/bin:$PATH
+export PATH=/usr/lib/ccache/bin/:$PATH
+export PATH=$PATH:$HOME/.cache/nvim/mason/bin
+export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$ZSH_HOME/plugins/git
 export PATH=$PATH:$ZSH_HOME/plugins/kubectl
 export PATH=$PATH:$HOME/.node_modules/bin
