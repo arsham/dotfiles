@@ -1,5 +1,5 @@
 super + {_, shift +} Return
-    {prime-run kitty, prime-run alacritty}
+    {prime-run alacritty, prime-run kitty}
 
 alt + @space
 	rofi -show combi -terminal alacritty
