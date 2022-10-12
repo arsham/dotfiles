@@ -47,22 +47,24 @@
   rebase = false
 [diff]
   wsErrorHighlight = all
-  tool = vimdiff3
+  tool = vimdiff
   algorithm = patience
+  indentHeuristic = true
 [difftool]
   prompt = false
   trustExitCode = true
 [difftool "nvimdiff"]
   cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [merge]
-  tool = vimdiff
+  tool = nvim
   conflictstyle = zdiff3
 [mergetool]
   prompt = false
   keepBackup = false
   trustExitCode = true
-[mergetool "nvimdiff"]
-  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\" \"$MERGED\" -c 'wincmd w' -c 'wincmd J'"
+  writeToTemp = true
+[mergetool "nvim"]
+  cmd = "nvim -d -c \"wincmd l\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
 [mergetool "vimdiff"]
   path = nvim
 [difftool "vimdiff3"]
