@@ -98,6 +98,7 @@ key_bindings:
   - { mods: Control|Shift, key: C, action: Copy }
   - { mods: Control|Shift, key: J, chars: "^J" }
   - { mods: Control|Shift, key: V, action: Paste }
+  - { mods: Control|Shift, key: P, chars: "\x1b[112;6u" }
 
   - { mods: Control|Shift, key: Key0, chars: "\x1b[48;6u" }
   - { mods: Control|Shift, key: Key1, chars: "\x1b[49;6u" }
