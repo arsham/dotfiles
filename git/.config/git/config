@@ -37,6 +37,8 @@
   # Usage: git merge-patch feature/example..master > <name.patch>
   # Apply with: git apply -3 <name.patch>
   merge-patch = log --patch --reverse --binary --pretty=email --stat -m --first-parent --full-index
+  # Print the commit diff in form of a patch that can be applied.
+  commit-patch = "!f() { git log --patch --pretty=email --stat -m --first-parent $1~..$1 ;}; f"
 [http]
   sslVerify = true
 [gpg]
