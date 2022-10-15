@@ -19,7 +19,7 @@ export HISTFILE=$HOME/Dropbox/Home/.zsh_history.${(%):-%m}
   emulate -L zsh -o extended_glob
   local hist
   for hist in $HOME/Dropbox/Home/.zsh_history.*~$HISTFILE(N); do
-    if [[ $history != "*.LOCK" ]]
+    if [[ $hist != "*.LOCK" ]]
     then
       fc -RI -- $hist
     fi
