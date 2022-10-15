@@ -20,7 +20,8 @@
   # TOOLS
   # Commit staged changes with WIP title.
   wip = commit --no-gpg-sign -am "WIP"
-  save = !git add -A && git commit --no-gpg-sign -m 'SAVEPOINT'
+  # Commit the dirt as a save point.
+  save = "!f() { git add -A && DATE=$(date +'%Y-%m-%d-%H-%M-%S') git commit --no-gpg-sign -m \"SAVEPOINT $(date +'%Y-%m-%d %H:%M:%S')\";}; f"
   # Undo last commit, keep the changes as dirt.
   undo = reset HEAD~1 --mixed
   # wipe will create an untracked commit in case later you want to find it # from reflogs.
