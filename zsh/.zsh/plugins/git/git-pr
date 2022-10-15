@@ -1,0 +1,20 @@
+#!/bin/zsh
+#
+# Shows the list of pull requests and checks out the one you choose.
+
+local template='"¤¤¤¤¤¤\(.number)\t#\(.number)\t(\(.user.login)) \(.title)\t\(.body)"'
+
+gh api 'repos/:owner/:repo/pulls' |
+    gojq --raw-output ".[] | $template" |
+    tr -s "\n\r" "¤" |
+    tr -s "\n" "¤" |
+    tr -s "¤¤¤¤¤¤" "\n" |
+    tail -n +2 |
+    fzf --ansi --no-sort --preview-window nohidden +m \
+        --with-nth=2,3 \
+        --delimiter "\t" \
+        --preview='echo -e {4} | tr -s "¤" "\n"' |
+    cut -f 1 |
+    xargs -r gh pr checkout
+
+# vim: ft=zsh:nowrap
