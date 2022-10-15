@@ -5,19 +5,70 @@
   email = arshamshirvani@gmail.com
   name = Arsham Shirvani
   signingkey = CD1DF4EEAA9655CE99B991EFBB208F95160CE40E
+[commit]
+  gpgSign = true
+  template = ~/.config/git/message
 [core]
   excludesfile = ~/.config/git/ignore
   editor = nvim
   pager = nvim -R -c 'set ft=git foldmethod=syntax | nnoremap q :q<CR>'
+[tag]
+  sort = version:refname
+[versionsort]
+  suffix = -
+[http]
+  sslVerify = true
+[gpg]
+  program = gpg2
+[github]
+  user = arsham
+[url "git@github.com:"]
+  insteadOf = https://github.com/
+
+[fetch]
+  prune = true
 [push]
   default = simple
+[remote "origin"]
+  prune = true
+[pull]
+  rebase = false
+
+[diff]
+  wsErrorHighlight = all
+  tool = vimdiff
+  algorithm = patience
+  indentHeuristic = true
+[difftool]
+  prompt = false
+  trustExitCode = true
+[difftool "nvimdiff"]
+  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[difftool "vimdiff3"]
+  path = nvim
+[diff "json"]
+  textconv = gojq '.' $1
+
+[merge]
+  tool = nvim
+  conflictstyle = zdiff3
+[mergetool]
+  prompt = false
+  keepBackup = false
+  trustExitCode = true
+  writeToTemp = true
+[mergetool "nvim"]
+  cmd = "nvim -d -c \"wincmd l\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+[mergetool "vimdiff"]
+  path = nvim
+
 [alias]
-  # CORE
+  ## CORE
   st = status
   co = checkout
   aliases = "!git config -l | grep alias | cut -c 7-"
 
-  # TOOLS
+  ## TOOLS
   # Commit staged changes with WIP title.
   wip = commit --no-gpg-sign -am "WIP"
   # Commit the dirt as a save point.
@@ -41,14 +92,14 @@
   # Usage2 (against feature/123/blah): git workon new-feature feature/123/blah
   workon = "!f() { git fetch && git checkout -b $1 ${2:-origin/master}; }; f"
 
-  # STATS
+  ## STATS
   ls = "log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate"
   lg = log --graph --abbrev-commit --decorate --all --date-order \
            --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- <%an>%C(reset)%C(bold yellow)%d%C(reset)'
   # Show conflict-only diff patches.
   conflicts = diff --diff-filter=U
-  conflict-files = "!git conflicts --name-only"
-  ignored = !git ls-files --others --i --exclude-standard
+  conflict-files = conflicts --name-only
+  ignored = ls-files --others --i --exclude-standard
   latest-tag = describe --tags --abbrev=0
 
   recent = branch --sort=-committerdate
@@ -59,57 +110,10 @@
   # Show changes between remote and HEAD (stole from Ryan Davis's blog)
   changelog = !git log --no-color --format='* %s%n%w(,4,4)%+b' ${1:-origin/master}..HEAD
 
-  # PULL REQUESTS
+  ## PULL REQUESTS
   # file stats which have changed since given branch (empty defaults to master).
   pr-stat = !git --no-pager diff --stat $(git merge-base HEAD ${1:-master})
   pr-files = !git --no-pager diff --name-only $(git merge-base HEAD ${1:-master})
   # open the changed files for review.
   pr-review = !nvim -p $(git pr-files) +\"tabdo Gvdiff ${1:-master}\"
   pr-reviewone = !nvim -p +\"tabdo Gvdiff ${1:-master}\"
-[http]
-  sslVerify = true
-[gpg]
-  program = gpg2
-[commit]
-  gpgSign = true
-  template = ~/.config/git/message
-[url "git@github.com:"]
-  insteadOf = https://github.com/
-[pull]
-  rebase = false
-[diff]
-  wsErrorHighlight = all
-  tool = vimdiff
-  algorithm = patience
-  indentHeuristic = true
-[difftool]
-  prompt = false
-  trustExitCode = true
-[difftool "nvimdiff"]
-  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
-[merge]
-  tool = nvim
-  conflictstyle = zdiff3
-[mergetool]
-  prompt = false
-  keepBackup = false
-  trustExitCode = true
-  writeToTemp = true
-[mergetool "nvim"]
-  cmd = "nvim -d -c \"wincmd l\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
-[mergetool "vimdiff"]
-  path = nvim
-[difftool "vimdiff3"]
-  path = nvim
-[github]
-  user = arsham
-[fetch]
-  prune = true
-[diff "json"]
-  textconv = gojq '.' $1
-[remote "origin"]
-  prune = true
-[tag]
-	sort = version:refname
-[versionsort]
-	suffix = -
