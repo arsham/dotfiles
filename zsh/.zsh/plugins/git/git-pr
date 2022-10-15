@@ -2,18 +2,17 @@
 #
 # Shows the list of pull requests and checks out the one you choose.
 
-local template='"¤¤¤¤¤¤\(.number)\t#\(.number)\t(\(.user.login)) \(.title)\t\(.body)"'
+local template='"StArToFDaTa\(.number)\t#\(.number)\t(\(.user.login)) \(.title)\t\(.body)"'
 
 gh api 'repos/:owner/:repo/pulls' |
     gojq --raw-output ".[] | $template" |
-    tr -s "\n\r" "¤" |
-    tr -s "\n" "¤" |
-    tr -s "¤¤¤¤¤¤" "\n" |
+    sed -z "s/\r\n/NeWlInE/g;s/\n/NeWlInE/g" |
+    sed -z "s/StArToFDaTa/\n/g" |
     tail -n +2 |
     fzf --ansi --no-sort --preview-window nohidden +m \
         --with-nth=2,3 \
         --delimiter "\t" \
-        --preview='echo -e {4} | tr -s "¤" "\n"' |
+        --preview='echo -e {4} | sed "s/NeWlInE/\n/g"' |
     cut -f 1 |
     xargs -r gh pr checkout
 
