@@ -39,6 +39,14 @@
   merge-patch = log --patch --reverse --binary --pretty=email --stat -m --first-parent --full-index
   # Print the commit diff in form of a patch that can be applied.
   commit-patch = "!f() { git log --patch --pretty=email --stat -m --first-parent $1~..$1 ;}; f"
+
+  # PULL REQUESTS
+  # file stats which have changed since given branch (empty defaults to master).
+  pr-stat = !git --no-pager diff --stat $(git merge-base HEAD ${1:-master})
+  pr-files = !git --no-pager diff --name-only $(git merge-base HEAD ${1:-master})
+  # open the changed files for review.
+  pr-review = !nvim -p $(git pr-files) +\"tabdo Gvdiff ${1:-master}\"
+  pr-reviewone = !nvim -p +\"tabdo Gvdiff ${1:-master}\"
 [http]
   sslVerify = true
 [gpg]
