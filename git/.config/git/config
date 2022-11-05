@@ -40,9 +40,12 @@
 
 [diff]
   wsErrorHighlight = all
+  ; will use the fallback mergetool
   tool = vimdiff
   algorithm = patience
   indentHeuristic = true
+  wordRegex = [a-zA-Z0-9_]+|[^[:space:]]
+  mnemonicPrefix = true
 [difftool]
   prompt = false
   trustExitCode = true
