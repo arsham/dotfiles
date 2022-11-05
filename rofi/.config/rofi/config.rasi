@@ -13,9 +13,9 @@ configuration {
     kb-remove-to-eol: "";
     kb-accept-entry: "Control+m,Return,KP_Enter";
     kb-mode-next: "Control+l,Control+Tab";
-    kb-mode-previous: "Control+h,Control+ISO_Left_Tab";
+    kb-mode-previous: "Control+h";
     kb-mode-complete: "";
-    kb-row-up: "Up,Control+k,ISO_Left_Tab,Super+k";
+    kb-row-up: "Up,Control+k,Super+k";
     kb-row-down: "Down,Control+j,Super+j";
     kb-remove-char-forward: "Delete";
     kb-remove-to-sol: "";
@@ -29,6 +29,8 @@ configuration {
         directories-first: true;
         sorting-method:    "name";
     }
+
+    disable-history: false;
 }
 
 @theme "theme.rasi"
