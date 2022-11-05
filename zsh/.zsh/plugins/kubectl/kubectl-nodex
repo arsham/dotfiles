@@ -1,8 +1,5 @@
 #!/bin/bash
 
-_context=""
-if [[ "$1" ]]; then
-    _context="--context $1"
-fi
+source _kubectl-arguments
 
-kubectl get $_context nodes -L beta.kubernetes.io/instance-type,kops.k8s.io/instancegroup,failure-domain.beta.kubernetes.io/zone
+kubectl get $_context nodes -L beta.kubernetes.io/instance-type,failure-domain.beta.kubernetes.io/zone

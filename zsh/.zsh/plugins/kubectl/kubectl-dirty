@@ -3,6 +3,6 @@
 
 source _kubectl-arguments
 
-kubectl get po $_context $_namespace -o="custom-columns=NAME:.metadata.name,READY:.status.containerStatuses[*].ready,PHASE:.status.phase,RESTARTS:.status.containerStatuses[*].restartCount" --field-selector=status.phase=Failed
+kubectl get po $_context $_namespace -o="custom-columns=NAME:.metadata.name,READY:.status.containerStatuses[*].ready,PHASE:.status.phase,RESTARTS:.status.containerStatuses[*].restartCount" --field-selector=status.phase!=Running,status.phase!=Succeeded
 
 # vim: ft=zsh:nowrap

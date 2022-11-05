@@ -1,3 +1,6 @@
 #!/bin/bash
-kubectl get pod -o=custom-columns=NAMESPACE:.metadata.namespace,NAME:.metadata.name,CPU:spec.containers[0].resources.requests.cpu,MEMORY:spec.containers[0].resources.requests.memory \
+
+source _kubectl-arguments
+
+kubectl get $_context $_namespace pod -o=custom-columns=NAMESPACE:.metadata.namespace,NAME:.metadata.name,CPU:spec.containers[0].resources.requests.cpu,MEMORY:spec.containers[0].resources.requests.memory \
     --sort-by=spec.containers[0].resources.requests.cpu $1

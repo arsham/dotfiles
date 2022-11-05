@@ -1,2 +1,5 @@
 #!/bin/bash
-kubectl get pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:.spec.nodeName --all-namespaces
+
+source _kubectl-arguments
+
+kubectl get $_context $_namespace pod -o=custom-columns=NAME:.metadata.name,STATUS:.status.phase,NODE:.spec.nodeName --all-namespaces
