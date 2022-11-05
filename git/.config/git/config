@@ -25,6 +25,10 @@
 [url "git@github.com:"]
   insteadOf = https://github.com/
 
+[rebase]
+  autosquash = true
+  abbreviateCommands = true
+
 [fetch]
   prune = true
 [push]
