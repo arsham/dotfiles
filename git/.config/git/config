@@ -110,12 +110,12 @@
   last = log -1 HEAD --stat
   contrib = shortlog -e --summary --numbered
   # Show changes between remote and HEAD (stole from Ryan Davis's blog)
-  changelog = !git log --no-color --format='* %s%n%w(,4,4)%+b' ${1:-origin/master}..HEAD
+  changelog = "!f() { git log --no-color --format='* %s%n%w(,4,4)%+b' ${1:-origin/master}..HEAD; }; f"
 
   ## PULL REQUESTS
   # file stats which have changed since given branch (empty defaults to master).
-  pr-stat = !git --no-pager diff --stat $(git merge-base HEAD ${1:-master})
-  pr-files = !git --no-pager diff --name-only $(git merge-base HEAD ${1:-master})
+  pr-stat = "!f() { git --no-pager diff --stat $(git merge-base HEAD ${1:-master}); }; f"
+  pr-files = "!f() { git --no-pager diff --name-only $(git merge-base HEAD ${1:-master}); }; f"
   # open the changed files for review.
-  pr-review = !nvim -p $(git pr-files) +\"tabdo Gvdiff ${1:-master}\"
-  pr-reviewone = !nvim -p +\"tabdo Gvdiff ${1:-master}\"
+  pr-review = "!f() { : git checkout ; NVIM_NO_NOICE=1 nvim -p $(git pr-files ${1:-master}) +\"tabdo Gvdiff ${1:-master}\"; };f"
+  pr-reviewone = "!f() { : git checkout ; nvim -p +\"tabdo Gvdiff ${1:-master}\"; }; f"
