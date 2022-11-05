@@ -68,6 +68,7 @@
   st = status
   co = checkout
   aliases = "!git config -l | grep alias | cut -c 7-"
+  ri = rebase -i
 
   ## TOOLS
   # Commit staged changes with WIP title.
@@ -106,7 +107,7 @@
   recent = branch --sort=-committerdate
   # Show branch progress with their dates.
   branch-progress = for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/heads
-	last = log -1 HEAD --stat
+  last = log -1 HEAD --stat
   contrib = shortlog -e --summary --numbered
   # Show changes between remote and HEAD (stole from Ryan Davis's blog)
   changelog = !git log --no-color --format='* %s%n%w(,4,4)%+b' ${1:-origin/master}..HEAD
