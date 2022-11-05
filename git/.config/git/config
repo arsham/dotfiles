@@ -49,23 +49,16 @@
 [difftool]
   prompt = false
   trustExitCode = true
-[difftool "nvimdiff"]
-  cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
-[difftool "vimdiff3"]
-  path = nvim
 [diff "json"]
   textconv = gojq '.' $1
 
 [merge]
-  tool = nvim
-  conflictstyle = zdiff3
+  tool = vimdiff
 [mergetool]
   prompt = false
   keepBackup = false
   trustExitCode = true
   writeToTemp = true
-[mergetool "nvim"]
-  cmd = "nvim -d -c \"wincmd l\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
 [mergetool "vimdiff"]
   path = nvim
 
