@@ -54,6 +54,7 @@
 
 [merge]
   tool = vimdiff
+  guitool = meld
 [mergetool]
   prompt = false
   keepBackup = false
