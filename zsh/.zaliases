@@ -14,17 +14,17 @@ alias -g .....='../../../..'
 alias -g ......='../../../../..'
 alias -g .......='../../../../../..'
 
-alias open='xdg-open'
+alias open=xdg-open
 alias open-ports='netstat -tulanp'
 alias genpasswd="strings /dev/urandom | grep -o '[[:alnum:]]' | head -n 30 | tr -d '\n'; echo"
 
 alias k=kubectl
-alias k-dirty="kubectl-dirty"
-alias k-pending="kubectl-pending"
-alias k-nodezone="kubectl-nodezone"
-alias k-nodex="kubectl-nodex"
-alias k-podnode="kubectl-podnode"
-alias k-all='kubectl-all'
+alias k-dirty=kubectl-dirty
+alias k-pending=kubectl-pending
+alias k-nodezone=kubectl-nodezone
+alias k-nodex=kubectl-nodex
+alias k-podnode=kubectl-podnode
+alias k-all=kubectl-all
 
 alias paru-git="pacman -Qmq | grep -Ee '-(cvs|svn|git|hg|bzr|darcs)$' | paru -S --needed -"
 alias paru-installed="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | nvim -R -)'"
@@ -32,8 +32,8 @@ alias paru-remove="paru -Qq | fzf -m --preview 'paru -Qil {1} 2> /dev/null || pa
 alias paru-orphans="paru -Qtdq | vipe | paru -Rnsu -"
 alias tmux="systemd-run --scope --user tmux"
 alias htops="HTOPRC=~/.config/htop/htoprc-s htop -d 3"
-alias vim="nvim"
-alias vi="nvim"
+alias vim=nvim
+alias vi=nvim
 alias v="env TERM=alacritty-direct vifm"
 alias vifm="env TERM=alacritty-direct vifm"
 alias v="env TERM=alacritty-direct vifmrun"
@@ -41,5 +41,6 @@ alias vifm="env TERM=alacritty-direct vifmrun"
 alias lightvim="NVIM_START_LIGHT=1 nvim -u NONE -c 'set nonu norelativenumber lazyredraw ft=txt'"
 alias icat="kitty +kitten icat"
 alias tm="tmuxp load -y"
+alias df=duf
 
 # vim: ft=zsh:nowrap
