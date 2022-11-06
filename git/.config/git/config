@@ -79,7 +79,6 @@
   undo = reset HEAD~1 --mixed
   # wipe will create an untracked commit in case later you want to find it # from reflogs.
   wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
-  diff-json = !git -c diff.default.textconv=\"`git config diff.json.textconv`\" diff
   root = !pwd
 
   # Creates a patch from the result of a merge, without applying it.
