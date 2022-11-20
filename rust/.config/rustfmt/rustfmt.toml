@@ -1,0 +1,12 @@
+# Maximum width of each line.
+max_width = 120
+# Replace uses of the try! macro by the ? shorthand.
+use_try_shorthand = true
+imports_granularity = "Module"
+newline_style = "Native"
+# Break comments to fit on the line.
+wrap_comments = true
+# Put a trailing comma after a block based match arm (non-block arms are not affected).
+match_block_trailing_comma = true
+group_imports = "StdExternalCrate"
+use_field_init_shorthand = true
