@@ -1,0 +1,3 @@
+[submodule "firefox/.mozilla/firefox/firefox-csshacks"]
+	path = firefox/.mozilla/firefox/firefox-csshacks
+	url = git@github.com:MrOtherGuy/firefox-csshacks.git
