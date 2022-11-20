@@ -3,3 +3,21 @@ rustflags = ["-C", "target-cpu=native"]
 
 [build]
 rustc-wrapper = "sccache"
+
+[doc]
+browser = "firefox"
+
+[cargo-new]
+vcs = "none"
+
+[profile.dev]
+split-debuginfo = 'unpacked'
+codegen-units = 1024
+
+[profile.test]
+split-debuginfo = 'unpacked'
+
+[profile.release]
+strip = true
+
+# vim: ft=toml
