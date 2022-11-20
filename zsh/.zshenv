@@ -29,7 +29,7 @@ export HISTFILE=$HOME/Dropbox/Home/.zsh_history.${(%):-%m}
 fpath=($GENCOMPL_FPATH $ZSH_HOME/functions "${fpath[@]}" autoloaded)
 
 # fix for oh-my-zsh tweaks that let's installing some plugins
-ZSH="${HOME}/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
+ZSH="${HOME}/.cache/antidote/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
 DISABLE_AUTO_UPDATE=true
 
 setopt BANG_HIST                 # Treat the '!' character specially during expansion.

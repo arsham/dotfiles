@@ -13,10 +13,11 @@ fi
 # ZPROF=true
 
 source $ZSH_HOME/install_deps.sh
+source /usr/share/zsh-antidote/antidote.zsh
 
 source $ZSH_HOME/zsh_plugins.sh 2> /dev/null
 if [ $? -ne 0 ]; then
-    antibody bundle < $ZSH_HOME/zsh_plugins.txt > $ZSH_HOME/zsh_plugins.sh
+    antidote bundle < $ZSH_HOME/zsh_plugins.txt > $ZSH_HOME/zsh_plugins.sh
     source $ZSH_HOME/zsh_plugins.sh
 fi
 
@@ -55,4 +56,4 @@ zvm_after_init_commands+=(my_init)
 eval "$(zoxide init zsh --cmd cd)"
 source $ZSH_HOME/plugins/abbreviations
 
-# vim: ft=zsh:nowrap
+# vim: ft=zsh nowrap
