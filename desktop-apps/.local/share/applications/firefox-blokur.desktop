@@ -1,0 +1,24 @@
+[Desktop Entry]
+Version=1.0
+Name=Firefox (Blokur)
+GenericName=Web Browser
+Comment=Browse the World Wide Web
+Keywords=Internet;WWW;Browser;Web;Explorer
+Exec=prime-run /usr/lib/firefox/firefox -p Blokur %u
+Icon=firefox
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+StartupNotify=true
+StartupWMClass=firefox
+Categories=Network;WebBrowser;
+Actions=new-window;new-private-window;
+
+[Desktop Action new-window]
+Name=New Window
+Exec=/usr/lib/firefox/firefox -p Blokur --new-window %u
+
+[Desktop Action new-private-window]
+Name=New Private Window
+Exec=/usr/lib/firefox/firefox -p Blokur --private-window %u
+MimeType=x-scheme-handler/unknown;x-scheme-handler/about;text/html;text/xml;application/xhtml+xml;x-scheme-handler/http;x-scheme-handler/https;application/x-xpinstall;application/pdf;application/json;
