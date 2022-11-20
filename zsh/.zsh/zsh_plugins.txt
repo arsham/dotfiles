@@ -4,7 +4,8 @@ romkatv/powerlevel10k
 sorin-ionescu/prezto path:modules/ssh
 Aloxaf/fzf-tab
 zsh-users/zsh-autosuggestions
-zsh-users/zsh-completions
+clarketm/zsh-completions
 robbyrussell/oh-my-zsh path:plugins/golang
 zdharma-continuum/fast-syntax-highlighting
 jeffreytse/zsh-vi-mode
+RobSis/zsh-completion-generator
