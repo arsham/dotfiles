@@ -53,7 +53,11 @@ zvm_after_init_commands+=(my_init)
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f $ZSH_HOME/p10k.zsh ]] || source $ZSH_HOME/p10k.zsh
 
-eval "$(zoxide init zsh --cmd cd)"
+if [[ ! -r $ZSH_HOME/.zoxide_init.sh ]]; then
+    zoxide init zsh --cmd cd > $ZSH_HOME/.zoxide_init.sh
+fi
+source $ZSH_HOME/.zoxide_init.sh
+
 source $ZSH_HOME/plugins/abbreviations
 
 # vim: ft=zsh nowrap
