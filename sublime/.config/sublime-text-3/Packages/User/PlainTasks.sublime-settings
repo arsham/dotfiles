@@ -1,7 +1,0 @@
-{
-    "before_tasks_bullet_margin": 2,
-    "date_format": "(%d-%m-%y %H:%M)",
-    "project_tag": false, // if true - postfix archived task with project tag, if false - prefix
-    "draw_indent_guides": true,
-    "tab_size": 4,
-}

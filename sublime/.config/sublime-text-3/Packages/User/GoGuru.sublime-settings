@@ -1,9 +1,0 @@
-{
-    "goguru_debug": false,
-    "goguru_jumpto_definition": false,
-    "goguru_env": {
-        "GOPATH": "/home/arsham/go",
-        "PATH": "/home/arsham/go/bin:$PATH:/usr/lib/go/bin:/usr/bin",
-        "GO111MODULE": "on",
-    },
-}
