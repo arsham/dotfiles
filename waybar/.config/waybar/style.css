@@ -1,0 +1,93 @@
+/* For interactive styling:
+* env GTK_DEBUG=interactive waybar
+*/
+
+@keyframes blink-warning {
+    70% {
+        color: white;
+    }
+    to {
+        color: white;
+        background-color: orange;
+    }
+}
+
+@keyframes blink-critical {
+    70% {
+        color: white;
+    }
+    to {
+        color: white;
+        background-color: red;
+    }
+}
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+    background: #232627;
+    color: #eeeeee;
+    font-family:
+        Cantarell,
+        Noto Sans,
+        sans-serif;
+    font-size: 13px;
+}
+
+#clock,
+#tray {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#clock {
+    font-weight: bold;
+}
+
+#tray {
+    /* No styles */
+}
+
+#window {
+    font-weight: bold;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+window#waybar.chromium {
+    background-color: #eeeeee;
+    color: #000000;
+}
+
+#workspaces button {
+    border-top: 1px solid transparent;
+    /* To compensate for the top border and still have vertical centering */
+    padding-bottom: 1px;
+    padding-left: 4px;
+    padding-right: 4px;
+    color: #888888;
+    border-color: #7d81ba;
+    font-size: 16px;
+}
+
+#workspaces button.urgent {
+    border-color: #c9545d;
+    color: #c9545d;
+}
+
+#workspaces button.active {
+    color: #f0f0f0;
+}
+
+#workspaces button.empty {
+    border-color: #232627;
+}
