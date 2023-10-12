@@ -26,6 +26,7 @@
     "pulseaudio#microphone",
     "temperature",
     "battery",
+    "idle_inhibitor",
     "tray",
     "clock",
   ],
@@ -38,6 +39,14 @@
     "on-scroll-down": "brightnessctl set 1%-",
     "tooltip": false,
     "min-length": 6
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
   },
 
   "battery": {
