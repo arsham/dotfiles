@@ -24,6 +24,7 @@
     "backlight",
     "pulseaudio",
     "pulseaudio#microphone",
+    "temperature",
     "tray",
     "clock",
   ],
@@ -149,6 +150,22 @@
     "persistent_workspaces": {
       "*": 10,
     }
+  },
+
+  "temperature": {
+    "critical-threshold": 85,
+    "hwmon-path": "/sys/class/thermal/thermal_zone9/temp",
+    "interval": 1,
+    "format": "{icon}  {temperatureC}°C",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "min-length": 6,
+    "tooltip": false
   },
 
   "tray": {

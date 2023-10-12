@@ -47,6 +47,7 @@
 #memory,
 #network,
 #pulseaudio,
+#temperature,
 #backlight,
 #tray {
     padding-left: 10px;
@@ -79,6 +80,10 @@
     color: red;
     animation-name: blink-critical;
     animation-duration: 2s;
+}
+
+#temperature.critical {
+    color: red;
 }
 
 #tray {
