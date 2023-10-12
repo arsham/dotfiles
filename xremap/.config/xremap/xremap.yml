@@ -1,0 +1,7 @@
+modmap:
+  - name: "Better capslock"
+    remap:
+      CAPSLOCK:
+        held: LEFTCTRL
+        alone: ESC
+        alone_timeout_millis: 200
