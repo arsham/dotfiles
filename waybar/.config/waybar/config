@@ -12,6 +12,7 @@
   "modules-left": [
     "hyprland/workspaces",
     "hyprland/submap",
+    "custom/animations",
     "network",
   ],
 
@@ -241,6 +242,22 @@
     "smooth-scrolling-threshold": 2,
     "min-length": 5,
     "scroll-step": 5
+  },
+
+  "custom/animations": {
+    "format": "{icon}",
+    "on-click": "~/.config/waybar/scripts/flip_animations.sh ; pkill -SIGRTMIN+9 waybar",
+    "format-icons": {
+      "fancy": "<span color=\"#b27c53\">🤬</span>",
+      "normal": "",
+      "disabled": "<span color=\"#53b26a\">󰑮</span>",
+    },
+    "exec": "~/.config/waybar/scripts/flip_animations.sh init",
+    "interval": "once",
+    "return-type": "json",
+    "tooltip": true,
+    "signal": 9,
+    "min-length": 3,
   },
 
 }
