@@ -22,6 +22,8 @@
     "cpu",
     "memory",
     "backlight",
+    "pulseaudio",
+    "pulseaudio#microphone",
     "tray",
     "clock",
   ],
@@ -155,4 +157,46 @@
     "tooltip": true,
     "show-passive-items": true,
   },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-source": "  {volume}%",
+    "format-muted": "󰖁",
+    "format-source-muted": "",
+    "format-bluetooth": "{icon}  {volume}%",
+    "on-click": "pavucontrol -t 3",
+    "tooltip-format": "{icon} {desc} @ {volume}%",
+    "scroll-step": 1,
+    "min-length": 5,
+    "smooth-scrolling-threshold": 2,
+    "signal": 10,
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "奄",
+        "奔",
+        "墳"
+      ]
+    }
+  },
+
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "on-click": "pavucontrol -t 4",
+    "on-scroll-up": "pamixer --default-source -i 2",
+    "on-scroll-down": "pamixer --default-source -d 2",
+    "tooltip-format": "{format_source} {source_desc} @ {source_volume}%",
+    "signal": 10,
+    "smooth-scrolling-threshold": 2,
+    "min-length": 5,
+    "scroll-step": 5
+  },
+
 }
