@@ -46,6 +46,7 @@
 #cpu,
 #memory,
 #network,
+#backlight,
 #tray {
     padding-left: 10px;
     padding-right: 10px;

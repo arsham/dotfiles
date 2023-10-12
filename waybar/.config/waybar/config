@@ -21,9 +21,20 @@
   "modules-right": [
     "cpu",
     "memory",
+    "backlight",
     "tray",
     "clock",
   ],
+
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "on-scroll-up": "brightnessctl set 1%+",
+    "on-scroll-down": "brightnessctl set 1%-",
+    "tooltip": false,
+    "min-length": 6
+  },
 
   "clock": {
     "interval": 10,
