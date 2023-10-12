@@ -21,6 +21,7 @@
   ],
 
   "modules-right": [
+    "custom/updates",
     "cpu",
     "memory",
     "backlight",
@@ -119,6 +120,15 @@
       "warning": 70,
       "critical": 90
     }
+  },
+
+  "custom/updates": {
+    "exec": "~/.config/waybar/scripts/systemupdate.sh",
+    "interval": 7200,
+    "format": "󰮯  {}",
+    "on-click": "pkill -SIGRTMIN+5 waybar",
+    "signal": 5,
+    "tooltip": true,
   },
 
   "network": {
