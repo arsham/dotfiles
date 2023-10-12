@@ -42,6 +42,7 @@
     font-size: 13px;
 }
 
+#battery,
 #clock,
 #cpu,
 #memory,
@@ -52,6 +53,30 @@
 #tray {
     padding-left: 10px;
     padding-right: 10px;
+}
+
+#battery {
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.warning {
+    color: orange;
+}
+
+#battery.critical {
+    color: red;
+}
+
+#battery.warning.discharging {
+    animation-name: blink-warning;
+    animation-duration: 3s;
+}
+
+#battery.critical.discharging {
+    animation-name: blink-critical;
+    animation-duration: 2s;
 }
 
 #clock {

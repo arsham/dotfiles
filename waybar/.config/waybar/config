@@ -25,6 +25,7 @@
     "pulseaudio",
     "pulseaudio#microphone",
     "temperature",
+    "battery",
     "tray",
     "clock",
   ],
@@ -37,6 +38,22 @@
     "on-scroll-down": "brightnessctl set 1%-",
     "tooltip": false,
     "min-length": 6
+  },
+
+  "battery": {
+    "interval": 5,
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20,
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-discharging": "{icon} {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip": true
   },
 
   "clock": {
