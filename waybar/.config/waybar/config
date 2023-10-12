@@ -11,6 +11,7 @@
 
   "modules-left": [
     "hyprland/workspaces",
+    "network",
   ],
 
   "modules-center": [
@@ -49,6 +50,17 @@
       "on-scroll-up": "shift_up",
       "on-scroll-down": "shift_down"
     }
+  },
+
+  "network": {
+    "interval": 1,
+    "format-wifi": "  {bandwidthUpBytes}    {bandwidthDownBytes}",
+    "format-ethernet": "  {bandwidthUpBytes}    {bandwidthDownBytes}",
+    "format-disconnected": "  Disconnected",
+    "format-linked": "󱘖  {ifname} (No IP)",
+    "format-alt": "󰤨  {signalStrength}%",
+    "min-length": 20,
+    "tooltip-format": "  {essid} ({signalStrength}%)",
   },
 
   "hyprland/window": {
