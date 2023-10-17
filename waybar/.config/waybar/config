@@ -13,6 +13,7 @@
     "hyprland/workspaces",
     "hyprland/submap",
     "custom/animations",
+    "custom/wallpaper",
     "network",
   ],
 
@@ -267,6 +268,15 @@
     "return-type": "json",
     "tooltip": true,
     "signal": 9,
+    "min-length": 3,
+  },
+
+  "custom/wallpaper": {
+    "format": "󰆊",
+    "on-click": "~/.config/swww/swwwallpaper.sh",
+    "on-click-right": "~/.config/swww/swwwallpaper.sh",
+    "tooltip": false,
+    "tooltip-format": "Change the wallpaper",
     "min-length": 3,
   },
 
