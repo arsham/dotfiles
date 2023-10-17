@@ -15,6 +15,7 @@
     "custom/animations",
     "custom/wallpaper",
     "custom/hyprpicker",
+    "custom/screenshot",
     "network",
   ],
 
@@ -288,6 +289,14 @@
     "min-length": 3,
     "tooltip": false,
     "tooltip-format": "Pick a pixel's colour",
+  },
+
+  "custom/screenshot": {
+    "format": "",
+    "on-click": "sleep 0.1 ; grim -g \"$(slurp)\" - | swappy -f -",
+    "min-length": 3,
+    "tooltip": false,
+    "tooltip-format": "  Take a screenshot",
   },
 
 }
