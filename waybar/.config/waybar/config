@@ -24,6 +24,7 @@
   ],
 
   "modules-right": [
+    "custom/docker",
     "custom/updates",
     "cpu",
     "memory",
@@ -299,4 +300,14 @@
     "tooltip-format": "  Take a screenshot",
   },
 
+  "custom/docker": {
+    "format": "{}",
+    "exec": "waybar-docker",
+    "exec-if": "[[ $(docker ps -q | wc -l) -gt 0 ]] || exit 1",
+    "return-type": "json",
+    "interval": 5,
+    "min-length": 4,
+    "on-click": "pkill -SIGRTMIN+11 waybar",
+    "signal": 11,
+  },
 }
