@@ -25,6 +25,7 @@
 
   "modules-right": [
     "custom/docker",
+    "custom/systemd",
     "custom/updates",
     "cpu",
     "memory",
@@ -256,6 +257,14 @@
     "smooth-scrolling-threshold": 2,
     "min-length": 5,
     "scroll-step": 5
+  },
+
+  "custom/systemd": {
+    "exec": "waybar-systemd",
+    "return-type": "json",
+    "interval": 10,
+    "on-click": "systemctx reset-failed ; pkill -SIGRTMIN+7 waybar",
+    "signal": 7,
   },
 
   "custom/animations": {
