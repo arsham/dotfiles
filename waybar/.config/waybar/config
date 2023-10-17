@@ -25,6 +25,7 @@
 
   "modules-right": [
     "custom/docker",
+    "custom/recording",
     "custom/systemd",
     "custom/updates",
     "cpu",
@@ -265,6 +266,17 @@
     "interval": 10,
     "on-click": "systemctx reset-failed ; pkill -SIGRTMIN+7 waybar",
     "signal": 7,
+  },
+
+  "custom/recording": {
+    "format": " ",
+    "exec": "echo '{\"class\": \"recording\"}'",
+    "exec-if": "pgrep wf-recorder",
+    "on-click": "pkill -SIGINT wf-recorder ; pkill -SIGRTMIN+8 waybar",
+    "return-type": "json",
+    "interval": 4,
+    "tooltip": false,
+    "signal": 8,
   },
 
   "custom/animations": {
